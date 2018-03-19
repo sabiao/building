@@ -52,7 +52,7 @@ var menus = {
     },{
         "id": "2",
         "icon": "icon-forms",
-        "name": "楼B",
+        "name": "楼C",
         "childs": [{
             "id": "2_1",
             "name": "大楼简介",
