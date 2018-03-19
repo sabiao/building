@@ -1,0 +1,2454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>accordion</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shCore.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js">
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,8)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,8)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,8)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,8)">
+                            列属性
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,8)">
+                            编辑
+                        </li>
+                        <li id="two6" onmouseover="setTab1('two',6,8)">
+                            表格视图
+                        </li>
+                        <li id="two7" onmouseover="setTab1('two',7,8)">
+                            方法
+                        </li>
+                        <li id="two8" onmouseover="setTab1('two',8,8)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <div style="height:500px;vertical-align:middle;">
+                            <table class="easyui-datagrid" title="DataGrid Complex Toolbar" style="width:700px;height:250px" data-options="rownumbers:true,singleSelect:true,url:'datagrid_data1.json',method:'get',toolbar:'#tb'">
+                                <thead>
+                                    <tr>
+                                        <th data-options="field:'itemid',width:80">
+                                            Item ID
+                                        </th>
+                                        <th data-options="field:'productid',width:100">
+                                            Product
+                                        </th>
+                                        <th data-options="field:'listprice',width:80,align:'right'">
+                                            List Price
+                                        </th>
+                                        <th data-options="field:'unitcost',width:80,align:'right'">
+                                            Unit Cost
+                                        </th>
+                                        <th data-options="field:'attr1',width:240">
+                                            Attribute
+                                        </th>
+                                        <th data-options="field:'status',width:60,align:'center'">
+                                            Status
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div id="tb" style="padding:5px;height:auto">
+                                <div style="margin-bottom:5px">
+                                    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
+                                    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"></a>
+                                    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
+                                    <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
+                                    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
+                                </div>
+                                <div>
+                                    Date From: <input class="easyui-datebox" style="width:80px">To: <input class="easyui-datebox" style="width:80px">Language: 
+                                    <select class="easyui-combobox" panelHeight="auto" style="width:100px">
+                                        <option value="java">Java</option>
+                                        <option value="c">C</option>
+                                        <option value="basic">Basic</option>
+                                        <option value="perl">Perl</option>
+                                        <option value="python">Python</option>
+                                    </select>
+                                    <a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <h4 id="usage">应用实例</h4>
+                        <p>
+                            从现有表创建数据表格元素,定义列、行和数据在html中.
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">table</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-datagrid"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">thead</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'code'"</span><span class="tag">&gt;</span><span>Code</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'name'"</span><span class="tag">&gt;</span><span>Name</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'price'"</span><span class="tag">&gt;</span><span>Price</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">thead</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">tbody</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>001</span><span class="tag">&lt;/</span><span class="tag-name">td</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>name1</span><span class="tag">&lt;/</span><span class="tag-name">td</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>2323</span><span class="tag">&lt;/</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>002</span><span class="tag">&lt;/</span><span class="tag-name">td</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>name2</span><span class="tag">&lt;/</span><span class="tag-name">td</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>4612</span><span class="tag">&lt;/</span><span class="tag-name">td</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">tbody</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">table</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-datagrid" style="display: none;">
+                            &lt;table class="easyui-datagrid"&gt;
+                            &lt;thead&gt;
+                            &lt;tr&gt;
+                            &lt;th data-options="field:'code'"&gt;Code&lt;/th&gt;
+                            &lt;th data-options="field:'name'"&gt;Name&lt;/th&gt;
+                            &lt;th data-options="field:'price'"&gt;Price&lt;/th&gt;
+                            &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;001&lt;/td&gt;&lt;td&gt;name1&lt;/td&gt;&lt;td&gt;2323&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                            &lt;td&gt;002&lt;/td&gt;&lt;td&gt;name2&lt;/td&gt;&lt;td&gt;4612&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                            &lt;/table&gt;
+                        </textarea>
+                        <p>
+                            通过 &lttable&gt创建数据表格标记。嵌套的< th >标记定义列的表.
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">table</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-datagrid"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:400px;height:250px"</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"url:'datagrid_data.json',fitColumns:true,singleSelect:true"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">thead</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'code',width:100"</span><span class="tag">&gt;</span><span>Code</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'name',width:100"</span><span class="tag">&gt;</span><span>Name</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'price',width:100,align:'right'"</span><span class="tag">&gt;</span><span>Price</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">thead</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">table</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-datagrid" style="display: none;">
+                            &lt;table class="easyui-datagrid" style="width:400px;height:250px"
+                            data-options="url:'datagrid_data.json',fitColumns:true,singleSelect:true"&gt;
+                            &lt;thead&gt;
+                            &lt;tr&gt;
+                            &lt;th data-options="field:'code',width:100"&gt;Code&lt;/th&gt;
+                            &lt;th data-options="field:'name',width:100"&gt;Name&lt;/th&gt;
+                            &lt;th data-options="field:'price',width:100,align:'right'"&gt;Price&lt;/th&gt;
+                            &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;/table&gt;
+                        </textarea>
+                        <p>
+                            创建数据表格使用javascript也是允许的.
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">table</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"dg"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">table</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-datagrid" style="display: none;">
+                            &lt;table id="dg"&gt;&lt;/table&gt;
+                        </textarea>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#dg'</span><span>).datagrid({&nbsp;&nbsp;</span></span>
+                                </li>
+								<li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">url:datagrid_data.json</span>,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;columns:[[&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{field:<span class="string">'code'</span><span>,title:</span><span class="string">'Code'</span><span>,width:100},&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{field:<span class="string">'name'</span><span>,title:</span><span class="string">'Name'</span><span>,width:100},&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{field:<span class="string">'price'</span><span>,title:</span><span class="string">'Price'</span><span>,width:100,align:</span><span class="string">'right'</span><span>}&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;]]&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-datagrid" style="display: none;">
+                            $('#dg').datagrid({
+                            columns:[[
+								{field:'code',title:'Code',width:100},
+								{field:'name',title:'Name',width:100},
+								{field:'price',title:'Price',width:100,align:'right'}
+								]]
+                            });
+							$('#dg').fillData('datagrid','http://127.0.0.1/datagrid_data.json',{});
+                        </textarea>
+                        <p>
+                            查询数据和一些参数.
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#dg'</span><span>).datagrid(</span><span class="string">'load'</span><span>,&nbsp;{&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;<span class="string">'easyui'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;address:&nbsp;<span class="string">'ho'</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-datagrid" style="display: none;">
+                            $('#dg').datagrid('load', {
+                            name: 'easyui',
+                            address: 'ho'
+                            });
+                        </textarea>
+                        <p>
+                            改变数据到服务器后,刷新前的数据.
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#dg'</span><span>).datagrid(</span><span class="string">'reload'</span><span>);&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">//&nbsp;reload&nbsp;the&nbsp;current&nbsp;page&nbsp;data</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-datagrid" style="display: none;">
+                            $('#dg').datagrid('reload');	// reload the current page data
+                        </textarea>
+						<p>
+                            添加分页.
+                        </p>
+						<div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+										<span><span class="tag">&lt;</span><span class="tag-name">table</span>
+										<span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-pagination"</span>
+										<span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"border:1px solid #ccc;"</span>
+										<span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"rownumbers:true,singleSelect:true,pagination:true,url:'datagrid_data1.json'"</span>
+										<span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+						<textarea class="js" name="code-datagrid" style="display: none;">
+						<table id="dg" class="easyui-datagrid" title="Custom DataGrid Pager" style="width:700px;height:250px"
+							data-options="rownumbers:true,singleSelect:true,pagination:true,url:'../datagrid/datagrid_data1.json'">
+						</div>
+						</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <table class="doc-table">
+                            <TBODY>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>类型</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                    <th>
+                                        <strong>默认值</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        columns
+                                    </td>
+                                    <td>
+                                        array
+                                    </td>
+                                    <td>
+                                        datagrid列配置对象,见列属性为更多的细节。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        frozenColumns
+                                    </td>
+                                    <td>
+                                        array
+                                    </td>
+                                    <td>
+                                        同列的属性,但这些列将被冻结在左。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        fitColumns
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        <p>
+                                            自动伸展或收缩列宽来保证表格正好充满屏幕
+                                        </p>
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        resizeHandle
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        调整列的位置,可用值是: 'left','right','both'. 当 'right'时,用户可以通过拖拽调整列的右边缘的列标题,等等。这个属性可以从版本1.3.2开始使用。
+                                    </td>
+                                    <td>
+                                        right
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        autoRowHeight
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义如果设置行高基于内容的行。设置为false可以提高加载性能。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        toolbar
+                                    </td>
+                                    <td>
+                                        array,selector
+                                    </td>
+                                    <td>
+                                        顶部工具栏的数据网格面板。可能的值:
+                                        <br/>
+                                        1) 一个数组,每个工具选项linkbutton一样。
+                                        <br/>
+                                        2) 一个选择器,该选择器显示工具栏。
+                                        <p>
+                                            定义工具栏在&lt; div &gt;标记: 
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+  toolbar: '#tb'  
+});  
+&lt;div id=&quot;tb&quot;&gt;  
+  &lt;a href=&quot;#&quot; class=&quot;easyui-linkbutton&quot; data-options=&quot;iconCls:'icon-edit',plain:true&quot;/a&gt;  
+  &lt;a href=&quot;#&quot; class=&quot;easyui-linkbutton&quot; data-options=&quot;iconCls:'icon-help',plain:true&quot;/a&gt; 
+&lt;/div&gt;  </pre>
+                                        <p>
+                                            通过数组定义工具栏:
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+  toolbar: [{  		
+  iconCls: 'icon-edit',  		
+  handler: function(){alert('edit')}  	
+  },'-',{  		
+  iconCls: 'icon-help',  		
+  handler: function(){alert('help')}  	
+  }]  
+});  </pre>
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        striped
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True有条纹的行。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        method
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        方法类型请求远程数据。
+                                    </td>
+                                    <td>
+                                        post
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        nowrap
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        true把数据显示在一行上。设置为true能提高加载性能。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        idField
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        指明哪个字段是一个标识字段。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        url
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        一个URL请求数据从远程站点。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        data
+                                    </td>
+                                    <td>
+                                        array,object
+                                    </td>
+                                    <td>
+                                        数据加载。这个属性可以从版本1.3.2。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+  data: [  		
+    {f1:'value11', f2:'value12'},
+    {f1:'value21', f2:'value22'}  	
+  ]  
+});  </pre>
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loadMsg
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        当加载数据从远程站点,显示一个提示信息。
+                                    </td>
+                                    <td>
+                                        Processing, please wait …
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pagination
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        true显示分页栏datagrid底。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        rownumbers
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True显示行号列。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        singleSelect
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True允许选择只有一行。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        checkOnSelect
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        如果true,复选框checked/ unchecked当用户单击一个行。如果为false,复选框只是checked   /unchecked当用户单击正是对复选框。这个属性可以从版本1.3开始使用。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selectOnCheck
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        如果设置为true,点击复选框将永远选择行。如果false选择一个行不会检查复选框。
+                                        <br/>
+                                        这个属性可以从版本1.3。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pagePosition
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        定义分页工具栏位置，可选参数有: 'top','bottom','both'.
+                                        <br/>
+                                        这个属性可以从版本1.3。
+                                    </td>
+                                    <td>
+                                        bottom
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageNumber
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        当设置分页属性,初始化页号。
+                                    </td>
+                                    <td>
+                                        1
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageSize
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        当设置分页属性,初始化页面大小。
+                                    </td>
+                                    <td>
+                                        10
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageList
+                                    </td>
+                                    <td>
+                                        array
+                                    </td>
+                                    <td>
+                                        当设置分页属性,初始化页面大小选择列表。
+                                    </td>
+                                    <td>
+                                        [10,20,30,40,50]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        queryParams
+                                    </td>
+                                    <td>
+                                        object
+                                    </td>
+                                    <td>
+                                        当请求远程数据,发送额外的参数。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+  queryParams: {  		
+    name: 'easyui',  		
+    subject: 'datagrid'  	
+  }  
+});  </pre>
+                                    </td>
+                                    <td>
+                                        {}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        sortName
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        定义了哪些列可以进行排序。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        sortOrder
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        定义了列的排序顺序,只能&ldquo;asc&rsquo;或&lsquo;desc&rsquo;。
+                                    </td>
+                                    <td>
+                                        asc
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        remoteSort
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义是否排序数据从服务器。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        showHeader
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义是否显示行标题。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        showFooter
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义是否显示行页脚。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        scrollbarSize
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        滚动条的width(当滚动条是垂直)或high(当滚动条是水平)。
+                                    </td>
+                                    <td>
+                                        18
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        rowStyler
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        返回样式如'background:red'. 带两个参数的函数:
+                                        <br/>
+                                        rowIndex: 行索引,从0
+                                        <br/>
+                                        rowData:与此相应的记录行
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+  rowStyler: function(index,row){  		
+     if (row.listprice&gt;80){  			
+        return 'background-color:#6293BB;color:#fff;';  		
+     }  	
+  }  
+});  </pre>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loader
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        定义了如何加载数据从远程服务器。可以放弃这次行动返回false。这个函数接受以下参数:
+                                        <br/>
+                                        param: 参数对象传递给远程服务器。
+                                        <br/>
+                                        success(data): 这个回调函数会调用这些当检索数据成功。
+                                        <br/>
+                                        error(): 这个回调函数会调用这些当未能检索数据。
+                                    </td>
+                                    <td>
+                                        json loader
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loadFilter
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        返回过滤数据显示。 函数把一个参数的“data&ldquo;表明原始数据。你可以改变原始数据标准数据格式。Th是函数必须返回标准数据对象,包含&ldquo;total&ldquo;和”row“属性。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>// removing 'd' object from asp.net web service json output  
+$('#dg').datagrid({  	
+  loadFilter: function(data){  		
+    if (data.d){  			
+      return data.d;  		
+    } else {  			
+      return data;  		
+    }  	
+  }  
+});  </pre>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        editors
+                                    </td>
+                                    <td>
+                                        object
+                                    </td>
+                                    <td>
+                                        定义了编辑在编辑一行。
+                                    </td>
+                                    <td>
+                                        predefined editors
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        view
+                                    </td>
+                                    <td>
+                                        object
+                                    </td>
+                                    <td>
+                                        定义了视图的数据表格。
+                                    </td>
+                                    <td>
+                                        default view
+                                    </td>
+                                </tr>
+                            </TBODY>
+                        </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>类型</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                                <th>
+                                    <strong>默认值</strong>
+                                </th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        title
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        列标题文本。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        field
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        列字段名。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        width
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        列的宽度。如果没有定义,宽度将自动扩充以适应其内容。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        rowspan
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        显示多少行单元应该占用。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        colspan
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        显示有多少列一个单元应占据。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        align
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        显示如何对齐列数据。 'left','right','center' 可以被使用。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        halign
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        显示如何对齐列标题。可能的值是:'left','right','center'. 如果不指定,标题对齐是相同数据对齐定义通过 'align' 属性 . 这个属性可以从版本1.3.2。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        sortable
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        真正的允许列可以进行排序。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        order
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        默认的排序顺序,只能“asc’或‘desc’。这个属性可以从版本1.3.2。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        resizable
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        真正的允许列可以调整大小。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        hidden
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True隐藏列。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        checkbox
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True 显示一个复选框。 复选框列固定宽度。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        formatter
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        单元格式化程序函数,取三个参数:
+                                        <br/>
+                                        value: 字段值。
+                                        <br/>
+                                        rowData:行记录数据。
+                                        <br/>
+                                        rowIndex: 行索引。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+  columns:[[{
+     field:'userId',
+     title:'User', 
+     width:80,
+     formatter: function(value,row,index){
+         if (row.user){
+            return row.user.name;
+         } else {
+            return value;
+         }  			
+     }  		
+  }]]  
+});  </pre>
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        styler
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        单元格式样函数,返回字符串的风格自定义单元格样式如'background:red'. 这个函数需要三参数:
+                                        <br/>
+                                        value: 字段值。
+                                        <br/>
+                                        rowData: 行记录数据。
+                                        <br/>
+                                        rowIndex: 行索引。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid({  	
+    columns:[[{
+        field:'listprice',
+        title:'List Price', 
+        width:80, 
+        align:'right',  			
+        styler: function(value,row,index){
+  				if (value &lt; 20){
+  					return 'background-color:#ffee00;color:red;';
+  				}  			
+        }  		
+    }]]  
+});  </pre>
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        sorter
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        自定义字段排序函数,用来做当地的排序,带两个参数:
+                                        <br/>
+                                        a: 第一个字段值。
+                                        <br/>
+                                        b: 第二个字段值。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid({
+  	remoteSort: false,
+  	columns: [[
+  		{field:'date',title:'Date',width:80,sortable:true,align:'center',
+    			sorter:function(a,b){
+    				a = a.split('/');
+    				b = b.split('/');
+    				if (a[2] == b[2]){
+    					if (a[0] == b[0]){
+    						return (a[1]&gt;b[1]?1:-1);
+    					} else {
+    						return (a[0]&gt;b[0]?1:-1);
+    					}
+    				} else {
+    					return (a[2]&gt;b[2]?1:-1);
+    				}
+    			}
+    		}
+  	]]
+  });  </pre>
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        editor
+                                    </td>
+                                    <td>
+                                        string,object
+                                    </td>
+                                    <td>
+                                        显示编辑类型。当字符串显示编辑类型,当对象包含两个属性:
+                                        <br/>
+                                        type: 字符串,编辑类型、可能的类型是:文本,文本区,复选框,numberbox,validatebox,datebox combotree、组合框。
+                                        <br/>
+                                        options: 对象,编辑选项对应的编辑类型。
+                                    </td>
+                                    <td>
+                                        undefined
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        init
+                                    </td>
+                                    <td>
+                                        container, options
+                                    </td>
+                                    <td>
+                                        初始化编辑器并返回目标对象。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        destroy
+                                    </td>
+                                    <td>
+                                        target
+                                    </td>
+                                    <td>
+                                        如果有必要摧毁编辑。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getValue
+                                    </td>
+                                    <td>
+                                        target
+                                    </td>
+                                    <td>
+                                        编辑文本的值。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        setValue
+                                    </td>
+                                    <td>
+                                        target , value
+                                    </td>
+                                    <td>
+                                        赋值给编辑器。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        resize
+                                    </td>
+                                    <td>
+                                        target , width
+                                    </td>
+                                    <td>
+                                        如果有必要调整编辑器。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_6" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        render
+                                    </td>
+                                    <td>
+                                        target, container, frozen
+                                    </td>
+                                    <td>
+                                        数据加载时调用。
+                                        <br/>
+                                        target: DOM对象,datagrid对象。
+                                        <br/>
+                                        container: 行容器。
+                                        <br/>
+                                        frozen: 表明有无呈现冷冻集装箱。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        renderFooter
+                                    </td>
+                                    <td>
+                                        target, container, frozen
+                                    </td>
+                                    <td>
+                                        这是一个选择函数来渲染行页脚。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        renderRow
+                                    </td>
+                                    <td>
+                                        target, fields, frozen, rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        这是一个选择功能和将被渲染功能。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        refreshRow
+                                    </td>
+                                    <td>
+                                        target, rowIndex
+                                    </td>
+                                    <td>
+                                        定义了如何刷新指定的行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeRender
+                                    </td>
+                                    <td>
+                                        target, rows
+                                    </td>
+                                    <td>
+                                        在视图呈现前触发。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onAfterRender
+                                    </td>
+                                    <td>
+                                        target
+                                    </td>
+                                    <td>
+                                        在视图呈现后触发。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_7" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>类型</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回选择对象。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getPager
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回对象的页面。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getPanel
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回面板对象。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getColumnFields
+                                    </td>
+                                    <td>
+                                        frozen
+                                    </td>
+                                    <td>
+                                        返回列字段。如果设置为true,冻结冻结列字段返回。
+                                        <br/>
+                                        代码示例:
+                                        <br/>
+                                        <pre>var opts = $('#dg').datagrid('getColumnFields');	// get unfrozen columns  
+var opts = $('#dg').datagrid('getColumnFields', true); // get frozen columns  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getColumnOption
+                                    </td>
+                                    <td>
+                                        field
+                                    </td>
+                                    <td>
+                                        返回指定列选项。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        resize
+                                    </td>
+                                    <td>
+                                        param
+                                    </td>
+                                    <td>
+                                        做调整和做布局。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        load
+                                    </td>
+                                    <td>
+                                        param
+                                    </td>
+                                    <td>
+                                        加载和显示第一页行。如果指定的param&rdquo;,它将取代与queryParams 的属性。通常一个查询通过一些参数,这种方法可以调用从服务器加载新数据。<pre>$('#dg').datagrid('load',{
+  	code: '01',
+  	name: 'name01'
+  });  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        reload
+                                    </td>
+                                    <td>
+                                        param
+                                    </td>
+                                    <td>
+                                        重新加载行。相同的加载方法但停留在当前页面。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        reloadFooter
+                                    </td>
+                                    <td>
+                                        footer
+                                    </td>
+                                    <td>
+                                        重新加载页脚行。代码示例: <pre>// update footer row values and then refresh
+  var rows = $('#dg').datagrid('getFooterRows');
+  rows[0]['name'] = 'new name';
+  rows[0]['salary'] = 60000;
+  $('#dg').datagrid('reloadFooter');
+
+// update footer rows with new data
+  $('#dg').datagrid('reloadFooter',[
+  	{name: 'name1', salary: 60000},
+  	{name: 'name2', salary: 65000}
+  ]);  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loading
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        显示加载状态。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loaded
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        隐藏加载状态。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        fitColumns
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        使列自动伸展/收缩适应表格
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        fixColumnSize
+                                    </td>
+                                    <td>
+                                        field
+                                    </td>
+                                    <td>
+                                        固定列的大小。如果&ldquo;field的参数没有分配,所有列的大小是固定的。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid('fixColumnSize', 'name');  // fix the 'name' column size  
+$('#dg').datagrid('fixColumnSize');  // fix all columns size  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        fixRowHeight
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        修复指定的行高。如果&ldquo;index&rdquo;参数没有分配,所有行高度将是固定的。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        freezeRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        冻结的行指定将永远显示在顶部当datagrid向下滚动页面。这个方法是可用的,因为版本1.3.2。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        autoSizeColumn
+                                    </td>
+                                    <td>
+                                        field
+                                    </td>
+                                    <td>
+                                        调整列宽适合内容。这个方法是可用的,因为1.3版本。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loadData
+                                    </td>
+                                    <td>
+                                        data
+                                    </td>
+                                    <td>
+                                        加载本地数据,老行将被删除。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getData
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回数据的加载。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getRows
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回当前页的行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getFooterRows
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回页脚行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getRowIndex
+                                    </td>
+                                    <td>
+                                        row
+                                    </td>
+                                    <td>
+                                        返回指定的行索引,行参数可以一行记录或id字段值。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getChecked
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回所有的行被选中的复选框。这个方法是可用的,因为1.3版本。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getSelected
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回第一个选中的行记录或null。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getSelections
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回所有选定的行,当没有记录被选中,我将返回空数组。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        clearSelections
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        清除所有的选择。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        clearChecked
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        清除所有选中的行。这个方法是可用的,因为版本1.3.2。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selectAll
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        选择当前页面所有行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        unselectAll
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        取消选择所有当前页面的行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selectRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        选择一行,行索引为0的开始。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selectRecord
+                                    </td>
+                                    <td>
+                                        idValue
+                                    </td>
+                                    <td>
+                                        选择一行通过id值参数。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        unselectRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        取消选择一行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        checkAll
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        选中当前页面所有行。这个方法是可用的,因为1.3版本。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        uncheckAll
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        取消选中当前页面所有行。这个方法是可用的,因为1.3版本。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        checkRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        选中一个行,该行指数从0。这个方法是可用的,因为1.3版本。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        uncheckRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        取消选中一行,行索引从0。这个方法是可用的,因为1.3版本。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        beginEdit
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        开始编辑一行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        endEdit
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        编辑一行结束。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        cancelEdit
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        取消编辑一行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getEditors
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        得到指定的行编辑器。每个编辑器有以下属性:
+                                        <br/>
+                                        actions: 的动作编辑器可以做,一样的编辑器定义。
+                                        <br/>
+                                        target: 目标编辑器jQuery对象。
+                                        <br/>
+                                        field: 字段名。
+                                        <br/>
+                                        type: 编辑器类型,如&ldquo;text&rdquo;、&ldquo;combobox&rdquo;、&ldquo;datebox&rdquo;等等。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getEditor
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        得到指定的编辑器,选择包含两个属性:
+                                        <br/>
+                                        index: 行索引。
+                                        <br/>
+                                        field: 字段名。
+                                        <p>
+                                            Code example:
+                                        </p>
+                                        <pre>// 得到datebox编辑和改变它的值
+var ed = $('#dg').datagrid('getEditor', {index:1,field:'birthday'});  
+$(ed.target).datebox('setValue', '5/4/2012');  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        refreshRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        刷新一行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        validateRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        验证指定的行,还真当有效。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        updateRow
+                                    </td>
+                                    <td>
+                                        param
+                                    </td>
+                                    <td>
+                                        更新指定的行,参数包含以下属性:
+                                        <br/>
+                                        index: 行索引更新。
+                                        <br/>
+                                        row: 新行数据。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#dg').datagrid('updateRow',{
+  	index: 2,
+  	row: {
+  		name: 'new name',
+  		note: 'new note message'
+  	}
+  });  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        appendRow
+                                    </td>
+                                    <td>
+                                        row
+                                    </td>
+                                    <td>
+                                        添加一个新行。新行将被添加到最后的位置: <pre>$('#dg').datagrid('appendRow',{
+  	name: 'new name',
+  	age: 30,
+  	note: 'some messages'
+  });  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        insertRow
+                                    </td>
+                                    <td>
+                                        param
+                                    </td>
+                                    <td>
+                                        <p>
+                                            插入一个新行,参数包含以下属性:
+                                            <br/>
+                                            index: 插入的行索引,如果没有定义,添加新行。
+                                            <br/>
+                                            row: 行数据。
+                                        </p>
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>//插入新的一行在第二排的位置
+$('#dg').datagrid('insertRow',{
+  	index: 1,	// index start with 0
+  	row: {
+  		name: 'new name',
+  		age: 30,
+  		note: 'some messages'
+  	}
+  });  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        deleteRow
+                                    </td>
+                                    <td>
+                                        index
+                                    </td>
+                                    <td>
+                                        删除一行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        getChanges
+                                    </td>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        获得换行上次提交。类型参数指示哪些类型改变行,可能的值是:插入、删除、更新等。当没有指定类型参数,返回所有行改变。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        acceptChanges
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        提交的所有更改数据,因为它被加载或自上次acceptChanges被调用。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        rejectChanges
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        回滚所有更改数据,因为它被创建或自上次acceptChanges调用。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        mergeCells
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        合并一些单元格,选择包含以下属性:
+                                        <br/>
+                                        index: 行索引。
+                                        <br/>
+                                        field: 字段名。
+                                        <br/>
+                                        rowspan: 要合并的行宽计数。
+                                        <br/>
+                                        colspan: colspan数到合并的。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        showColumn
+                                    </td>
+                                    <td>
+                                        field
+                                    </td>
+                                    <td>
+                                        显示指定的列。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        hideColumn
+                                    </td>
+                                    <td>
+                                        field
+                                    </td>
+                                    <td>
+                                        隐藏指定的列。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_8" style="display:none">
+                        <div style="margin:10px 0;">
+                        </div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        onLoadSuccess
+                                    </td>
+                                    <td>
+                                        data
+                                    </td>
+                                    <td>
+                                        当数据被加载成功时触发。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onLoadError
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        一些错误发生时加载远程数据。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeLoad
+                                    </td>
+                                    <td>
+                                        param
+                                    </td>
+                                    <td>
+                                        前一个请求将数据加载时触发。如果返回false加载操作将被取消。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onClickRow
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当用户点击一个行,参数包含:
+                                        <br/>
+                                        rowIndex: 点击的行索引,从0
+                                        <br/>
+                                        rowData:点击对应的记录行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onDblClickRow
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当用户双击一行,参数包含:
+                                        <br/>
+                                        rowIndex: 点击的行索引,从0
+                                        <br/>
+                                        rowData: 点击对应的记录行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onClickCell
+                                    </td>
+                                    <td>
+                                        rowIndex, field, value
+                                    </td>
+                                    <td>
+                                        当用户点击一个单元格。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onDblClickCell
+                                    </td>
+                                    <td>
+                                        rowIndex, field, value
+                                    </td>
+                                    <td>
+                                        Fires当用户双击一个单元格。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>// 当双击一个单元格,开始编辑,使编辑器获得焦点
+$('#dg').datagrid({
+  	onDblClickCell: function(index,field,value){
+  		$(this).datagrid('beginEdit', index);
+  		var ed = $(this).datagrid('getEditor', {index:index,field:field});
+  		$(ed.target).focus();
+  	}
+  });  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onSortColumn
+                                    </td>
+                                    <td>
+                                        sort, order
+                                    </td>
+                                    <td>
+                                        当用户排序一个列,参数包含:
+                                        <br/>
+                                        sort:那种列字段名
+                                        <br/>
+                                        order: 排序的列次序
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onResizeColumn
+                                    </td>
+                                    <td>
+                                        field, width
+                                    </td>
+                                    <td>
+                                        当用户调整列时触发。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onSelect
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当用户选择一个行,参数包含:
+                                        <br/>
+                                        rowIndex: 选中的行索引,从0
+                                        <br/>
+                                        rowData: 记录对应于选中的行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onUnselect
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当用户取消选择一行,参数包含:
+                                        <br/>
+                                        rowIndex: 没有被选中的行索引,从0
+                                        <br/>
+                                        rowData:记录对应于未经选择的行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onSelectAll
+                                    </td>
+                                    <td>
+                                        rows
+                                    </td>
+                                    <td>
+                                        当用户选择所有行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onUnselectAll
+                                    </td>
+                                    <td>
+                                        rows
+                                    </td>
+                                    <td>
+                                        当用户取消选择所有的行。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onCheck
+                                    </td>
+                                    <td>
+                                        rowIndex,rowData
+                                    </td>
+                                    <td>
+                                        当用户检查一行,参数包含:
+                                        <br/>
+                                        rowIndex: 检查的行索引,从0
+                                        <br/>
+                                        rowData: 记录对应检查行
+                                        <br/>
+                                        这个事件是自1.3版本可用。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onUncheck
+                                    </td>
+                                    <td>
+                                        rowIndex,rowData
+                                    </td>
+                                    <td>
+                                        当用户选中一行,参数包含:
+                                        <br/>
+                                        rowIndex:没被选择的行索引,从0
+                                        <br/>
+                                        rowData: 对应的记录行
+                                        <br/>
+                                        这个事件是自1.3版本可用。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onCheckAll
+                                    </td>
+                                    <td>
+                                        rows
+                                    </td>
+                                    <td>
+                                        当用户选中所有行。这个事件是自1.3版本可用。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onUncheckAll
+                                    </td>
+                                    <td>
+                                        rows
+                                    </td>
+                                    <td>
+                                        当用户反选中的所有行。这个事件是自1.3版本可用。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeEdit
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当用户开始编辑一行,参数包含:
+                                        <br/>
+                                        rowIndex: 编辑行索引,从0
+                                        <br/>
+                                        rowData: 对应的记录编辑行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onAfterEdit
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData, changes
+                                    </td>
+                                    <td>
+                                        当用户完成编辑,参数包含:
+                                        <br/>
+                                        rowIndex: 编辑行索引,从0
+                                        <br/>
+                                        rowData: 对应的记录编辑行
+                                        <br/>
+                                        changes: 更改的字段/值对
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onCancelEdit
+                                    </td>
+                                    <td>
+                                        rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当用户取消编辑行,参数包含:
+                                        <br/>
+                                        rowIndex: 编辑行索引,从0
+                                        <br/>
+                                        rowData: 对应的记录编辑行
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onHeaderContextMenu
+                                    </td>
+                                    <td>
+                                        e, field
+                                    </td>
+                                    <td>
+                                        当datagrid的头部被点击。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onRowContextMenu
+                                    </td>
+                                    <td>
+                                        e, rowIndex, rowData
+                                    </td>
+                                    <td>
+                                        当一行被点击。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

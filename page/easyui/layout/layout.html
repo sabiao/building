@@ -1,0 +1,552 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>layout(布局)</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shCore.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js">
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            事件
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            方法
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                    	<br>
+                        <div id="cc" class="easyui-layout" style="width:600px;height:400px;">
+                            <div region="north" title="North Title" split="true" style="height:100px;">
+                            </div>
+                            <div region="south" title="South Title" split="true" style="height:100px;">
+                            </div>
+                            <div region="east" iconCls="icon-reload" title="East" split="true" style="width:100px;">
+                            </div>
+                            <div region="west" split="true" title="West" style="width:100px;">
+                            </div>
+                            <div region="center" title="center title" style="padding:5px;background:#eee;">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+                        <h2>创建布局</h2>
+                        <p>
+                            1. 通过标签创建布局
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;为div标签增加名为'easyui-layout'的类ID。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-layout"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:600px;height:400px;"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"north"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"North&nbsp;Title"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"height:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"south"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"South&nbsp;Title"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"height:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"east"</span><span>&nbsp;</span><span class="attribute">iconCls</span><span>=</span><span class="attribute-value">"icon-reload"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"East"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"west"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"West"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"center"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"center&nbsp;title"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"padding:5px;background:#eee;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-layout" style="display: none;">
+                            &lt;div id="cc" class="easyui-layout" style="width:600px;height:400px;"&gt;
+                            &lt;div region="north" title="North Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="south" title="South Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="east" iconCls="icon-reload" title="East" split="true" style="width:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="west" split="true" title="West" style="width:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="center" title="center title" style="padding:5px;background:#eee;"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                        </textarea>
+                        <p>
+                            2. 使用完整页面创建布局
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">body</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-layout"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"north"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"North&nbsp;Title"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"height:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"south"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"South&nbsp;Title"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"height:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"east"</span><span>&nbsp;</span><span class="attribute">iconCls</span><span>=</span><span class="attribute-value">"icon-reload"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"East"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"west"</span><span>&nbsp;</span><span class="attribute">split</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"West"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:100px;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">region</span><span>=</span><span class="attribute-value">"center"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"center&nbsp;title"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"padding:5px;background:#eee;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">body</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-layout" style="display: none;">
+                            &lt;body class="easyui-layout"&gt;
+                            &lt;div region="north" title="North Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="south" title="South Title" split="true" style="height:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="east" iconCls="icon-reload" title="East" split="true" style="width:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="west" split="true" title="West" style="width:100px;"&gt;&lt;/div&gt;
+                            &lt;div region="center" title="center title" style="padding:5px;background:#eee;"&gt;&lt;/div&gt;
+                            &lt;/body&gt;
+                        </textarea>
+                        <p>
+                            3. 创建嵌套布局
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;注意：嵌套在内部的布局面板的左侧(西面)面板是折叠的。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">body</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-layout"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"region:'north'"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"height:100px"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"region:'center'"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-layout"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"fit:true"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"region:'west',collapsed:true"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:180px"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"region:'center'"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">body</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-layout" style="display: none;">
+                            &lt;body class="easyui-layout"&gt;
+                            &lt;div data-options="region:'north'" style="height:100px"&gt;&lt;/div&gt;
+                            &lt;div data-options="region:'center'"&gt;
+                            &lt;div class="easyui-layout" data-options="fit:true"&gt;
+                            &lt;div data-options="region:'west',collapsed:true" style="width:180px"&gt;&lt;/div&gt;
+                            &lt;div data-options="region:'center'"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/body&gt;
+                        </textarea>
+                        <p>
+                            4. 通过ajax读取内容
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;布局是以面板为基础创建的。所有的布局面板都支持异步加载URL内容。使用异步加载技术，用户可以使自己的布局页面显示的内容更多更快。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">body</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-layout"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"region:'west',href:'west_content.php'"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:180px"</span><span>&nbsp;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"region:'center',href:'center_content.php'"</span><span>&nbsp;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">body</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-layout" style="display: none;">
+                            &lt;body class="easyui-layout"&gt;
+                            &lt;div data-options="region:'west',href:'west_content.php'" style="width:180px" &gt;&lt;/div&gt;
+                            &lt;div data-options="region:'center',href:'center_content.php'" &gt;&lt;/div&gt;
+                            &lt;/body&gt;
+                        </textarea>
+                        <h2>折叠布局面板</h2>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#cc'</span><span>).layout();&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span><span class="comment">//&nbsp;collapse&nbsp;the&nbsp;west&nbsp;panel</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>$(<span class="string">'#cc'</span><span>).layout(</span><span class="string">'collapse'</span><span>,</span><span class="string">'west'</span><span>);&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-layout" style="display: none;">
+                            $('#cc').layout();
+                            // collapse the west panel
+                            $('#cc').layout('collapse','west');
+                        </textarea>
+                        <h2>添加西侧区域面板和工具菜单按钮</h2>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#cc'</span><span>).layout(</span><span class="string">'add'</span><span>,{&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;region:&nbsp;<span class="string">'west'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;180,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'West&nbsp;Title'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;split:&nbsp;<span class="keyword">true</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;tools:&nbsp;[{&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:<span class="string">'icon-add'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:<span class="keyword">function</span><span>(){alert(</span><span class="string">'add'</span><span>)}&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;},{&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:<span class="string">'icon-remove'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:<span class="keyword">function</span><span>(){alert(</span><span class="string">'remove'</span><span>)}&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;}]&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-layout" style="display: none;">
+                            $('#cc').layout('add',{
+                            region: 'west',
+                            width: 180,
+                            title: 'West Title',
+                            split: true,
+                            tools: [{
+                            iconCls:'icon-add',
+                            handler:function(){alert('add')}
+                            },{
+                            iconCls:'icon-remove',
+                            handler:function(){alert('remove')}
+                            }]
+                            });
+                        </textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+                        <h2>布局属性</h2>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>类型</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                    <th>
+                                        <strong>默认</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        fit
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        设置为true来设置布局尺寸适合它的父容器。当创建布局在&ldquo;body“标签,它会自动最大化的完整大小的整个页面。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h2>区域面板属性</h2>
+                        <p>
+                            &nbsp;&nbsp;该地区面板选项定义在面板组件,下面是一些常见的和添加属性:
+                        </p>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>类型</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                    <th>
+                                        <strong>默认</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        title
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        布局面板标题文本。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        region
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        定义的布局面板位置,这个值是一个如下: north, south, east, west, center.
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        border
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True 显示的布局面板边境。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        split
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True 显示一个分割线,用户可以改变面板的大小。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        iconCls
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        一个图标的CSS类显示图标面板标题。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        href
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        一个URL加载数据从远程站点。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+                    </div>
+                    <div id="con_two_5" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>参数</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        resize
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        设置布局尺寸。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        panel
+                                    </td>
+                                    <td>
+                                        region
+                                    </td>
+                                    <td>
+                                        返回指定的面板,&ldquo;region&rdquo;参数可能的值:'north','south','east','west','center'.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        collapse
+                                    </td>
+                                    <td>
+                                        region
+                                    </td>
+                                    <td>
+                                        收缩指定的面板,&ldquo;region&rdquo;参数可能的值:'north','south','east','west'.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        expand
+                                    </td>
+                                    <td>
+                                        region
+                                    </td>
+                                    <td>
+                                        展开指定的面板,&ldquo;region&rdquo;参数可能的值:'north','south','east','west'.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        add
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        添加指定的面板,选择参数是一个配置对象,看到选项卡面板属性为更多的细节.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        remove
+                                    </td>
+                                    <td>
+                                        region
+                                    </td>
+                                    <td>
+                                        删除指定的面板,&ldquo;region&rdquo;参数可能的值:'north','south','east','west'.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

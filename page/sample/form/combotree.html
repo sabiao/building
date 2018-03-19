@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>下拉树型列表</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#cc').combotree('loadData', [{
+                    "id": 1,
+                    "text": "My Documents",
+                    "children": [{
+                        "id": 11,
+                        "text": "Photos",
+                        "state": "closed",
+                        "children": [{
+                            "id": 111,
+                            "text": "Friend"
+                        }, {
+                            "id": 112,
+                            "text": "Wife"
+                        }]
+                    }, {
+                        "id": 12,
+                        "text": "Program Files",
+                        "children": [{
+                            "id": 121,
+                            "text": "Intel"
+                        }, {
+                            "id": 122,
+                            "text": "Java",
+                            "attributes": {
+                                "p1": "Custom Attribute1",
+                                "p2": "Custom Attribute2"
+                            }
+                        }]
+                    }, {
+                        "id": 13,
+                        "text": "index.html"
+                    }]
+                }]);
+                
+                $('#e').bind('click', function(){
+                    $('#cc5').combotree('enable');
+                });
+                $('#d').bind('click', function(){
+                    $('#cc5').combotree('disable');
+                });
+                $('#c').bind('click', function(){
+                    $('#cc5').combotree('clear');
+                });
+                $('#s').bind('click', function(){
+                    $('#cc5').combotree('setValues', [121, 122]);
+                });
+                $('#g').bind('click', function(){
+                    alert("你选择的值是：" + $('#cc5').combotree('getValues'));
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            普通单选下拉树
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            远程数据源
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            多选设置
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            初始值设置
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            常用api操作
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+                        <div>
+                            <input id="cc" class="easyui-combotree" />
+                        </div>
+						<h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">input</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"cc"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"easyui-combotree"</span>&nbsp;/&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-j">
+                                <li class="alt">
+                                    $(<span class="keyword">function</span>(){
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#cc'</span>).combotree(<span class="string">'loadData'</span>,&nbsp;[{
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;1,
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"My&nbsp;Documents",
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;11,
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Photos",
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"state":&nbsp;"closed",
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;111,
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Friend"
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;112,
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Wife"
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;12,
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Program&nbsp;Files",
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;121,
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Intel"
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;122,
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Java",
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"attributes":&nbsp;{
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"p1":&nbsp;"Custom&nbsp;Attribute1",
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"p2":&nbsp;"Custom&nbsp;Attribute2"
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;13,
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"index.html"
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}]);
+                                </li>
+                                <li class="alt">
+                                    });
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+                        <h2>示例</h2>
+                        <div>
+                            <input id="cc2" class="easyui-combotree" data-options="url:'tree_data1.json'" />
+                        </div><h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">input</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"cc"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"easyui-combotree"</span>&nbsp;/&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-j">
+                                <li class="alt">
+                                    $(<span class="keyword">function</span>(){
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#cc'</span>).combotree({
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'get_data.jsp'</span>&nbsp;//实际获取数据的地址
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;});
+                                </li>
+                                <li class="alt">
+                                    });
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+                        <h2>示例</h2>
+                        <div>
+                            <input id="cc3" class="easyui-combotree" data-options="multiple:'true',url:'tree_data1.json'" style="width:200px;"/>
+                        </div><h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">input</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"cc"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"easyui-combotree"</span>&nbsp;<span class="attribute">style</span>=<span class="attribute-value">"width:200px;"</span>&nbsp;/&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-j">
+                                <li class="alt">
+                                    $(<span class="keyword">function</span>(){
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#cc'</span>).combotree({
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'get_data.jsp'</span>,
+                                </li>
+                                <li>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multiple:&nbsp;<span class="boolean">true</span>
+                                </li>
+                                <li class="alt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;});
+                                </li>
+                                <li>
+                                    });
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+                        <h2>示例</h2>
+                        <div>
+                            <input id="cc4" class="easyui-combotree" value="121" data-options="url:'tree_data1.json'" style="width:200px;"/>
+                        </div><h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">input</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"cc"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"easyui-combotree"</span>&nbsp;<span class="attribute">value</span>=<span class="attribute-value">"121"</span>&nbsp;<span class="attribute">style</span>=<span class="attribute-value">"width:200px;"</span>&nbsp;/&gt;
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+                        <h2>示例</h2>
+                        <div>
+                            <input id="cc5" class="easyui-combotree" data-options="multiple:true,url:'tree_data1.json'" style="width:200px;"/>&nbsp;<a id="e" href="#" class="easyui-linkbutton">启用</a>&nbsp;<a id="d" href="#" class="easyui-linkbutton">禁用</a>&nbsp;<a id="c" href="#" class="easyui-linkbutton">清空</a>&nbsp;<a id="s" href="#" class="easyui-linkbutton">设置值</a>&nbsp;<a id="g" href="#" class="easyui-linkbutton">获取值</a>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">input</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"cc"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"easyui-combotree"</span>&nbsp;<span class="attribute">data-options</span>=<span class="attribute-value">"multiple:true"</span>&nbsp;<span class="attribute">style</span>=<span class="attribute-value">"width:200px;"</span>&nbsp;/&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-j">
+                                <li class="alt">
+                                    <span class="string">//禁用</span>
+                                </li>
+                                <li>
+                                    $(<span class="string">'#cc'</span>).combotree(<span class="string">'disable'</span>);
+                                </li>
+                                <li class="alt">
+                                    <span class="string">//启用</span>
+                                </li>
+                                <li>
+                                    $(<span class="string">'#cc'</span>).combotree(<span class="string">'enable'</span>);
+                                </li>
+                                <li class="alt">
+                                    <span class="string">//清空</span>
+                                </li>
+                                <li>
+                                    $(<span class="string">'#cc'</span>).combotree(<span class="string">'clear'</span>);
+                                </li>
+                                <li class="alt">
+                                    <span class="string">//设置值</span>
+                                </li>
+                                <li>
+                                    $(<span class="string">'#cc'</span>).combotree(<span class="string">'setValues'</span>,&nbsp;[121,122]);
+                                </li>
+                                <li class="alt">
+                                    <span class="string">//获取值</span>
+                                </li>
+                                <li>
+                                    $(<span class="string">'#cc'</span>).combotree(<span class="string">'getValues'</span>);
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

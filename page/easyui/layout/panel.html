@@ -1,0 +1,1155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Insert title here</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shCore.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js">
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            事件
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            方法
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                    	<p>重写默认方法 $.fn.panel.defaults.</p>
+<p>面板是用来作为一个容器对于其他内容。这是最基本的组件构建其他组件(如layout, tabs, accordion, 等等) I还提供内置的可折叠,可闭,允许最大化和允许最小化行为和其他定制的行为。面板可以很容易地嵌入到web页面的任何位置。</p>
+    <div id="p" class="easyui-panel" title="我的面板"   
+            style="width:500px;height:150px;padding:10px;background:#fafafa;"  
+            data-options="iconCls:'icon-save',closable:true,  
+                    collapsible:true,minimizable:true,maximizable:true">  
+        <p>panel content.</p>  
+        <p>panel content.</p>  
+    </div>  
+
+                    </div>
+                    <div id="con_two_2" style="display:none">
+                    	<h2>创建面板</h2>
+                        <p>
+                            1. 通过标签创建面板
+                        </p>
+                        <p>
+                            通过标签创建更简单。添加'easyui-panel'类ID到 div 标签。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"p"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-panel"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"My&nbsp;Panel"</span><span>&nbsp;&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">style</span><span>=</span><span class="attribute-value">"width:500px;height:150px;padding:10px;background:#fafafa;"</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>="iconCls:'icon-save',closable:true,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collapsible:true,minimizable:true,maximizable:true"<span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span><span>panel&nbsp;content.</span><span class="tag">&lt;/</span><span class="tag-name">p</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">p</span><span class="tag">&gt;</span><span>panel&nbsp;content.</span><span class="tag">&lt;/</span><span class="tag-name">p</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-panel" style="display: none;">
+                            &lt;div id="p" class="easyui-panel" title="My Panel" 
+                            style="width:500px;height:150px;padding:10px;background:#fafafa;"
+                            data-options="iconCls:'icon-save',closable:true,
+                            collapsible:true,minimizable:true,maximizable:true"&gt;
+                            &lt;p&gt;panel content.&lt;/p&gt;
+                            &lt;p&gt;panel content.&lt;/p&gt;
+                            &lt;/div&gt;
+                        </textarea>
+                        <p>
+                            2. 创建面板程序
+                        </p>
+                        <p>
+                            让我们创建面板右上角的的工具栏。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>&lt;div&nbsp;id=</span><span class="string">"p"</span><span>&nbsp;style=</span><span class="string">"padding:10px;"</span><span>&gt;&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;panel&nbsp;content.&lt;/p&gt;&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;panel&nbsp;content.&lt;/p&gt;&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&lt;/div&gt;&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>$(<span class="string">'#p'</span><span>).panel({&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;width:500,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;height:150,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;title:&nbsp;<span class="string">'My&nbsp;Panel'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;tools:&nbsp;[{&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;iconCls:<span class="string">'icon-add'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;handler:<span class="keyword">function</span><span>(){alert(</span><span class="string">'new'</span><span>)}&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;},{&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;iconCls:<span class="string">'icon-save'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;handler:<span class="keyword">function</span><span>(){alert(</span><span class="string">'save'</span><span>)}&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;}]&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>});&nbsp;&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-panel" style="display: none;">
+                            &lt;div id="p" style="padding:10px;"&gt;
+                            &lt;p&gt;panel content.&lt;/p&gt;
+                            &lt;p&gt;panel content.&lt;/p&gt;
+                            &lt;/div&gt;
+                            $('#p').panel({
+                            width:500,
+                            height:150,
+                            title: 'My Panel',
+                            tools: [{
+                            iconCls:'icon-add',
+                            handler:function(){alert('new')}
+                            },{
+                            iconCls:'icon-save',
+                            handler:function(){alert('save')}
+                            }] 
+                            }); 
+                        </textarea>
+                        <br>
+                        <h2>移动面板</h2>
+                        <p>
+                            调用'move'方法移动面板到新的位置。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#p'</span><span>).panel(</span><span class="string">'move'</span><span>,{&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;left:100,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;top:100&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>});&nbsp;&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-panel" style="display: none;">
+                            $('#p').panel('move',{
+                            left:100,
+                            top:100 
+                            }); 
+                        </textarea>
+                        <br>
+                        <h2>读取内容</h2>
+                        <p>
+                           当加载成功的时候让我们通过ajax加载面板内容并显示一些消息。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#p'</span><span>).panel({&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;href:<span class="string">'content_url.php'</span><span>,&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;onLoad:<span class="keyword">function</span><span>(){&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">'loaded&nbsp;successfully'</span><span>);&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-panel" style="display: none;">
+                            $('#p').panel({
+                            href:'content_url.php',
+                            onLoad:function(){
+                            alert('loaded successfully');
+                            }
+                            });
+                        </textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>类型</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Default</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        id
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        面板的id属性。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        title
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        标题文本显示在面板标题。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        iconCls
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        一个CSS类来显示一个16 x16图标面板。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        width
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        设置面板宽度。
+                                    </td>
+                                    <td>
+                                        auto
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        height
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        设置面板的高度。
+                                    </td>
+                                    <td>
+                                        auto
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        left
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        设置面板左位置。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        top
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        设置面板顶部的位置。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        cls
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        添加一个CSS类的面板。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        headerCls
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        添加一个CSS类面板标题。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        bodyCls
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        添加一个CSS类面板的主体。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        style
+                                    </td>
+                                    <td>
+                                        object
+                                    </td>
+                                    <td>
+                                        添加一个自定义的规范风格的面板。
+                                        <p>
+                                            代码示例来改变面板边框宽度:
+                                        </p>
+                                        <pre>&lt;div class=&quot;easyui-panel&quot; style=&quot;width:200px;height:100px&quot; data-options=&quot;style:{borderWidth:2}&quot;&gt;&lt;/div&gt;  </pre>
+                                    </td>
+                                    <td>
+                                        {}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        fit
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        当真正的设置面板尺寸适合它的父容器。他下面的例子显示了一个面板,可以自动调整大小以最大化填充父容器<pre>&lt;div style=&quot;width:200px;height:100px;padding:5px&quot;&gt;  	
+     &lt;div class=&quot;easyui-panel&quot; style=&quot;width:200px;height:100px&quot; data-options=&quot;fit:true,border:false&quot;&gt;Embedded Panel&lt;/div&gt;  
+&lt;/div&gt;  </pre>
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        border
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        是否显示面板定义边界。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        doSize
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        如果设置为true,面板将创建时调整和做布局。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        noheader
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        如果设置为true,那么将不会创建面板header。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        content
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        面板的正文内容。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        collapsible
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义是否显示折叠按钮。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        minimizable
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        是否显示最小化按钮
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        maximizable
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        是否显示最大化按钮
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        closable
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        是否显示关闭按钮
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        tools
+                                    </td>
+                                    <td>
+                                        array,selector
+                                    </td>
+                                    <td>
+                                        自定义工具,可能的值:
+                                        <br/>
+                                        1) 一个数组,每个元素包含iconCls和handler属性。
+                                        <br/>
+                                        2) 一个选择器,该选择器显示工具
+                                        <br/>
+                                        <p>
+                                            面板工具可以被声明与存在&lt; div &gt;标记:
+                                        </p>
+                                        <pre>&lt;div class=&quot;easyui-panel&quot; style=&quot;width:300px;height:200px&quot; title=&quot;My Panel&quot; data-options=&quot;iconCls:'icon-ok',tools:'#tt'&quot;&gt;&lt;/div&gt;  
+&lt;div id=&quot;tt&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;icon-add&quot; onclick=&quot;javascript:alert('add')&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;icon-edit&quot; onclick=&quot;javascript:alert('edit')&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;  </pre>
+                                        <p>
+                                            面板工具也可以通过数组定义:
+                                        </p>
+                                        <pre>&lt;div class=&quot;easyui-panel&quot; style=&quot;width:300px;height:200px&quot; title=&quot;My Panel&quot; data-options=&quot;iconCls:'icon-ok',tools:[
+{
+  iconCls:'icon-add',
+  handler:function(){
+         alert('add')
+      }
+},{
+  iconCls:'icon-edit',
+  handler:function(){ 
+         alert('edit') 
+      }
+}]&quot;&gt;&lt;/div&gt;  </pre>
+                                    </td>
+                                    <td>
+                                        []
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        collapsed
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义面板在初始化的时候是否收缩。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        minimized
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义面板在初始化的时候是否最小化。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        maximized
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义面板在初始化的时候是否最大化。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        closed
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义面板在初始化的时候是否关闭。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        href
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        一个URL加载远程数据,然后显示在面板。注意,内容不会被加载,直到面板是开放和扩大。这是一个创建延迟加载面板有用的:实例 <pre>&lt;div id=&quot;pp&quot; class=&quot;easyui-panel&quot; style=&quot;width:300px;height:200px&quot; data-options=&quot;href='get_content.php',closed:true&quot;&gt;  &lt;/div&gt;  
+&lt;a href=&quot;#&quot; onclick=&quot;javascript:$('#pp').panel('open')&quot;&gt;Open&lt;/a&gt;  </pre>
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        cache
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True为缓存展板内容,从href载入。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loadingMessage
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        当加载远程数据显示一个消息在面板。
+                                    </td>
+                                    <td>
+                                        Loading…
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        extractor
+                                    </td>
+                                    <td>
+                                        function
+                                    </td>
+                                    <td>
+                                        定义了如何提取内容从ajax响应,返回提取数据。 <pre>extractor: function(data){  	
+    var pattern = /&lt;body[^&gt;]*&gt;((.|[\n\r])*)&lt;\/body&gt;/im;  	
+    var matches = pattern.exec(data);  	
+    if (matches){  		
+         return matches[1];	// only extract body content  	
+    } else {  		
+         return data;  	
+    }  
+}  </pre>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>参数</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onLoad
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        当加载数据的时候执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeOpen
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板打开时执行事件,返回false停止打开。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onOpen
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        在面板打开后执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeClose
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板关闭时执行事件,返回false停止关闭。下面的面板不能关闭。<pre>&lt;div class=&quot;easyui-panel&quot; style=&quot;width:300px;height:200px;&quot; title=&quot;My Panel&quot; data-options=&quot;onBeforeClose:function(){return false}&quot;&gt;The panel cannot be closed.&lt;/div&gt;  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onClose
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        在面板关闭执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeDestroy
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板销毁前执行事件,返回false停止销毁。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onDestroy
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板销毁后执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeCollapse
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板收缩前执行事件,返回false停止收缩。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onCollapse
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板收缩后执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeExpand
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板展开前执行事件,返回false停止展开。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onExpand
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        面板展开后执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onResize
+                                    </td>
+                                    <td>
+                                        width, height
+                                    </td>
+                                    <td>
+                                        改变面板大小执行事件。
+                                        <br/>
+                                        width: 新的外宽度
+                                        <br/>
+                                        height: 新的外高度
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onMove
+                                    </td>
+                                    <td>
+                                        left,top
+                                    </td>
+                                    <td>
+                                        移动面板执行事件
+                                        <br/>
+                                        left: 新左边的位置
+                                        <br/>
+                                        top: 新的最高位置
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onMaximize
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        最大化后执行事件
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onRestore
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        在窗口已经恢复到它原来的大小执行事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onMinimize
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        最小化后执行事件
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>参数</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回选择属性。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        panel
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回外面板对象。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        header
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回面板标题对象。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        body
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回对象的面板的主体。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        setTitle
+                                    </td>
+                                    <td>
+                                        title
+                                    </td>
+                                    <td>
+                                        设置标题文本的标题。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        open
+                                    </td>
+                                    <td>
+                                        forceOpen
+                                    </td>
+                                    <td>
+                                        当forceOpen参数设置为true,面板打开绕过onBeforeOpen回调。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        close
+                                    </td>
+                                    <td>
+                                        forceClose
+                                    </td>
+                                    <td>
+                                        当forceClose参数设置为true,面板关闭绕过onBeforeClose回调。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        destroy
+                                    </td>
+                                    <td>
+                                        forceDestroy
+                                    </td>
+                                    <td>
+                                        当forceDestroy参数设置为true,面板是摧毁绕过onBeforeDestroy回调。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        refresh
+                                    </td>
+                                    <td>
+                                        href
+                                    </td>
+                                    <td>
+                                        刷新面板加载远程数据。如果&ldquo;href&rdquo;参数是指定的,它将覆盖旧的&ldquo;href&rdquo;属性。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>// open a panel and then refresh its contents.  
+$('#pp').panel('open').panel('refresh');  
+
+// refresh contents with a new URL.  
+$('#pp').panel('open').panel('refresh','new_content.php');  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        resize
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        设置面板的大小和做布局。选择对象包含以下属性:
+                                        <br/>
+                                        width: 新的面板宽度
+                                        <br/>
+                                        height: 新的面板高度
+                                        <br/>
+                                        left: 新的面板左位置
+                                        <br/>
+                                        top: 新的面板顶部的位置
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#pp').panel('resize',{width: 600,height: 400});  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        move
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        移动到一个新位置的面板。选择对象包含以下属性:
+                                        <br/>
+                                        left: 新的面板左位置
+                                        <br/>
+                                        top: 新的面板顶部的位置
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        maximize
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        根据它的容器的面板形成充满容器。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        minimize
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        最小化面板。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        restore
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        恢复最大化面板回到原来的大小和位置。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        collapse
+                                    </td>
+                                    <td>
+                                        animate
+                                    </td>
+                                    <td>
+                                        收缩的面板的主体。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        expand
+                                    </td>
+                                    <td>
+                                        animate
+                                    </td>
+                                    <td>
+                                        展开的面板的主体。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

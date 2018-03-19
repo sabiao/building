@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/main-layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'></script>
+<script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'></script>
+<script type="text/javascript" src='../../../plugins/extends/json.js'></script>
+<script language="javascript" src="../../../js/con-tab.js"></script>
+<script type="text/javascript" src="../../../js/shCore.js"></script>
+<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+<!-- 代码高亮插件SyntaxHighlighter begain-->
+<script type="text/javascript" src="../scripts/shCore.js"></script>
+<script type="text/javascript" src="../scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="../scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="../scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="../scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="../scripts/shBrushVb.js"></script>
+<script type="text/javascript" src="../scripts/shBrushXml.js"></script>
+<link type="text/css" rel="stylesheet" href="../styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="../styles/shThemeDefault.css"/>
+<script type="text/javascript">
+  SyntaxHighlighter.config.clipboardSwf = '../scripts/clipboard.swf';
+  SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+  SyntaxHighlighter.config.clipboardSwf = '../scripts/clipboard.swf';
+  SyntaxHighlighter.config.strings = {
+	  expandSource : '展开代码',
+	  viewSource : '查看代码',
+	  copyToClipboard : '复制代码',
+	  copyToClipboardConfirmation : '代码复制成功',
+	  print : '打印',
+	  help: '?',
+	  alert: '语法高亮\n\n',
+	  noBrush: '不能找到刷子: ',
+	  brushNotHtmlScript: '刷子没有配置html-script选项',
+	  aboutDialog: '<div></div>'
+  };
+  SyntaxHighlighter.all();
+</script>
+<!-- 代码高亮插件SyntaxHighlighter end-->
+</head>
+
+<body>
+<div id="container">
+  <div id="header">
+    <div class="Menubox1">
+      <ul>
+        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover"> 效果示例 </li>
+        <li id="two2" onmouseover="setTab1('two',2,5)"> HTML代码 </li>
+      </ul>
+    </div>
+  </div>
+  <div id="mainContent">
+    <div class="Contentbox1">
+      <div id="con_two_1" class="msgTablist"> 
+        <!-- 示例区域 --> 
+        <!-- 示例一 -->
+        <div class="sample-border">
+          <div class="barTitle"> <span>分组表单</span> </div>
+          <form id="conditionform" class="main-form" action="#">
+            <fieldset >
+              <legend>用户基本信息</legend>
+              <table class="table infieldset">
+                <tr>
+                  <td class="inputLabelTd">姓名：</td>
+                  <td class="inputTd"><input type="text" name="t_name" id="t_name"  class="input-text"/></td>
+                  <td class="inputLabelTd">英文名：</td>
+                  <td class="inputTd"><input type="text" name="t_ename" id="t_ename"  class="input-text"/></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">曾用名：</td>
+                  <td class="inputTd"><input type="text" name="t_fname" id="t_fname" class="input-text"/></td>
+                  <td class="inputLabelTd">婚姻状况：</td>
+                  <td class="inputTd"><label>
+                      <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+                      已婚</label>
+                    <label>
+                      <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                      未婚</label></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">出生日期：</td>
+                  <td class="inputTd"><input id="birthday_sheet4" name="birthday_sheet4" type="text" class="input-text"/></td>
+                  <td class="inputLabelTd">爱好：</td>
+                  <td class="inputTd"><label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+                      足球</label>
+                    <label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_1" />
+                      音乐</label>
+                    <label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_2" />
+                      跳舞</label>
+                    <label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_3" />
+                      唱歌</label></td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset>
+              <legend>用户详细信息</legend>
+              <table class="table infieldset">
+                <tr>
+                  <td class="inputLabelTd">籍贯：</td>
+                  <td class="inputTd"><select id="place_select" name="place_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option>请选择</option>
+                    </select></td>
+                  <td class="inputLabelTd">民族：</td>
+                  <td class="inputTd"><select id="nation_select" name="nation_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option>请选择</option>
+                    </select></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">学历：</td>
+                  <td class="inputTd"><select id="degree_select" name="degree_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option selected="selected">请选择</option>
+                    </select></td>
+                  <td class="inputLabelTd">选择权限：</td>
+                  <td class="inputTd"><select id="pri_select" name="pri_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option>请选择</option>
+                    </select></td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset>
+              <legend>用户其他信息</legend>
+              <table class="table infieldset">
+                <tr>
+                  <td class="inputLabelTd">邮政编码：</td>
+                  <td class="inputTd"><input type="text"  id="postCard" name="postCard"   class="input-text"/></td>
+                  <td class="inputLabelTd">详细住址：</td>
+                  <td class="inputTd"><input type="text" id="detailaddress" name="detailaddress" class="input-text"/></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">固定电话：</td>
+                  <td class="inputTd"><input type="text" id="tel" name="tel" class="input-text"/></td>
+                  <td class="inputLabelTd">备注：</td>
+                  <td class="inputTd"><input type="text" id="bac" name="bac" class="input-text"/></td>
+                </tr>
+              </table>
+            </fieldset>
+          </form>
+        </div>
+        <!-- 示例源代码 --> 
+      </div>
+      <div id="con_two_2" style="display:none">
+        <h1>分组表单</h1>
+        <pre class="brush: javascript;">
+          <div class="sample-border">
+          <div class="barTitle"> <span>分组表单</span> </div>
+          <form id="conditionform" class="main-form" action="#">
+            <fieldset >
+              <legend>用户基本信息</legend>
+              <table class="table infieldset">
+                <tr>
+                  <td class="inputLabelTd">姓名：</td>
+                  <td class="inputTd"><input type="text" name="t_name" id="t_name"  class="input-text"/></td>
+                  <td class="inputLabelTd">英文名：</td>
+                  <td class="inputTd"><input type="text" name="t_ename" id="t_ename"  class="input-text"/></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">曾用名：</td>
+                  <td class="inputTd"><input type="text" name="t_fname" id="t_fname" class="input-text"/></td>
+                  <td class="inputLabelTd">婚姻状况：</td>
+                  <td class="inputTd"><label>
+                      <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+                      已婚</label>
+                    <label>
+                      <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                      未婚</label></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">出生日期：</td>
+                  <td class="inputTd"><input id="birthday_sheet4" name="birthday_sheet4" type="text" class="input-text"/></td>
+                  <td class="inputLabelTd">爱好：</td>
+                  <td class="inputTd"><label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+                      足球</label>
+                    <label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_1" />
+                      音乐</label>
+                    <label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_2" />
+                      跳舞</label>
+                    <label>
+                      <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_3" />
+                      唱歌</label></td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset>
+              <legend>用户详细信息</legend>
+              <table class="table infieldset">
+                <tr>
+                  <td class="inputLabelTd">籍贯：</td>
+                  <td class="inputTd"><select id="place_select" name="place_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option>请选择</option>
+                    </select></td>
+                  <td class="inputLabelTd">民族：</td>
+                  <td class="inputTd"><select id="nation_select" name="nation_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option>请选择</option>
+                    </select></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">学历：</td>
+                  <td class="inputTd"><select id="degree_select" name="degree_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option selected="selected">请选择</option>
+                    </select></td>
+                  <td class="inputLabelTd">选择权限：</td>
+                  <td class="inputTd"><select id="pri_select" name="pri_select" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;">
+                      <option>请选择</option>
+                    </select></td>
+                </tr>
+              </table>
+            </fieldset>
+            <fieldset>
+              <legend>用户其他信息</legend>
+              <table class="table infieldset">
+                <tr>
+                  <td class="inputLabelTd">邮政编码：</td>
+                  <td class="inputTd"><input type="text"  id="postCard" name="postCard"   class="input-text"/></td>
+                  <td class="inputLabelTd">详细住址：</td>
+                  <td class="inputTd"><input type="text" id="detailaddress" name="detailaddress" class="input-text"/></td>
+                </tr>
+                <tr>
+                  <td class="inputLabelTd">固定电话：</td>
+                  <td class="inputTd"><input type="text" id="tel" name="tel" class="input-text"/></td>
+                  <td class="inputLabelTd">备注：</td>
+                  <td class="inputTd"><input type="text" id="bac" name="bac" class="input-text"/></td>
+                </tr>
+              </table>
+            </fieldset>
+          </form>
+        </div>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+<br class="clearfloat" />
+</body>
+</html>

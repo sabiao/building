@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>基本功能</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                var columns = [[{
+                    field: 'itemid',
+                    title: 'Item ID',
+                    width: 80
+                }, {
+                    field: 'productname',
+                    title: 'Product',
+                    sortable: true, //排序列
+                    width: 120
+                }, {
+                    field: 'listprice',
+                    title: 'List Price',
+                    width: 80,
+                    sortable: true, //排序列
+                    align: 'right'
+                }, {
+                    field: 'unitcost',
+                    title: 'Unit Cost',
+                    width: 80,
+                    align: 'right'
+                }, {
+                    field: 'attr1',
+                    title: 'Attribute',
+                    width: 200
+                }, {
+                    field: 'status',
+                    title: 'Status',
+                    width: 60,
+                    align: 'center'
+                }]];
+                
+                $('#grid1').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    remoteSort: false, //定义从服务器对数据进行排序，默认为：true
+                    pagination: true,
+                    columns: columns
+                });
+                
+                $('#grid2').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    singleSelect: true, //如果为true，则只允许选择一行。默认为：false
+                    pagination: true,
+                    columns: [[{
+                        field: 'itemid',
+                        checkbox: true,
+                        width: 80
+                    }, {
+                        field: 'productname',
+                        title: 'Product',
+                        width: 120
+                    }, {
+                        field: 'listprice',
+                        title: 'List Price',
+                        width: 80,
+                        align: 'right'
+                    }, {
+                        field: 'unitcost',
+                        title: 'Unit Cost',
+                        width: 80,
+                        align: 'right'
+                    }, {
+                        field: 'attr1',
+                        title: 'Attribute',
+                        width: 200
+                    }, {
+                        field: 'status',
+                        title: 'Status',
+                        width: 60,
+                        align: 'center'
+                    }]]
+                });
+                
+                $('#grid3').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    striped: true, //是否显示斑马线效果。默认为：false
+                    pagination: true,
+                    columns: [[{
+                        field: 'itemid',
+                        title: 'Item ID',
+                        width: 80
+                    }, {
+                        field: 'productname',
+                        title: 'Product',
+                        width: 120,
+			            styler: function(value, row, index){
+			                return 'background-color:green; color:white';
+			            }
+                    }, {
+                        field: 'listprice',
+                        title: 'List Price',
+                        width: 80,
+                        align: 'right'
+                    }, {
+                        field: 'unitcost',
+                        title: 'Unit Cost',
+                        width: 80,
+                        align: 'right',
+			            styler: function(value, row, index){
+			                return 'background-color:yellow;'
+			            }
+                    }, {
+                        field: 'attr1',
+                        title: 'Attribute',
+                        width: 200
+                    }, {
+                        field: 'status',
+                        title: 'Status',
+                        width: 60,
+                        align: 'center'
+                    }]]
+                });
+				
+                $('#grid4').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    pagination: true,
+                    columns: [[{
+                        field: 'listprice',
+                        title: 'List Price',
+                        width: 100,
+                        align: 'right'
+                    }, {
+                        field: 'unitcost',
+                        title: 'Unit Cost',
+                        width: 100,
+                        align: 'right'
+                    }, {
+                        field: 'attr1',
+                        title: 'Attribute',
+                        width: 200
+                    }, {
+                        field: 'status',
+                        title: 'Status',
+                        width: 100,
+                        align: 'center'
+                    }]],
+                    frozenColumns: [[{
+                        field: 'itemid',
+                        title: 'Item ID',
+                        width: 100
+                    }, {
+                        field: 'productname',
+                        title: 'Product',
+                        width: 150
+                    }]]
+                });
+				
+                setTimeout(function(){
+                    $('#con_two_2').hide();
+					$('#con_two_3').hide();
+					$('#con_two_4').hide();
+                }, 500);				
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,4)" class="hover">
+                            排序
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,4)">
+                            单/多选
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,4)">
+                            斑马纹样式
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,4)">
+                            锁列
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+						<div style="height:200px;">
+							<table id="grid1"></table>
+						</div>
+						<h2>HTML代码</h2>
+						<div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+						<h2>JS代码</h2>
+						<div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remoteSort:&nbsp;<span class="boolean">false</span>,&nbsp;<span class="string">//定义从服务器对数据进行排序，默认为：true</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>&nbsp;<span class="string">//排序列</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//排序列</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>						
+						</div> 
+                    </div>
+                    <div id="con_two_2">
+                        <h2>示例</h2>
+						<div style="height:200px;">
+							<table id="grid2"></table>
+						</div>
+						<h2>HTML代码</h2>
+						<div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+						<h2>JS代码</h2>
+						<div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;singleSelect:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//如果为true，则只允许选择一行。默认为：false</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>						
+						</div> 
+                    </div>
+                    <div id="con_two_3">
+                        <h2>示例</h2>
+						<div style="height:200px;">
+							<table id="grid3"></table>
+						</div>
+						<h2>HTML代码</h2>
+						<div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+						<h2>JS代码</h2>
+						<div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;striped:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//是否显示斑马线效果。默认为：false</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;styler:&nbsp;<span class="keyword">function</span>(value, row, index){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>'background-color:green; color:white';</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;styler:&nbsp;<span class="keyword">function</span>(value, row, index){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>'background-color:yellow;'</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>						
+						</div> 
+                    </div>
+                    <div id="con_two_4">
+                        <h2>示例</h2>
+						<div style="width:660px;height:200px;">
+							<table id="grid4"></table>
+						</div>
+						<h2>HTML代码</h2>
+						<div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+						<h2>JS代码</h2>
+						<div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frozenColumns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>						
+						</div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

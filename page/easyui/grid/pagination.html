@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>分页</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shCore.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js">
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <ul>
+                            <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                                效果示例
+                            </li>
+                            <li id="two2" onmouseover="setTab1('two',2,5)">
+                                源代码
+                            </li>
+                            <li id="two3" onmouseover="setTab1('two',3,5)">
+                                属性
+                            </li>
+                            <li id="two4" onmouseover="setTab1('two',4,5)">
+                                事件
+                            </li>
+                            <li id="two5" onmouseover="setTab1('two',5,5)">
+                                方法
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                    	<br>
+                    	<div class="easyui-pagination" data-options="total:114" style="border:1px solid #ddd;"></div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+                        <p>
+                            使用标签创建分页控件。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"pp"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-pagination"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"total:2000,pageSize:10"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"background:#efefef;border:1px&nbsp;solid&nbsp;#ccc;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-pagination" style="display: none;">
+                            &lt;div id="pp" class="easyui-pagination" data-options="total:2000,pageSize:10" style="background:#efefef;border:1px solid #ccc;"&gt;&lt;/div&gt;
+                        </textarea>
+                        <p>
+                            使用Javascript创建分页控件。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"pp"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"background:#efefef;border:1px&nbsp;solid&nbsp;#ccc;"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-pagination" style="display: none;">
+                            &lt;div id="pp" style="background:#efefef;border:1px solid #ccc;"&gt;&lt;/div&gt;
+                        </textarea>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="string">'#pp'</span><span>).pagination({&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;total:2000,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;pageSize:10&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-pagination" style="display: none;">
+                            $('#pp').pagination({
+                            total:2000,
+                            pageSize:10
+                            });
+                        </textarea>
+                        <p>
+                            让我们使用面板和分页插件来创建一个ajax分页。当用户选择一个新页面的时候，面板将显示指定页面的内容。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"content"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-panel"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"height:200px"</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"href:'show_content.php?page=1'"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-pagination"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"border:1px&nbsp;solid&nbsp;#ccc;"</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>="&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total:&nbsp;2000,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pageSize:&nbsp;10,&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSelectPage:&nbsp;function(pageNumber,&nbsp;pageSize){&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#content').panel('refresh',&nbsp;'show_content.php?<span class="attribute">page</span><span>='+pageNumber);&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}"<span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-pagination" style="display: none;">
+                            &lt;div id="content" class="easyui-panel" style="height:200px"
+                            data-options="href:'show_content.php?page=1'"&gt;
+                            &lt;/div&gt;
+                            &lt;div class="easyui-pagination" style="border:1px solid #ccc;"
+                            data-options="
+                            total: 2000,
+                            pageSize: 10,
+                            onSelectPage: function(pageNumber, pageSize){
+                            $('#content').panel('refresh', 'show_content.php?page='+pageNumber);
+                            }"&gt;
+                            &lt;/div&gt;
+                        </textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th width="96">
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th width="48">
+                                        <strong>类型</strong>
+                                    </th>
+                                    <th width="688">
+                                        <strong>说明</strong>
+                                    </th>
+                                    <th width="359">
+                                        <strong>Default</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        total
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        总记录数,应创建时设置分页。
+                                    </td>
+                                    <td>
+                                        1
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageSize
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        页面传值多少。
+                                    </td>
+                                    <td>
+                                        10
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageNumber
+                                    </td>
+                                    <td>
+                                        number
+                                    </td>
+                                    <td>
+                                        显示页码当创建分页。
+                                    </td>
+                                    <td>
+                                        1
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageList
+                                    </td>
+                                    <td>
+                                        array
+                                    </td>
+                                    <td>
+                                        用户可以改变页面传值多少。pageList的属性定义了页面传值大小可以改变。
+                                        <p>
+                                            代码实例:
+                                        </p>
+                                        <pre>$('#pp').pagination({pageList: [10,20,50,100]});  </pre>
+                                    </td>
+                                    <td>
+                                        [10,20,30,50]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loading
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义数据是否是加载的
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="312">
+                                        buttons
+                                    </td>
+                                    <td>
+                                        array
+                                    </td>
+                                    <td>
+                                        <p>
+                                            定义了自定义按钮,每个按钮包含两个属性: 　　 
+                                        </p>
+                                        <p>
+                                            iconCls:CSS类,它将显示一个背景图像
+                                            <br/>
+                                            handler: 一个处理函数当按钮被单击
+                                        </p>
+                                        <p>
+                                            这个自定义按钮可以创建从标记:
+                                        </p>
+                                        <pre>&lt;div class=&quot;easyui-pagination&quot; style=&quot;border:1px solid #ccc&quot; data-options=&quot;total: 114,
+            buttons: [ {iconCls:'icon-add',handler:function(){alert('add')}},'-',
+                       {iconCls:'icon-save',handler:function(){alert('save')}}]&quot;&gt;
+&lt;/div&gt;</pre>
+                                        <p>
+                                            定制按钮也可以使用javascript创建:
+                                        </p>
+                                        <pre>$('#pp').pagination({
+         total: 114,
+         buttons: [{
+                     iconCls:'icon-add',
+                     handler:function(){
+                           alert('add')
+                     }
+                   },'-',
+                   {
+                     iconCls:'icon-save',
+                     handler:function(){
+                           alert('save')
+                     }
+                   }]
+});  </pre>
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        showPageList
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义是否显示页面列表。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        showRefresh
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        定义是否显示刷新按钮。
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        beforePageText
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        显示一个标签在输入组件。
+                                    </td>
+                                    <td>
+                                        Page
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        afterPageText
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        显示一个标签后输入组件。
+                                    </td>
+                                    <td>
+                                        of {pages}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        displayMsg
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        显示一个页面信息。
+                                    </td>
+                                    <td>
+                                        显示 {from} 到 {to} 一共 {total}成员
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th width="116">
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th width="117">
+                                        <strong>参数</strong>
+                                    </th>
+                                    <th width="704">
+                                        <strong>说明</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onSelectPage
+                                    </td>
+                                    <td>
+                                        pageNumber, pageSize
+                                    </td>
+                                    <td>
+                                        当用户选择一个新的页面。回调函数包含两个参数:
+                                        <br/>
+                                        pageNumber: 新页面数量
+                                        <br/>
+                                        pageSize: 新页面元素个数
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#pp').pagination({
+         onSelectPage:function(pageNumber, pageSize){
+                        $(this).pagination('loading');
+                        alert('pageNumber:'+pageNumber+',pageSize:'+pageSize);  		
+                        $(this).pagination('loaded');  	
+                      }  
+});  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onBeforeRefresh
+                                    </td>
+                                    <td>
+                                        pageNumber, pageSize
+                                    </td>
+                                    <td>
+                                        点击刷新按钮前触发事件,返回false取消刷新操作。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onRefresh
+                                    </td>
+                                    <td>
+                                        pageNumber, pageSize
+                                    </td>
+                                    <td>
+                                        刷新后触发事件。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        onChangePageSize
+                                    </td>
+                                    <td>
+                                        pageSize
+                                    </td>
+                                    <td>
+                                        改变页面显示元素个数触发事件。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th width="78">
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th width="63">
+                                        <strong>参数</strong>
+                                    </th>
+                                    <th width="856">
+                                        <strong>说明</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回选择对象。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loading
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        使分页成为正在加载状态。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        loaded
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        使分页成为以加载状态。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        refresh
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        刷新并显示页面信息。这个方法是可用的,从1.3版本以后。
+                                        <p>
+                                            代码实例 :
+                                        </p>
+                                        <pre>$('#pp').pagination('refresh');	// refresh the pager bar information  
+$('#pp').pagination('refresh',{	// change options and refresh pager bar information  	
+                     total: 114,  	
+                     pageNumber: 6  
+});  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        select
+                                    </td>
+                                    <td>
+                                        page
+                                    </td>
+                                    <td>
+                                        选择一个新页面。页面索引从1开始。这个方法是可用的,从1.3版本以后。
+                                        <p>
+                                            代码实例:
+                                        </p>
+                                        <pre>$('#pp').pagination('select');	// refresh the current page  
+$('#pp').pagination('select', 2);	// select the second page  </pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

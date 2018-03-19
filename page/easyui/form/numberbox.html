@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>numberbox</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+					<div style="margin:10px 0;"></div>
+						<input class="easyui-numberbox" required data-options="
+								onChange: function(value){
+									$('#vv').text(value);
+								}">
+						<div style="margin:10px 0;">
+							Value: <span id="vv"></span>
+						</div>
+					</div>
+                    <div id="con_two_2" style="display:none">
+					<div style="margin:10px 0;"></div>
+						<h4>用法</h4>
+<p>创建numberbox从标记.</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-numberbox"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"100"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"min:0,precision:2"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">input</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-numberbox" style="display: none;">	&lt;input type="text" class="easyui-numberbox" value="100" data-options="min:0,precision:2"&gt;&lt;/input&gt;
+</textarea>
+<p>创建numberbox使用javascript.</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text"</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"nn"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">input</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-numberbox" style="display: none;">	&lt;input type="text" id="nn"&gt;&lt;/input&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#nn'</span><span>).numberbox({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;min:0,&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;precision:2&nbsp;&nbsp;</span></li><li class=""><span>});&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-numberbox" style="display: none;">	$('#nn').numberbox({
+		min:0,
+		precision:2
+	});
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>从validatebox属性扩展,下面是添加属性numberbox。</p>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>disabled</td>
+      <td>boolean</td>
+      <td>是否禁用该领域的定义。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>number</td>
+      <td>默认值。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>number</td>
+      <td>允许的最小值。</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>number</td>
+      <td>最大允许的值。</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>precision</td>
+      <td>number</td>
+      <td>最大的精度显示十进制分隔符之后。</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>decimalSeparator</td>
+      <td>string</td>
+      <td>十进制字符分隔开的整数和小数部分的数。</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>groupSeparator</td>
+      <td>string</td>
+      <td>字符分隔整数组显示千或百万。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>prefix</td>
+      <td>string</td>
+      <td>前缀字符串。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>suffix</td>
+      <td>string</td>
+      <td>后缀字符串。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>formatter</td>
+      <td>function(value)</td>
+      <td>一个函数的格式numberbox值。返回字符串值,将显示在输入框。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>parser</td>
+      <td>function(s)</td>
+      <td>一个函数来解析一个字符串。numberbox返回值。</td>
+      <td></td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>从validatebox方法扩展,下面是对numberbox添加或重写的方法。</p>
+                     <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>options</td>
+      <td>none</td>
+      <td>返回numberbox选项。</td>
+    </tr>
+    <tr>
+      <td>destroy</td>
+      <td>none</td>
+      <td>销毁numberbox对象。</td>
+    </tr>
+    <tr>
+      <td>disable</td>
+      <td>none</td>
+      <td>禁用字段。</td>
+    </tr>
+    <tr>
+      <td>enable</td>
+      <td>none</td>
+      <td>启用字段。</td>
+    </tr>
+    <tr>
+      <td>fix</td>
+      <td>none</td>
+      <td>修复真实有效值。</td>
+    </tr>
+    <tr>
+      <td>setValue</td>
+      <td>value</td>
+      <td>numberbox设置值。
+        <p>代码示例:</p>
+        <pre>$('#nn').numberbox('setValue', 206.12);  </pre></td>
+    </tr>
+    <tr>
+      <td>getValue</td>
+      <td>none</td>
+      <td>得到numberbox值。
+        <p>代码示例:</p>
+        <pre>var v = $('#nn').numberbox('getValue');  alert(v);  </pre></td>
+    </tr>
+    <tr>
+      <td>clear</td>
+      <td>none</td>
+      <td>清晰的numberbox值。</td>
+    </tr>
+    <tr>
+      <td>reset</td>
+      <td>none</td>
+      <td>numberbox重置价值。这个方法是可用的,从版本1.3.2开始使用。</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            <tr>
+      <td>onChange</td>
+      <td>newValue,oldValue</td>
+      <td>当字段值是变化的时候触发事件。</td>
+    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

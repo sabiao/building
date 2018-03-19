@@ -1,0 +1,11 @@
+.top-right {
+	float: right;
+	padding: 3px 20px 0 5px;
+}
+
+.top-right button {
+	padding: 3px 6px;
+}
+.tophead > div {
+	display: inline-block;
+}

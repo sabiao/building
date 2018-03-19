@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>propertygrid</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                   <div style="margin:10px 0;">
+						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="showGroup()">ShowGroup</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="hideGroup()">HideGroup</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="showHeader()">ShowHeader</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="hideHeader()">HideHeader</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" onclick="getChanges()">GetChanges</a>
+					</div>
+					<table id="pg" class="easyui-propertygrid" style="width:300px"
+							data-options="url:'propertygrid_data1.json',showGroup:true,scrollbarSize:0"></table>
+
+					<script type="text/javascript">
+						function showGroup(){
+							$('#pg').propertygrid({
+								showGroup:true
+							});
+						}
+						function hideGroup(){
+							$('#pg').propertygrid({
+								showGroup:false
+							});
+						}
+						function showHeader(){
+							$('#pg').propertygrid({
+								showHeader:true
+							});
+						}
+						function hideHeader(){
+							$('#pg').propertygrid({
+								showHeader:false
+							});
+						}
+						function getChanges(){
+							var s = '';
+							var rows = $('#pg').propertygrid('getChanges');
+							for(var i=0; i<rows.length; i++){
+								s += rows[i].name + ':' + rows[i].value + ',';
+							}
+							alert(s)
+						}
+					</script>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+					<div style="margin:10px 0;"></div>
+                    	<h4>用法</h4>
+<p>创建一个propertygrid在标记。注意,列已经内置,不需要再次声明它们。</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">table</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"pg"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">table</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-propertygrid" style="display: none;">	&lt;table id="pg"&gt;&lt;/table&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#pg'</span><span>).propertygrid({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;url:<span class="string">'propertygrid_data.json'</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;showGroup:<span class="keyword">true</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>});&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-propertygrid" style="display: none;">	$('#pg').propertygrid({
+		url:'propertygrid_data.json',
+		showGroup:true
+	});
+</textarea>
+
+<p>添加一个新行,propertygrid。</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span class="keyword">var</span><span>&nbsp;row&nbsp;=&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;name:<span class="string">'AddName'</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;value:<span class="string">''</span><span>,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;group:<span class="string">'Marketing&nbsp;Settings'</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;editor:<span class="string">'text'</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>};&nbsp;&nbsp;</span></li><li class="alt"><span>$(<span class="string">'#pg'</span><span>).propertygrid(</span><span class="string">'appendRow'</span><span>,row);&nbsp;&nbsp;</span></span></li></ol></div><textarea class="js" name="code-propertygrid" style="display: none;">var row = {
+  name:'AddName',
+  value:'',
+  group:'Marketing Settings',
+  editor:'text'
+};
+$('#pg').propertygrid('appendRow',row);
+</textarea>
+
+<h4>行数据</h4>
+<p>
+propertygrid datagrid的扩展。它的行数据格式是datagrid一样。作为一个property行,以下字段是必需的:<br>
+name:字段名.<br>
+value: 被编辑的字段值.<br>
+group: 按字段分组.<br>
+editor: 编辑在编辑属性值.
+</p>
+<p>行数据的例子:</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>{</span><span class="string">"total"</span><span>:4,</span><span class="string">"rows"</span><span>:[&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;{<span class="string">"name"</span><span>:</span><span class="string">"Name"</span><span>,</span><span class="string">"value"</span><span>:</span><span class="string">"Bill&nbsp;Smith"</span><span>,</span><span class="string">"group"</span><span>:</span><span class="string">"ID&nbsp;Settings"</span><span>,</span><span class="string">"editor"</span><span>:</span><span class="string">"text"</span><span>},&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;{<span class="string">"name"</span><span>:</span><span class="string">"Address"</span><span>,</span><span class="string">"value"</span><span>:</span><span class="string">""</span><span>,</span><span class="string">"group"</span><span>:</span><span class="string">"ID&nbsp;Settings"</span><span>,</span><span class="string">"editor"</span><span>:</span><span class="string">"text"</span><span>},&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;{<span class="string">"name"</span><span>:</span><span class="string">"SSN"</span><span>,</span><span class="string">"value"</span><span>:</span><span class="string">"123-456-7890"</span><span>,</span><span class="string">"group"</span><span>:</span><span class="string">"ID&nbsp;Settings"</span><span>,</span><span class="string">"editor"</span><span>:</span><span class="string">"text"</span><span>},&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;{<span class="string">"name"</span><span>:</span><span class="string">"Email"</span><span>,</span><span class="string">"value"</span><span>:</span><span class="string">"bill@gmail.com"</span><span>,</span><span class="string">"group"</span><span>:</span><span class="string">"Marketing&nbsp;Settings"</span><span>,</span><span class="string">"editor"</span><span>:{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"type"</span><span>:</span><span class="string">"validatebox"</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"options"</span><span>:{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"validType"</span><span>:</span><span class="string">"email"</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}}&nbsp;&nbsp;</span></li><li class="alt"><span>]}&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-propertygrid" style="display: none;">{"total":4,"rows":[
+	{"name":"Name","value":"Bill Smith","group":"ID Settings","editor":"text"},
+	{"name":"Address","value":"","group":"ID Settings","editor":"text"},
+	{"name":"SSN","value":"123-456-7890","group":"ID Settings","editor":"text"},
+	{"name":"Email","value":"bill@gmail.com","group":"Marketing Settings","editor":{
+		"type":"validatebox",
+		"options":{
+			"validType":"email"
+		}
+	}}
+]}
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>属性扩展从datagrid,下面是添加属性propertygrid。</p>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+                        <tr>
+      <td>showGroup</td>
+      <td>boolean</td>
+      <td>是否显示属性组定义。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>groupField</td>
+      <td>string</td>
+      <td>定义分组字段名。</td>
+      <td>group</td>
+    </tr>
+    <tr>
+      <td>groupFormatter</td>
+      <td>function(group,rows)</td>
+      <td>定义了如何格式化组值。这个函数接受以下参数:<br />
+        group: 该分组字段值。<br />
+        rows:行属于它的分组。</td>
+      <td></td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>扩展的方法从datagrid,下面是propertygrid添加方法。</p>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+						<tr>
+      <td>expandGroup</td>
+      <td>groupIndex</td>
+      <td>扩大指定组。如果&ldquo;groupIndex的参数没有分配,展开分组所有。</td>
+    </tr>
+    <tr>
+      <td>collapseGroup</td>
+      <td>groupIndex</td>
+      <td>指定的组崩溃。如果&ldquo;groupIndex的参数没有分配,全部折叠组。</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>无</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

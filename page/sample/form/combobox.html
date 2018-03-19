@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#cc2').combobox({
+                    valueField: 'id',
+                    textField: 'text',
+                    data: [{
+                        "id": 1,
+                        "text": "Java",
+                        "desc": "Write once, run anywhere"
+                    }, {
+                        "id": 2,
+                        "text": "C#",
+                        "desc": "One of the programming languages designed for the Common Language Infrastructure"
+                    }, {
+                        "id": 3,
+                        "text": "Ruby",
+                        "selected": true,
+                        "desc": "A dynamic, reflective, general-purpose object-oriented programming language"
+                    }]
+                });
+                
+                $('#cc4').combobox({
+                    url: 'combobox_data1.json',
+                    valueField: 'id',
+                    textField: 'text',
+                    onSelect: function(rec){
+                        alert('你选中的是：' + rec.text);
+                    }
+                });
+				
+                $('#e').bind('click', function(){
+                    $('#cc5').combobox('enable');
+                });
+				$('#d').bind('click', function(){
+                    $('#cc5').combobox('disable');
+                });   
+				$('#s').bind('click', function(){
+                    $('#cc5').combobox('setValue', '2');
+                });   
+				$('#g').bind('click', function(){
+                    alert("你选择的值是：" + $('#cc5').combobox('getValue'));
+                });   
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+        <div id="header">
+            <div class="Menubox1">
+                <ul>
+                    <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                        简单下拉框 
+                    </li>
+                    <li id="two2" onmouseover="setTab1('two',2,5)">
+                        设置初始值
+                    </li>
+                    <li id="two3" onmouseover="setTab1('two',3,5)">
+                        远程数据源
+                    </li>
+                    <li id="two4" onmouseover="setTab1('two',4,5)">
+                        onSelect事件
+                    </li>
+                    <li id="two5" onmouseover="setTab1('two',5,5)">
+                        api操作 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="mainContent">
+            <div class="Contentbox1">
+                <div id="con_two_1" class="msgTablist">
+                    <h2>示例</h2>
+                    <select id="cc" class="easyui-combobox" name="dept" style="width:200px;">
+                        <option value="aitem1">aitem1</option>
+                        <option value="aitem2">bitem2</option>
+                        <option value="aitem3">bitem3</option>
+                        <option value="aitem4">ditem4</option>
+                        <option value="aitem5">eitem5</option>
+                    </select>
+                    <h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                <span><span class="tag">&lt;</span><span class="tag-name">select</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"dept"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:200px;"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"aa"</span><span class="tag">&gt;</span><span>aitem1</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="alt">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>bitem2</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>bitem3</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="alt">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>ditem4</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>eitem5</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="alt">
+                                <span><span class="tag">&lt;/</span><span class="tag-name">select</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="con_two_2" style="display:none;">
+                    <h2>示例</h2>
+                    <input id="cc2" class="easyui-combobox" />
+					<h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                <span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                        </ol>
+                    </div>
+                    <h2>JS代码</h2>
+                    <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#cc'</span>).combobox({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valueField:&nbsp;<span class="string">'id'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textField:&nbsp;<span class="string">'text'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;1,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Java",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"desc":&nbsp;"Write&nbsp;once,&nbsp;run&nbsp;anywhere"</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;2,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"C#",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"desc":&nbsp;"One&nbsp;of&nbsp;the&nbsp;programming&nbsp;languages&nbsp;designed&nbsp;for&nbsp;the&nbsp;Common&nbsp;Language&nbsp;Infrastructure"</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;3,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Ruby",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red;">"selected":&nbsp;true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"desc":&nbsp;"A&nbsp;dynamic,&nbsp;reflective,&nbsp;general-purpose&nbsp;object-oriented&nbsp;programming&nbsp;language"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>
+                    </div>
+                </div>
+                <div id="con_two_3" style="display:none;">
+                    <h2>示例</h2>
+                    <input id="cc3" class="easyui-combobox" name="dept" data-options="valueField:'id',textField:'text',url:'combobox_data1.json'" />
+					<h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                <span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"dept"</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"valueField:'id',textField:'text',url:'combobox_data1.json'"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="con_two_4" style="display:none;">
+                    <h2>示例</h2>
+                    <input id="cc4" class="easyui-combobox" />
+					<h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                <span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                        </ol>
+                    </div>
+					<h2>JS代码</h2>
+					<div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#cc'</span>).combobox({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'combobox_data1.json'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valueField:&nbsp;<span class="string">'id'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textField:&nbsp;<span class="string">'text'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSelect:&nbsp;<span class="keyword">function</span>(rec){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('你选中的是：'&nbsp;+&nbsp;rec.text);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>					
+					</div>
+                </div>
+                <div id="con_two_5" style="display:none;">
+                    <h2>示例</h2>
+					<div>
+                    <input id="cc5" class="easyui-combobox" name="dept" data-options="valueField:'id',textField:'text',url:'combobox_data1.json'" />&nbsp;<a id="e" href="#" class="easyui-linkbutton">启用</a>&nbsp;<a id="d" href="#" class="easyui-linkbutton">禁用</a>&nbsp;<a id="s" href="#" class="easyui-linkbutton">设置值</a>&nbsp;<a id="g" href="#" class="easyui-linkbutton">获取值</a>
+					</div>
+					<h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                <span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"dept"</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                            <li class="">
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"valueField:'id',textField:'text',url:'combobox_data1.json'"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span>
+                            </li>
+                        </ol>
+                    </div>
+					<h2>JS代码</h2>
+					<div class="dp-highlighter">
+						<ol start="1" class="dp-j">
+  <li class="alt"><span class="string">//禁用</span></li>
+<li>$(<span class="string">'#cc'</span>).combobox(<span class="string">'disable'</span>);</li>
+<li class="alt">//启用</span></li>
+<li>$(<span class="string">'#cc'</span>).combobox(<span class="string">'enable'</span>);</li>
+<li class="alt">//设置值</li>
+<li>$(<span class="string">'#cc'</span>).combobox(<span class="string">'setValue'</span>,&nbsp;<span class="string">'2'</span>);</li>
+<li class="alt"><span class="string">//获取值</span></li>
+<li>$(<span class="string">'#cc'</span>).combobox(<span class="string">'getValue'</span>);</li>
+</ol>
+						</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

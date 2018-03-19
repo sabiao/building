@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>accordion</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+					<div style="margin:10px 0;"></div>
+						<div style="width:800px;height:400px;">
+							<div style="margin:10px 0;">
+								<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
+								<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
+							</div>
+							<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save',inline:true" style="width:400px;height:200px;padding:10px">
+								The dialog content.
+							</div>
+						</div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+					<div style="margin:10px 0;"></div>
+						<h4>用法</h4>
+<p>
+创建对话框通过标记从现有的DOM节点。下面的例子显示了一个模态对话框和可调整大小的功能.
+</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"dd"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-dialog"</span><span>&nbsp;</span><span class="attribute">title</span><span>=</span><span class="attribute-value">"My&nbsp;Dialog"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:400px;height:200px;"</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"iconCls:'icon-save',resizable:true,modal:true"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;Dialog&nbsp;Content.&nbsp;&nbsp;</span></li><li class=""><span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-dialog" style="display: none;">	&lt;div id="dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+			data-options="iconCls:'icon-save',resizable:true,modal:true"&gt;
+		Dialog Content.
+	&lt;/div&gt;
+</textarea>
+<p>
+使用javascript创建对话框也是允许的。现在让我们创建一个模态对话框,然后调用刷新方法通过ajax加载它的内容.
+</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">div</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"dd"</span><span class="tag">&gt;</span><span>Dialog&nbsp;Content.</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-dialog" style="display: none;">	&lt;div id="dd"&gt;Dialog Content.&lt;/div&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#dd'</span><span>).dialog({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'My&nbsp;Dialog'</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;400,&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;200,&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;closed:&nbsp;<span class="keyword">false</span><span>,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;cache:&nbsp;<span class="keyword">false</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;href:&nbsp;<span class="string">'get_content.php'</span><span>,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;modal:&nbsp;<span class="keyword">true</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>});&nbsp;&nbsp;</span></li><li class=""><span>$(<span class="string">'#dd'</span><span>).dialog(</span><span class="string">'refresh'</span><span>,&nbsp;</span><span class="string">'new_content.php'</span><span>);&nbsp;&nbsp;</span></span></li></ol></div><textarea class="js" name="code-dialog" style="display: none;">	$('#dd').dialog({
+		title: 'My Dialog',
+		width: 400,
+		height: 200,
+		closed: false,
+		cache: false,
+		href: 'get_content.php',
+		modal: true
+	});
+	$('#dd').dialog('refresh', 'new_content.php');
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>属性扩展从窗口,下面是覆盖属性对话框</p>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>title</td>
+      <td>string</td>
+      <td>对话框标题文本。</td>
+      <td>New Dialog</td>
+    </tr>
+    <tr>
+      <td>collapsible</td>
+      <td>boolean</td>
+      <td>定义是否显示折叠按钮。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>minimizable</td>
+      <td>boolean</td>
+      <td>定义是否显示最小化按钮。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>maximizable</td>
+      <td>boolean</td>
+      <td>定义是否显示最小化按钮。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>resizable</td>
+      <td>boolean</td>
+      <td>对话框定义是否可以调整大小。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>toolbar</td>
+      <td>array,selector</td>
+      <td>顶部工具栏的对话框中,可能的值:<br />
+        1) 一个数组,每个工具选项linkbutton一样。<br />
+        2) 一个选择器,该选择器显示工具栏。
+        <p>对话框工具栏可以被声明在&lt; div &gt;标记:</p>
+        <pre>&lt;div class=&quot;easyui-dialog&quot; style=&quot;width:600px;height:300px&quot; data-options=&quot;title:'My Dialog',toolbar:'#tb',modal:true&quot;&gt;  	
+  Dialog Content.  
+&lt;/div&gt;  
+&lt;div id=&quot;tb&quot;&gt;  
+  &lt;a href=&quot;#&quot; class=&quot;easyui-linkbutton&quot; data-options=&quot;iconCls:'icon-edit',plain:true&quot;/a&gt;  
+  &lt;a href=&quot;#&quot; class=&quot;easyui-linkbutton&quot; data-options=&quot;iconCls:'icon-help',plain:true&quot;/a&gt;  
+&lt;/div&gt;  </pre>
+        <p>工具栏的对话框也可以通过数组定义:</p>
+        <pre>&lt;div class=&quot;easyui-dialog&quot; style=&quot;width:600px;height:300px&quot; data-options=&quot;title:'My Dialog',modal:true,toolbar:[{ text:'Edit', iconCls:'icon-edit', handler:function(){alert('edit')} },{ text:'Help', iconCls:'icon-help', handler:function(){alert('help')}}]&quot;&gt;  	
+  Dialog Content.  
+&lt;/div&gt;  </pre></td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>buttons</td>
+      <td>array,selector</td>
+      <td>底部的按钮的对话框中,可能的值:<br />
+        1) 一个数组,每个按钮选项是linkbutton一样。<br />
+        2) 一个选择器,该选择器显示按钮栏。
+        <p>这个按钮可以被声明在&lt; div &gt;标记:</p>
+        <pre>&lt;div class=&quot;easyui-dialog&quot; style=&quot;width:600px;height:300px&quot; data-options=&quot;title:'My Dialog',buttons:'#bb',modal:true&quot;&gt;  	
+  Dialog Content.  
+&lt;/div&gt;  
+&lt;div id=&quot;bb&quot;&gt;  	
+  &lt;a href=&quot;#&quot; class=&quot;easyui-linkbutton&quot;&gt;Save&lt;/a&gt;  	
+  &lt;a href=&quot;#&quot; class=&quot;easyui-linkbutton&quot;&gt;Close&lt;/a&gt;  
+&lt;/div&gt;  </pre>
+        <p>按钮也可以通过数组定义:</p>
+        <pre>&lt;div class=&quot;easyui-dialog&quot; style=&quot;width:600px;height:300px&quot; data-options=&quot;title:'My Dialog',modal:true,buttons:[{text:'Save', handler:function(){...} },{text:'Close', handler:function(){...} }]&quot;&gt;  	
+   Dialog Content.  
+&lt;/div&gt;  </pre></td>
+      <td>null</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>这个方法扩展从窗口,下面是对话框添加方法</p>
+                     <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>dialog</td>
+      <td>none</td>
+      <td>返回外对话框对象。</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+                       <p>从窗口的事件扩展</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

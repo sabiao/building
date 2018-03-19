@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>My97日期控件</title>
+		<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src="../../../plugins/my97datepicker/WdatePicker.js">
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#e').bind('click', function(){
+                    $('#dd4').removeAttr('disabled');
+                });
+                $('#d').bind('click', function(){                    
+					$('#dd4').attr('disabled', 'disabled');
+                });
+                $('#s').bind('click', function(){
+                    $('#dd4').val('2012-01-01');
+                });
+                $('#g').bind('click', function(){
+                    alert("你取得的值是：" + $('#dd4').val());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,4)" class="hover">
+                            常规调用
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,4)">
+                            双月日历
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,4)">
+                            日期范围限制
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,4)">
+                            简单操作
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+                        <div>
+                            <input type="text" id="dd1" onfocus="WdatePicker()" class="Wdate"/>
+                        </div><h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">input</span>&nbsp;<span class="attribute">type</span>=<span class="attribute-value">"text"</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"dd"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"Wdate"</span>&nbsp;<span class="attribute">onfocus</span>=<span class="attribute-value">"WdatePicker();"</span>&nbsp;/<span class="tag">&gt;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_2" style="display:none;">
+                        <h2>示例</h2>
+                        <div>
+                            <input type="text" id="dd2" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})" class="Wdate"/>
+                        </div><h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">input</span>&nbsp;<span class="attribute">type</span>=<span class="attribute-value">"text"</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"dd"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"Wdate"</span>&nbsp;<span class="attribute">onfocus</span>=<span class="attribute-value">"WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"</span>&nbsp;/<span class="tag">&gt;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_3" style="display:none;">
+                        <h2>示例</h2>
+                        <div>
+                            <input id="dd31" class="Wdate" type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dd32\')||\'2020-10-01\'}'});"/>&nbsp;至&nbsp;<input id="dd32" class="Wdate" type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dd31\')}',maxDate:'2020-10-01'});"/>
+                        </div>
+						<h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">input</span>&nbsp;<span class="attribute">type</span>=<span class="attribute-value">"text"</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"dd31"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"Wdate"</span>&nbsp;<span class="attribute">onfocus</span>=<span class="attribute-value">"WdatePicker({maxDate:'#F{$dp.$D(\'dd32\')||\'2020-10-01\'}'});"</span>&nbsp;/<span class="tag">&gt;</span></span>&nbsp;至&nbsp;	<span><span class="tag">&lt;</span><span class="tag-name">input</span>&nbsp;<span class="attribute">type</span>=<span class="attribute-value">"text"</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"dd32"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"Wdate"</span>&nbsp;<span class="attribute">onfocus</span>=<span class="attribute-value">"WdatePicker({minDate:'#F{$dp.$D(\'dd31\')}',maxDate:'2020-10-01'});"</span>&nbsp;/<span class="tag">&gt;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="con_two_4" style="display:none;">
+                        <h2>示例</h2>
+                        <div>
+                            <input type="text" id="dd4" onfocus="WdatePicker()" class="Wdate"/>&nbsp;<a id="e" href="#" class="easyui-linkbutton">启用</a>&nbsp;<a id="d" href="#" class="easyui-linkbutton">禁用</a>&nbsp;<a id="s" href="#" class="easyui-linkbutton">设置值</a>&nbsp;<a id="g" href="#" class="easyui-linkbutton">获取值</a>
+                        </div>
+						<h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">input</span>&nbsp;<span class="attribute">type</span>=<span class="attribute-value">"text"</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"dd"</span>&nbsp;<span class="attribute">class</span>=<span class="attribute-value">"Wdate"</span>&nbsp;<span class="attribute">onfocus</span>=<span class="attribute-value">"WdatePicker();"</span>&nbsp;/<span class="tag">&gt;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+						<h2>JS代码</h2>
+                        <div class="dp-highlighter">
+                        	<ol start="1" class="dp-j">
+<li class="alt"><span class="string">//启用</span></li>
+<li>$(<span class="string">'#dd'</span>).removeAttr(<span class="string">'disabled'</span>);</li>
+<li class="alt"><span class="string">//禁用</span></li>
+<li>$(<span class="string">'#dd'</span>).attr(<span class="string">'disabled'</span>,&nbsp;<span class="string">'disabled'</span>);</li>
+<li class="alt"><span class="string">//赋值</span></li>
+<li>$(<span class="string">'#dd'</span>).val(<span class="string">'2012-01-01'</span>);</li>
+<li class="alt"><span class="string">//取值</span></li>
+<li>$(<span class="string">'#dd'</span>).val());</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

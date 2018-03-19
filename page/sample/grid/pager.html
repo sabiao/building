@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>分页</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                var columns = [[{
+                    field: 'itemid',
+                    title: 'Item ID',
+                    width: 80
+                }, {
+                    field: 'productname',
+                    title: 'Product',
+                    width: 120
+                }, {
+                    field: 'listprice',
+                    title: 'List Price',
+                    width: 80,
+                    align: 'right'
+                }, {
+                    field: 'unitcost',
+                    title: 'Unit Cost',
+                    width: 80,
+                    align: 'right'
+                }, {
+                    field: 'attr1',
+                    title: 'Attribute',
+                    width: 200
+                }, {
+                    field: 'status',
+                    title: 'Status',
+                    width: 60,
+                    align: 'center'
+                }]];
+                
+                $('#grid').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    pagination: true, //如果为true，则在数据表格控件底部显示分页工具栏。默认为：false
+                    pagePosition: 'bottom', //定义分页工具栏的位置。可用的值有：'top','bottom','both'。默认为：'bottom'
+                    pageList: [10, 20, 30, 40, 50], //在设置分页属性的时候 初始化页面大小选择列表。默认为：[10,20,30,40,50]
+                    pageNumber: 1, //在设置分页属性的时候初始化页码。默认为：1
+                    pageSize: 10, //在设置分页属性的时候初始化页面大小。默认为：10
+                    columns: columns
+                });
+                
+                $('#grid2').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    pagination: true,
+                    columns: columns
+                });
+                var pager = $('#grid2').datagrid('getPager'); // get the pager of datagrid
+                pager.pagination({
+                    buttons: [{
+                        iconCls: 'icon-search',
+                        handler: function(){
+                            alert('search');
+                        }
+                    }, {
+                        iconCls: 'icon-add',
+                        handler: function(){
+                            alert('add');
+                        }
+                    }, {
+                        iconCls: 'icon-edit',
+                        handler: function(){
+                            alert('edit');
+                        }
+                    }],
+                    onSelectPage: function(pageNumber, pageSize){
+                        $(this).pagination('loading');
+                        alert('pageNumber:' + pageNumber + ',pageSize:' + pageSize);
+                        $(this).pagination('loaded');
+                    }                    
+                });
+                
+                setTimeout(function(){
+                    $('#con_two_2').hide();
+                }, 500);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+        <div id="header">
+            <div class="Menubox1">
+                <ul>
+                    <li id="two1" onmouseover="setTab1('two',1,2)" class="hover">
+                        基本分页设置
+                    </li>
+                    <li id="two2" onmouseover="setTab1('two',2,2)">
+                        分页栏设置
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="mainContent">
+            <div class="Contentbox1">
+                <div id="con_two_1" class="msgTablist">
+                    <h2>示例</h2>
+                    <div style="height:200px;">
+                        <table id="grid">
+                        </table>
+                    </div>
+                    <h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                            </li>
+                        </ol>
+                    </div>
+                    <h2>JS代码</h2>
+                    <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//如果为true，则在数据表格控件底部显示分页工具栏。默认为：false</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagePosition:&nbsp;<span class="string">'bottom'</span>,&nbsp;<span class="string">//定义分页工具栏的位置。可用的值有：'top','bottom','both'。默认为：'bottom'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pageList:&nbsp;[10,&nbsp;20,&nbsp;30,&nbsp;40,&nbsp;50],&nbsp;<span class="string">//在设置分页属性的时候&nbsp;初始化页面大小选择列表。默认为：[10,20,30,40,50]</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pageNumber:&nbsp;<span class="number">1</span>,&nbsp;<span class="string">//在设置分页属性的时候初始化页码。默认为：1</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pageSize:&nbsp;<span class="number">10</span>,&nbsp;<span class="string">//在设置分页属性的时候初始化页面大小。默认为：10</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>&nbsp;<span class="string">//排序列</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//排序列</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>			 
+                    </div>
+                </div>
+                <div id="con_two_2">
+                    <h2>示例</h2>
+                    <div style="height:200px;">
+                        <table id="grid2">
+                        </table>
+                    </div>
+                    <h2>HTML代码</h2>
+                    <div class="dp-highlighter">
+                        <ol start="1" class="dp-xml">
+                            <li class="alt">
+                                &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                            </li>
+                        </ol>
+                    </div>
+                    <h2>JS代码</h2>
+                    <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//如果为true，则在数据表格控件底部显示分页工具栏。默认为：false</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>&nbsp;<span class="string">//排序列</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//排序列</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;pager&nbsp;=&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'getPager'</span>);</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;pager.pagination({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons:&nbsp;[{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-search'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('search');</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-add'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('add');</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-edit'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('edit');</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}],</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSelectPage:&nbsp;<span class="keyword">function</span>(pageNumber,&nbsp;pageSize){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).pagination(<span class="string">'loading'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('pageNumber:'&nbsp;+&nbsp;pageNumber&nbsp;+&nbsp;',pageSize:'&nbsp;+&nbsp;pageSize);</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).pagination(<span class="string">'loaded'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+		</div>
+    </body>
+</html>

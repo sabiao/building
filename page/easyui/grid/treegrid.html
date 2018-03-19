@@ -1,0 +1,613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>accordion</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+					<div style="margin:10px 0;"></div>
+                    <div style="height:500px;vertical-align:middle;">
+						<table id="tg" class="easyui-treegrid" title="TreeGrid Actions" style="width:700px;height:250px"
+						data-options="
+							iconCls: 'icon-ok',
+							rownumbers: true,
+							animate: true,
+							collapsible: true,
+							fitColumns: true,
+							url: 'treegrid_data2.json',
+							method: 'get',
+							idField: 'id',
+							treeField: 'name',
+							showFooter:true,
+							animate:true
+						">
+					<thead>
+						<tr>
+							<th data-options="field:'name',width:180">Task Name</th>
+							<th data-options="field:'persons',width:60,align:'right'">Persons</th>
+							<th data-options="field:'begin',width:80">Begin Date</th>
+							<th data-options="field:'end',width:80">End Date</th>
+							<th data-options="field:'progress',width:120,formatter:formatProgress">Progress</th>
+						</tr>
+					</thead>
+				</table>
+				<script type="text/javascript">
+					function formatProgress(value){
+				    	if (value){
+					    	var s = '<div style="width:100%;border:1px solid #ccc">' +
+					    			'<div style="width:' + value + '%;background:#cc0000;color:#fff">' + value + '%' + '</div>'
+					    			'</div>';
+					    	return s;
+				    	} else {
+					    	return '';
+				    	}
+					}
+					function collapseAll(){
+						$('#tg').treegrid('collapseAll');
+					}
+					function expandAll(){
+						$('#tg').treegrid('expandAll');
+					}
+					function expandTo(){
+						$('#tg').treegrid('expandTo',21).treegrid('select',21);
+					}
+				</script>
+					</div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+					<div style="margin:10px 0;"></div>
+                    	<h4>应用实例</h4>
+<p>
+创建那么treegrid速度将在HTML标记。在大多数情况下,treegrid遵循相同的结构和格式是datagrid
+</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">table</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"tt"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-treegrid"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:600px;height:400px"</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"url:'get_data.php',idField:'id',treeField:'name'"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">thead</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'name',width:180"</span><span class="tag">&gt;</span><span>Task&nbsp;Name</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'persons',width:60,align:'right'"</span><span class="tag">&gt;</span><span>Persons</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'begin',width:80"</span><span class="tag">&gt;</span><span>Begin&nbsp;Date</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">th</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"field:'end',width:80"</span><span class="tag">&gt;</span><span>End&nbsp;Date</span><span class="tag">&lt;/</span><span class="tag-name">th</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">tr</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">thead</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="tag">&lt;/</span><span class="tag-name">table</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-treegrid" style="display: none;">	&lt;table id="tt" class="easyui-treegrid" style="width:600px;height:400px"
+			data-options="url:'get_data.php',idField:'id',treeField:'name'"&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th data-options="field:'name',width:180"&gt;Task Name&lt;/th&gt;
+				&lt;th data-options="field:'persons',width:60,align:'right'"&gt;Persons&lt;/th&gt;
+				&lt;th data-options="field:'begin',width:80"&gt;Begin Date&lt;/th&gt;
+				&lt;th data-options="field:'end',width:80"&gt;End Date&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+	&lt;/table&gt;
+</textarea>
+<p>treegrid使用javascript创建</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">table</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"tt"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:600px;height:400px"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">table</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-treegrid" style="display: none;">	&lt;table id="tt" style="width:600px;height:400px"&gt;&lt;/table&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#tt'</span><span>).treegrid({&nbsp;&nbsp;</span></span></li>
+<li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;url:<span class="string">'get_data.jsp'</span><span>,&nbsp;&nbsp;</span></span></li>
+<li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;idField:<span class="string">'id'</span><span>,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;treeField:<span class="string">'name'</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;columns:[[&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{title:<span class="string">'Task&nbsp;Name'</span><span>,field:</span><span class="string">'name'</span><span>,width:180},&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{field:<span class="string">'persons'</span><span>,title:</span><span class="string">'Persons'</span><span>,width:60,align:</span><span class="string">'right'</span><span>},&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{field:<span class="string">'begin'</span><span>,title:</span><span class="string">'Begin&nbsp;Date'</span><span>,width:80},&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{field:<span class="string">'end'</span><span>,title:</span><span class="string">'End&nbsp;Date'</span><span>,width:80}&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;]]&nbsp;&nbsp;</span></li><li class="alt"><span>});&nbsp;&nbsp;</span></li>
+</ol></div><textarea class="js" name="code-treegrid" style="display: none;">	$('#tt').treegrid({
+		url:'get_data.jsp',
+		idField:'id',
+		treeField:'name',
+		columns:[[
+			{title:'Task Name',field:'name',width:180},
+			{field:'persons',title:'Persons',width:60,align:'right'},
+			{field:'begin',title:'Begin Date',width:80},
+			{field:'end',title:'End Date',width:80}
+		]]
+	});
+</textarea>
+						</div>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                idField
+                            </td>
+                            <td>
+                                string
+                            </td>
+                            <td>
+                                定义了关键字段来标识一个树节点。要求。
+                            </td>
+                            <td>
+                                null
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                treeField
+                            </td>
+                            <td>
+                                string
+                            </td>
+                            <td>
+                                定义了树节点字段。必须的。
+                            </td>
+                            <td>
+                                null
+                            </td>
+                        </tr>
+						<tr>
+                            <td>
+                                parentField
+                            </td>
+                            <td>
+                                string
+                            </td>
+                            <td>
+                                定义了关键字段来标识一个树节点的parentId字段。要求。
+                            </td>
+                            <td>
+                                _parentId
+                            </td>
+                        </tr>
+						<tr>
+                            <td>
+                                isLeaf
+                            </td>
+                            <td>
+                                string
+                            </td>
+                            <td>
+                                定义了关键字段来标识一个树节点是否叶子节点，取值范围：0/1。0不是叶子节点，1是叶子节点。要求。
+                            </td>
+                            <td>
+                                isLeaf
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                animate
+                            </td>
+                            <td>
+                                boolean
+                            </td>
+                            <td>
+                                定义是否显示动画效果当节点展开或折叠。
+                            </td>
+                            <td>
+                                false
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                loader
+                            </td>
+                            <td>
+                                function(param,success,error)
+                            </td>
+                            <td>
+                                定义了如何加载数据从远程服务器。可以放弃这次行动返回false。这个函数接受以下参数:
+                                <br/>
+                                param: 参数对象传递给远程服务器。
+                                <br/>
+                                success(data): 这个回调函数会调用这些当检索数据成功。
+                                <br/>
+                                error(): 这个回调函数会调用这些当未能检索数据。
+                            </td>
+                            <td>
+                                json loader
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                loadFilter
+                            </td>
+                            <td>
+                                function(data,parentId)
+                            </td>
+                            <td>
+                                返回过滤数据显示。
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+						<tr>
+      <td>options</td>
+      <td>none</td>
+      <td>返回选择的treegrid属性。</td>
+    </tr>
+    <tr>
+      <td>resize</td>
+      <td>options</td>
+      <td>treegrid设置大小,选择包含两个属性:<br />
+        width: 新宽度<br />
+        height: 新高度</td>
+    </tr>
+    <tr>
+      <td>fixRowHeight</td>
+      <td>id</td>
+      <td>修复指定的行高。</td>
+    </tr>
+    <tr>
+      <td>loadData</td>
+      <td>data</td>
+      <td>加载treegrid数据。</td>
+    </tr>
+    <tr>
+      <td>reload</td>
+      <td>id</td>
+      <td>重新加载那么treegrid速度将数据。如果&ldquo;id&rdquo;参数是通过,重新加载指定的树行,否则重新加载所有树行。
+        <p>代码示例:</p>
+        <pre>$('#tt').treegrid('reload', 2);	// reload the row which value is equals to 2  
+$('#tt').treegrid('reload');	// reload the all rows  </pre></td>
+    </tr>
+    <tr>
+      <td>reloadFooter</td>
+      <td>footer</td>
+      <td>重新加载页脚数据。</td>
+    </tr>
+    <tr>
+      <td>getData</td>
+      <td>none</td>
+      <td>获得加载数据。</td>
+    </tr>
+    <tr>
+      <td>getFooterRows</td>
+      <td>none</td>
+      <td>获得页脚数据</td>
+    </tr>
+    <tr>
+      <td>getRoot</td>
+      <td>none</td>
+      <td>得到根节点,返回节点对象</td>
+    </tr>
+    <tr>
+      <td>getRoots</td>
+      <td>none</td>
+      <td>得到根节点,返回节点数组。</td>
+    </tr>
+    <tr>
+      <td>getParent</td>
+      <td>id</td>
+      <td>得到父节点。</td>
+    </tr>
+    <tr>
+      <td>getChildren</td>
+      <td>id</td>
+      <td>得到子节点。</td>
+    </tr>
+    <tr>
+      <td>getSelected</td>
+      <td>none</td>
+      <td>得到选中的节点,并返回它,如果没有节点选择返回null。</td>
+    </tr>
+    <tr>
+      <td>getSelections</td>
+      <td>none</td>
+      <td>得到所有选定的节点。</td>
+    </tr>
+    <tr>
+      <td>getLevel</td>
+      <td>id</td>
+      <td>获取指定节点级别。</td>
+    </tr>
+    <tr>
+      <td>find</td>
+      <td>id</td>
+      <td>找到指定的节点,并返回该节点的数据。</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>id</td>
+      <td>选择一个节点。</td>
+    </tr>
+    <tr>
+      <td>unselect</td>
+      <td>id</td>
+      <td>取消选择一个节点。</td>
+    </tr>
+    <tr>
+      <td>selectAll</td>
+      <td>none</td>
+      <td>选择所有节点。</td>
+    </tr>
+    <tr>
+      <td>unselectAll</td>
+      <td>none</td>
+      <td>取消选择所有节点。</td>
+    </tr>
+    <tr>
+      <td>collapse</td>
+      <td>id</td>
+      <td>收缩的一个节点。</td>
+    </tr>
+    <tr>
+      <td>expand</td>
+      <td>id</td>
+      <td>展开一个节点。</td>
+    </tr>
+    <tr>
+      <td>collapseAll</td>
+      <td>id</td>
+      <td>所有节点收缩。</td>
+    </tr>
+    <tr>
+      <td>expandAll</td>
+      <td>id</td>
+      <td>展开所有的节点。</td>
+    </tr>
+    <tr>
+      <td>expandTo</td>
+      <td>id</td>
+      <td>展开从根到指定的节点。</td>
+    </tr>
+    <tr>
+      <td>toggle</td>
+      <td>id</td>
+      <td>切换展开/折叠状态的节点。</td>
+    </tr>
+    <tr>
+      <td>append</td>
+      <td>param</td>
+      <td>添加节点到父节点。&ldquo;param&rdquo;参数包含以下属性:<br />
+        parent: 父节点id,如果不指定,作为根节点添加。<br />
+        data: 数组,节点数据。<br />
+        代码示例:        <pre>// 附加一些节点选定的行
+var node = $('#tt').treegrid('getSelected');  
+$('#tt').treegrid('append',{
+  	parent: node.id,  // 节点有一个&ldquo;id&rdquo;定义的值通过&ldquo;idField&rdquo;属性
+  	data: [{
+  		id: '073',
+  		name: 'name73'
+  	}]
+  });  </pre></td>
+    </tr>
+    <tr>
+      <td>insert</td>
+      <td>param</td>
+      <td>插入一个新节点到指定的节点。&ldquo;param&rdquo;参数包含以下属性:<br />
+        before: id值的节点插入之前。<br />
+        after: id值的节点插入后。<br />
+        data: 新节点的数据。
+        <p>代码示例:</p>
+        <pre>// 插入一个新节点之前选中的节点  
+var node = $('#tt').treegrid('getSelected');
+  if (node){
+  	$('#tt').treegrid('insert', {
+  		before: node.id,
+  		data: {
+  			id: 38,
+  			name: 'name38'
+  		}
+  	});
+  }  </pre>
+        这个方法是可用的,因为版本1.3.1。</td>
+    </tr>
+    <tr>
+      <td>remove</td>
+      <td>id</td>
+      <td>删除一个节点和它的子节点。</td>
+    </tr>
+    <tr>
+      <td>pop</td>
+      <td>id</td>
+      <td>取到和返回一个节点数据包括其子节点后删除。这个方法是可用的,因为版本1.3.1。</td>
+    </tr>
+    <tr>
+      <td>refresh</td>
+      <td>id</td>
+      <td>刷新指定的节点。</td>
+    </tr>
+    <tr>
+      <td>update</td>
+      <td>param</td>
+      <td>更新指定的节点。这个参数包含以下属性:<br />
+        id: 节点标识,表明节点更新。<br />
+        row: 新行数据。
+        <p>代码示例:</p>
+        <pre>$('#tt').treegrid('update',{
+  	id: 2,
+  	row: {
+  		name: 'new name',
+  		iconCls: 'icon-save'
+  	}
+  });  </pre>
+        这个方法是可用的,因为版本1.3.1。</td>
+    </tr>
+    <tr>
+      <td>beginEdit</td>
+      <td>id</td>
+      <td>开始编辑一个节点。</td>
+    </tr>
+    <tr>
+      <td>endEdit</td>
+      <td>id</td>
+      <td>编辑节点结束。</td>
+    </tr>
+    <tr>
+      <td>cancelEdit</td>
+      <td>id</td>
+      <td>取消编辑节点。</td>
+    </tr>
+    <tr>
+      <td>getEditors</td>
+      <td>id</td>
+      <td>得到指定的行编辑器。每个编辑器有以下属性:<br />
+        actions: 的动作编辑器可以做。<br />
+        target: 目标编辑器jQuery对象。<br />
+        field: 字段名。<br />
+        type: 编辑器类型。</td>
+    </tr>
+    <tr>
+      <td>getEditor</td>
+      <td>param</td>
+      <td>得到指定的编辑器,参数包含两个属性:<br />
+        id: 行节点id。<br />
+        field: 字段名。</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            <tr>
+      <td>onClickRow</td>
+      <td>row</td>
+      <td>当用户点击一个节点。</td>
+    </tr>
+    <tr>
+      <td>onDblClickRow</td>
+      <td>row</td>
+      <td>当用户双击一个节点。</td>
+    </tr>
+    <tr>
+      <td>onClickCell</td>
+      <td>field,row</td>
+      <td>当用户点击一个单元格。</td>
+    </tr>
+    <tr>
+      <td>onDblClickCell</td>
+      <td>field,row</td>
+      <td>当用户双击一个单元格。</td>
+    </tr>
+    <tr>
+      <td>onBeforeLoad</td>
+      <td>row, param</td>
+      <td>一个请求加载数据前触发事件,返回false取消这个加载。</td>
+    </tr>
+    <tr>
+      <td>onLoadSuccess</td>
+      <td>row, data</td>
+      <td>一个请求加载数据成功后触发事件,</td>
+    </tr>
+    <tr>
+      <td>onLoadError</td>
+      <td>arguments</td>
+      <td>当数据加载失败时触发,参数的参数是一样的&ldquo;error&rdquo;功能的jquery ajax。</td>
+    </tr>
+    <tr>
+      <td>onBeforeExpand</td>
+      <td>row</td>
+      <td>节点扩展之前,返回false取消这个展开行为。</td>
+    </tr>
+    <tr>
+      <td>onExpand</td>
+      <td>row</td>
+      <td>当节点扩展。</td>
+    </tr>
+    <tr>
+      <td>onBeforeCollapse</td>
+      <td>row</td>
+      <td>在节点收缩,返回false取消这个收缩。</td>
+    </tr>
+    <tr>
+      <td>onCollapse</td>
+      <td>row</td>
+      <td>当节点收缩。</td>
+    </tr>
+    <tr>
+      <td>onContextMenu</td>
+      <td>e, row</td>
+      <td>当节点被右键点击。</td>
+    </tr>
+    <tr>
+      <td>onBeforeEdit</td>
+      <td>row</td>
+      <td>当用户开始编辑一个节点。</td>
+    </tr>
+    <tr>
+      <td>onAfterEdit</td>
+      <td>row,changes</td>
+      <td>当用户完成编辑。</td>
+    </tr>
+    <tr>
+      <td>onCancelEdit</td>
+      <td>row</td>
+      <td>当用户取消编辑节点。</td>
+    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

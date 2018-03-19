@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>基本功能</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#tt1').tree({
+                    data: [{
+                        "id": 1,
+                        "text": "My Documents",
+                        "children": [{
+                            "id": 11,
+                            "text": "Photos",
+                            "state": "closed",
+                            "children": [{
+                                "id": 111,
+                                "text": "Friend"
+                            }, {
+                                "id": 112,
+                                "text": "Wife"
+                            }, {
+                                "id": 113,
+                                "text": "Company"
+                            }]
+                        }, {
+                            "id": 16,
+                            "text": "Actions",
+                            "children": [{
+                                "text": "Add",
+                                "iconCls": "icon-add"
+                            }, {
+                                "text": "Remove",
+                                "iconCls": "icon-remove"
+                            }, {
+                                "text": "Save",
+                                "iconCls": "icon-save"
+                            }, {
+                                "text": "Search",
+                                "iconCls": "icon-search"
+                            }]
+                        }, {
+                            "id": 13,
+                            "text": "index.html"
+                        }]
+                    }]
+                });
+				
+                $('#tt2').tree({
+					data: [{
+                        "id": 1,
+                        "text": "My Documents",
+                        "children": [{
+                            "id": 11,
+                            "text": "Photos",
+                            "state": "closed",
+                            "children": [{
+                                "id": 111,
+                                "text": "Friend"
+                            }, {
+                                "id": 112,
+                                "text": "Wife"
+                            }, {
+                                "id": 113,
+                                "text": "Company"
+                            }]
+                        }, {
+                            "id": 13,
+                            "text": '<a href="index.html">index.html</a>'
+                        }]
+                    }]
+                });
+				
+                $('#tt3').tree({
+					url: 'tree_data1.json',
+                    onClick: function(node){
+                        alert(node.text); // 在用户点击的时候提示
+                    }
+                });
+				
+                $('#tt4').tree({
+                    url: 'tree_data1.json'
+                });	
+				
+                $("ol li:nth-child(even)").addClass("alt");
+            });
+			
+			function expandAll(){
+				$('#tt4').tree('expandAll');
+			}
+			function collapseAll(){
+				$('#tt4').tree('collapseAll');
+			}
+			function getSelected(){
+				var node = $('#tt4').tree('getSelected');
+				alert('你选中的节点是：' + node.text);
+			}
+            function getRoot(){
+                var node = $('#tt4').tree('getRoot');
+                alert(node.text);
+            }
+            function getRoots(){
+                var nodes = $('#tt4').tree('getRoots');
+				var a = [];
+                for (var i = 0; i < nodes.length; i++) {
+                   a.push(nodes[i].text);
+                }
+                alert(a.join(','));
+            }
+			// 查找一个节点并选择它
+            function findNode(){
+                var node = $('#tt4').tree('find', 111);
+				$('#tt4').tree('expandTo', node.target);
+                $('#tt4').tree('select', node.target);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,4)" class="hover">
+                            显示图标
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,4)">
+                            超链接
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,4)">
+                            单击处理
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,4)">
+                            节点操作
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+                        <div>
+                            <ul id="tt1">
+                            </ul>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li>
+                                    &lt;<span class="tag-name">ul</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"tt"</span>&gt;&lt;<span class="tag-name">/ul</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+  <li>$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"My&nbsp;Documents",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;11,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Photos",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"state":&nbsp;"closed",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;111,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Friend"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;112,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Wife"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;113,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Company"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;16,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Actions",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Add",</li>
+<li style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iconCls":&nbsp;"icon-add"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Remove",</li>
+<li style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iconCls":&nbsp;"icon-remove"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Save",</li>
+<li style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iconCls":&nbsp;"icon-save"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Search",</li>
+<li style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iconCls":&nbsp;"icon-search"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;13,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"index.html"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>
+                        </div>
+                    </div>
+                    <div id="con_two_2" style="display:none;">
+                        <h2>示例</h2>
+                        <div>
+                            <ul id="tt2">
+                            </ul>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li>
+                                    &lt;<span class="tag-name">ul</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"tt"</span>&gt;&lt;<span class="tag-name">/ul</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;1,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"My&nbsp;Documents",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;11,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Photos",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"state":&nbsp;"closed",</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"children":&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;111,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Friend"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;112,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Wife"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;113,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;"Company"</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;13,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"text":&nbsp;<span class="string">'<a&nbsp;href="index.html">index.html</a>'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>
+						</div>
+                    </div>
+                    <div id="con_two_3" style="display:none;">
+                        <h2>示例</h2>
+                        <div>
+                            <ul id="tt3">
+                            </ul>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li>
+                                    &lt;<span class="tag-name">ul</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"tt"</span>&gt;&lt;<span class="tag-name">/ul</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClick:&nbsp;<span class="keyword">function</span>(node){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(node.text);&nbsp;//&nbsp;在用户点击的时候提示</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+</ol>                        </div>
+                    </div>
+                    <div id="con_two_4" style="display:none;">
+                        <h2>示例</h2>
+						<div><a href="#" class="easyui-linkbutton" onclick="expandAll();">全部展开</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="collapseAll();">全部拆叠</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="getSelected();">获取选中节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="getRoots();">获得所有根节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="findNode();">查找指定节点</a></div>
+						<br/>
+                        <div>                        	
+                            <ul id="tt4">
+                            </ul>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li>
+                                    &lt;<span class="tag-name">ul</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"tt"</span>&gt;&lt;<span class="tag-name">/ul</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+<li></li>
+<li><span class="string">//展开所有节点</span></li>
+<li><span class="keyword">function</span>&nbsp;expandAll(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'expandAll'</span>);</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//折叠所有节点。</span></li>
+<li><span class="keyword">function</span>&nbsp;collapseAll(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'collapseAll'</span>);</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//获取选择节点并返回它，如果未选择则返回null。</span></li>
+<li><span class="keyword">function</span>&nbsp;getSelected(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;node&nbsp;=&nbsp;$(<span class="string">'#tt4'</span>).tree(<span class="string">'getSelected'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">'你选中的节点是：'</span>&nbsp;+&nbsp;node.text);</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//获取所有根节点，返回节点数组。</span></li>
+<li><span class="keyword">function</span>&nbsp;getRoots(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;nodes&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'getRoots'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;a&nbsp;=&nbsp;[];</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(<span class="keyword">var</span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;<&nbsp;nodes.length;&nbsp;i++)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.push(nodes[i].text);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;alert(a.join(<span class="string">','</span>));</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//查找一个节点并选择它</span></li>
+<li><span class="keyword">function</span>&nbsp;findNode(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;node&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'find'</span>,&nbsp;111);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'expandTo'</span>,&nbsp;node.target);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'select'</span>,&nbsp;node.target);</li>
+<li>}</li>
+</ol>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

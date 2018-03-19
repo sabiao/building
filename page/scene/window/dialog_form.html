@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>双列表单</title>
+<link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/icon.css" />
+<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/main-layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'></script>
+<script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'></script>
+<script type="text/javascript" src='../../../plugins/extends/json.js'></script>
+<script language="javascript" src="../../../js/con-tab.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#win3').dialog({
+			width: 600,
+			height: 400,
+			toolbar: [{
+				text: '编辑',
+				iconCls: 'icon-edit',
+				handler: function(){
+					alert('edit');
+				}
+			}, {
+				text: '帮助',
+				iconCls: 'icon-help',
+				handler: function(){
+					alert('help');
+				}
+			}]
+		});
+		
+		$('#win4').dialog({
+			width: 600,
+			height: 400,
+			closed: true,
+			buttons: [{
+				text: '确定',
+				iconCls: 'icon-ok',
+				handler: function(){
+				}
+			}, {
+				text: '关闭',
+				iconCls: 'icon-cancel',
+				handler: function(){
+					$('#win4').dialog('close');
+				}
+			}]
+		});
+	});
+</script>
+<!-- 代码高亮插件SyntaxHighlighter begain-->
+<script type="text/javascript" src="../scripts/shCore.js"></script>
+<script type="text/javascript" src="../scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="../scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="../scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="../scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="../scripts/shBrushVb.js"></script>
+<script type="text/javascript" src="../scripts/shBrushXml.js"></script>
+<link type="text/css" rel="stylesheet" href="../styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="../styles/shThemeDefault.css"/>
+<script type="text/javascript">
+  SyntaxHighlighter.config.clipboardSwf = '../scripts/clipboard.swf';
+  SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+  SyntaxHighlighter.config.clipboardSwf = '../scripts/clipboard.swf';
+  SyntaxHighlighter.config.strings = {
+	  expandSource : '展开代码',
+	  viewSource : '查看代码',
+	  copyToClipboard : '复制代码',
+	  copyToClipboardConfirmation : '代码复制成功',
+	  print : '打印',
+	  help: '?',
+	  alert: '语法高亮\n\n',
+	  noBrush: '不能找到刷子: ',
+	  brushNotHtmlScript: '刷子没有配置html-script选项',
+	  aboutDialog: '<div></div>'
+  };
+  SyntaxHighlighter.all();
+</script>
+<!-- 代码高亮插件SyntaxHighlighter end-->
+</head>
+
+<body>
+<div id="container">
+  <div id="header">
+    <div class="Menubox1">
+      <ul>
+        <li id="two1" onmouseover="setTab1('two',1,2)" class="hover"> 效果示例 </li>
+        <li id="two2" onmouseover="setTab1('two',2,2)"> HTML代码 </li>
+      </ul>
+    </div>
+  </div>
+  <div id="mainContent">
+    <div class="Contentbox1">
+      <div id="con_two_1" class="msgTablist"> 
+        <!-- 示例区域 --> 
+        <!-- 示例一 -->
+        <div class="sample-border">
+          <div class="barTitle"> <span>弹出框内嵌表单布局</span> </div>
+           <div> <a href="#" class="easyui-linkbutton" onclick="$('#win4').dialog('open');">带按钮栏</a> </div>
+           <div id="win4" class="easyui-dialog" title="弹出框内嵌表单布局" >
+              <form id="conditionform"  action="#">
+                  <table class="main-talbe-1c">
+                    <tbody>
+                      <tr >
+                        <td class="main-td1c-title">姓名：</td>
+                        <td class="main-td1c-input"><input type="text" name="t_name" id="t_name" class="input-text"/></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">曾用名：</td>
+                        <td class="main-td1c-input"><input type="text" name="t_fname" id="t_fname"  class="input-text"/></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">密码：</td>
+                        <td class="main-td1c-input"><input id="t_password" name="t_password" type="password" class="input-text" /></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">性别：</td>
+                        <td class="main-td1c-input"><label>
+                            <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+                            男</label>
+                          <label>
+                            <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                            女</label></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">婚姻状况：</td>
+                        <td class="main-td1c-input"><label>
+                            <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+                            已婚</label>
+                          <label>
+                            <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                            未婚</label></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">爱好：</td>
+                        <td class="main-td1c-input"><label>
+                            <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+                            足球</label>
+                          <label>
+                            <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_1" />
+                            音乐</label>
+                          <label>
+                            <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_2" />
+                            跳舞</label>
+                          <label>
+                            <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_3" />
+                            唱歌</label></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">出生日期：</td>
+                        <td class="main-td1c-input"><input id="birthday_sheet1" name="birthday_sheet1" type="text" class="input-text"/></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">民族：</td>
+                        <td class="main-td1c-input"><select id="sel" name="sel" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;" >
+                            <option>请选择</option>
+                          </select></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">籍贯：</td>
+                        <td class="main-td1c-input"><input id='s22_sheet1' name="s22_sheet1" type="text" class="input-text"/></td>
+                      </tr>
+                      <tr>
+                        <td class="main-td1c-title">学历：</td>
+                        <td class="main-td1c-input"><select id="sel2" name="sel2" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;" >
+                            <option>请选择</option>
+                          </select></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </form>
+            </div> 
+        </div>
+        <!-- 示例源代码 --> 
+      </div>
+      <div id="con_two_2" style="display:none">
+        <h1>弹出框内嵌表单布局 </h1>
+        <pre class="brush: javascript;">
+        <table class="main-talbe-1c">
+          <tbody>
+            <tr >
+              <td class="main-td1c-title">姓名：</td>
+              <td class="main-td1c-input"><input type="text" name="t_name" id="t_name" class="input-text"/></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">曾用名：</td>
+              <td class="main-td1c-input"><input type="text" name="t_fname" id="t_fname"  class="input-text"/></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">密码：</td>
+              <td class="main-td1c-input"><input id="t_password" name="t_password" type="password" class="input-text" /></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">性别：</td>
+              <td class="main-td1c-input"><label>
+                  <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+                  男</label>
+                <label>
+                  <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                  女</label></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">婚姻状况：</td>
+              <td class="main-td1c-input"><label>
+                  <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+                  已婚</label>
+                <label>
+                  <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                  未婚</label></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">爱好：</td>
+              <td class="main-td1c-input"><label>
+                  <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+                  足球</label>
+                <label>
+                  <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_1" />
+                  音乐</label>
+                <label>
+                  <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_2" />
+                  跳舞</label>
+                <label>
+                  <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_3" />
+                  唱歌</label></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">出生日期：</td>
+              <td class="main-td1c-input"><input id="birthday_sheet1" name="birthday_sheet1" type="text" class="input-text"/></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">民族：</td>
+              <td class="main-td1c-input"><select id="sel" name="sel" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;" >
+                  <option>请选择</option>
+                </select></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">籍贯：</td>
+              <td class="main-td1c-input"><input id='s22_sheet1' name="s22_sheet1" type="text" class="input-text"/></td>
+            </tr>
+            <tr>
+              <td class="main-td1c-title">学历：</td>
+              <td class="main-td1c-input"><select id="sel2" name="sel2" class="easyui-combobox" style="width:255px; height:24px; line-height:24px;" >
+                  <option>请选择</option>
+                </select></td>
+            </tr>
+          </tbody>
+        </table>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+<br class="clearfloat" />
+</body>
+</html>

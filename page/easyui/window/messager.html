@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>
+            datagrid
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>
+            accordion
+        </title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico"
+        media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css"
+        />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"
+        />
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css"
+        />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shCore.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js">
+        </script>
+    </head>
+    
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+					<div style="margin:10px 0;"></div>
+                        <div style="margin:10px 0;">
+                            <a href="#" class="easyui-linkbutton" onclick="alert1()">
+                                Alert
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="alert2()">
+                                Error
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="alert3()">
+                                Info
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="alert4()">
+                                Question
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="alert5()">
+                                Warning
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="show()">
+                                Show
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="slide()">
+                                Slide
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="fade()">
+                                Fade
+                            </a>
+                            <a href="#" class="easyui-linkbutton" onclick="progress()">
+                                Progress
+                            </a>
+                        </div>
+                        <script>
+                            function alert1() {
+                                $.messager.alert('My Title', 'Here is a message!');
+                            }
+                            function alert2() {
+                                $.messager.alert('My Title', 'Here is a error message!', 'error');
+                            }
+                            function alert3() {
+                                $.messager.alert('My Title', 'Here is a info message!', 'info');
+                            }
+                            function alert4() {
+                                $.messager.alert('My Title', 'Here is a question message!', 'question');
+                            }
+                            function alert5() {
+                                $.messager.alert('My Title', 'Here is a warning message!', 'warning');
+                            }
+                            function show() {
+                                $.messager.show({
+                                    title: 'My Title',
+                                    msg: 'Message will be closed after 4 seconds.',
+                                    showType: 'show'
+                                });
+                            }
+                            function slide() {
+                                $.messager.show({
+                                    title: 'My Title',
+                                    msg: 'Message will be closed after 5 seconds.',
+                                    timeout: 5000,
+                                    showType: 'slide'
+                                });
+                            }
+                            function fade() {
+                                $.messager.show({
+                                    title: 'My Title',
+                                    msg: 'Message never be closed.',
+                                    timeout: 0,
+                                    showType: 'fade'
+                                });
+                            }
+                            function progress() {
+                                var win = $.messager.progress({
+                                    title: 'Please waiting',
+                                    msg: 'Loading data...'
+                                });
+                                setTimeout(function() {
+                                    $.messager.progress('close');
+                                },
+                                5000)
+                            }
+                        </script>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <h4>用法</h4>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$.messager.alert(</span><span class="string">'Warning'</span><span>,</span><span class="string">'The&nbsp;warning&nbsp;message'</span><span>);&nbsp;&nbsp;</span></span></li><li class=""><span>$.messager.confirm(<span class="string">'Confirm'</span><span>,</span><span class="string">'Are&nbsp;you&nbsp;sure&nbsp;you&nbsp;want&nbsp;to&nbsp;delete&nbsp;record?'</span><span>,</span><span class="keyword">function</span><span>(r){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(r){&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">'ok'</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>});&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-messager" style="display: none;">	$.messager.alert('Warning','The warning message');
+	$.messager.confirm('Confirm','Are you sure you want to delete record?',function(r){
+		if (r){
+			alert('ok');
+		}
+	});
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <table class="doc-table">
+                            <TBODY>
+                                <tr>
+                                    <th>
+                                        <strong>
+                                            名称
+                                        </strong>
+                                    </th>
+                                    <th>
+                                        <strong>
+                                            类型
+                                        </strong>
+                                    </th>
+                                    <th>
+                                        <strong>
+                                            说明
+                                        </strong>
+                                    </th>
+                                    <th>
+                                        <strong>
+                                            默认值
+                                        </strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        ok
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        Ok按钮文本。
+                                    </td>
+                                    <td>
+                                        Ok
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        cancel
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        取消按钮的文本。
+                                    </td>
+                                    <td>
+                                        Cancel
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <table class="doc-table">
+                            <TBODY>
+                                <tr>
+                                    <th>
+                                        <strong>
+                                            名称
+                                        </strong>
+                                    </th>
+                                    <th>
+                                        <strong>
+                                            参数
+                                        </strong>
+                                    </th>
+                                    <th>
+                                        <strong>
+                                            说明
+                                        </strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        $.messager.show
+                                    </td>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        显示一个消息窗口在屏幕底部。选项参数是一个配置对象:
+                                        <br />
+                                        showType: 定义了如何将显示消息窗口。可用值: null,slide,fade,show. 默认为slide。
+                                        <br />
+                                        showSpeed: 定义了时间在毫秒完成显示消息窗口。默认值为600。
+                                        <br />
+                                        width: 定义消息窗口的宽度。默认值为250。
+                                        <br />
+                                        height: 定义消息窗口的高度。默认值为100。
+                                        <br />
+                                        title: 标题文本显示在标题面板。
+                                        <br />
+                                        msg: 消息文本显示。
+                                        <br />
+                                        style: 定义了自定义dpecification风格为消息窗口。
+                                        <br />
+                                        timeout: 如果定义为0,消息窗口不会关闭,除非用户关闭它。对unzero定义,消息窗口将自动关闭当超时。默认为4秒。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>
+$.messager.show({
+	title: 'My Title',
+	msg: 'Message will be closed after
+                                            5 seconds.',
+	timeout: 5000,
+	showType: 'slide'
+}); // 显示消息窗口顶部中心 $.messager.show({
+title: 'My Title',
+msg: 'Message will be closed after 4 seconds.',
+showType: 'show',
+style: {
+	right: '',
+	top: document.body.scrollTop + document.documentElement.scrollTop,
+	bottom: ''
+}
+});
+
+
+                                        </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        $.messager.alert
+                                    </td>
+                                    <td>
+                                        title, msg, icon, fn
+                                    </td>
+                                    <td>
+                                        显示一个警告窗口。参数:
+                                        <br />
+                                        title: 标题文本显示在标题面板。
+                                        <br />
+                                        msg: 消息文本显示。
+                                        <br />
+                                        icon: 形象的图标将显示。可用值是:error,question,info,warning.
+                                        <br />
+                                        fn: 这个回调函数窗口关闭时触发。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>
+                                            $.messager.alert('My Title','Here is a info message!','info');
+                                        </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        $.messager.confirm
+                                    </td>
+                                    <td>
+                                        title, msg, fn
+                                    </td>
+                                    <td>
+                                        显示一个确认消息窗口,可以取消按钮。参数:
+                                        <br />
+                                        title: 标题文本显示在标题面板。
+                                        <br />
+                                        msg: 消息文本显示。
+                                        <br />
+                                        fn(b): 回调函数,当用户单击Ok按钮,通过true函数,否则通过false来它。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>
+                                            $.messager.confirm('Confirm', 'Are you sure to exit this system?', function(r){if
+                                            (r){ // exit action; } });
+                                        </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        $.messager.prompt
+                                    </td>
+                                    <td>
+                                        title, msg, fn
+                                    </td>
+                                    <td>
+                                        显示一个消息窗口,可以取消按钮提示用户输入一些文本。参数:
+                                        <br />
+                                        title: 标题文本显示在标题面板。
+                                        <br />
+                                        msg: 消息文本显示。
+                                        <br />
+                                        fn(val): 这个回调函数值与用户输入的参数。
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>
+                                            $.messager.prompt('Prompt', 'Please enter your name:', function(r){if
+                                            (r){ alert('Your name is:' + r); }});
+                                        </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        $.messager.progress
+                                    </td>
+                                    <td>
+                                        options or method
+                                    </td>
+                                    <td>
+                                        显示一个进度消息窗口。
+                                        <br />
+                                        这个选项被定义为:
+                                        <br />
+                                        title: 标题文本显示在标题面板,默认&rdquo;。
+                                        <br />
+                                        msg: 消息框体文字,默认&rdquo;。
+                                        <br />
+                                        text: 文本显示在进度条,默认未定义。
+                                        <br />
+                                        interval: 时间以毫秒为单位的长度之间的每一次进步都更新,默认300。
+                                        <br />
+                                        <br />
+                                        该方法被定义为:
+                                        <br />
+                                        bar: 得到progressbar对象。
+                                        <br />
+                                        close: 关闭进度窗口。
+                                        <br />
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        显示进度信息窗口。
+                                        <br />
+                                        <pre>
+                                            $.messager.progress();
+                                        </pre>
+                                        现在关闭消息窗口。
+                                        <br />
+                                        <pre>
+                                            $.messager.progress('close');
+                                        </pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        无
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹出框内嵌表格</title>
+<link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/icon.css" />
+<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+<link href="../../../style/main-layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'></script>
+<script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'></script>
+<script type="text/javascript" src='../../../plugins/extends/json.js'></script>
+<script language="javascript" src="../../../js/con-tab.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#win3').dialog({
+			width: 600,
+			height: 400,
+			toolbar: [{
+				text: '编辑',
+				iconCls: 'icon-edit',
+				handler: function(){
+					alert('edit');
+				}
+			}, {
+				text: '帮助',
+				iconCls: 'icon-help',
+				handler: function(){
+					alert('help');
+				}
+			}]
+		});
+		
+		$('#win4').dialog({
+			width: 600,
+			height: 400,
+			closed: true,
+			buttons: [{
+				text: '确定',
+				iconCls: 'icon-ok',
+				handler: function(){
+				}
+			}, {
+				text: '关闭',
+				iconCls: 'icon-cancel',
+				handler: function(){
+					$('#win4').dialog('close');
+				}
+			}]
+		});
+	});
+</script>
+<!-- 代码高亮插件SyntaxHighlighter begain-->
+<script type="text/javascript" src="../scripts/shCore.js"></script>
+<script type="text/javascript" src="../scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../scripts/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../scripts/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../scripts/shBrushDiff.js"></script>
+<script type="text/javascript" src="../scripts/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="../scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../scripts/shBrushRuby.js"></script>
+<script type="text/javascript" src="../scripts/shBrushScala.js"></script>
+<script type="text/javascript" src="../scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="../scripts/shBrushVb.js"></script>
+<script type="text/javascript" src="../scripts/shBrushXml.js"></script>
+<link type="text/css" rel="stylesheet" href="../styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="../styles/shThemeDefault.css"/>
+<script type="text/javascript">
+  SyntaxHighlighter.config.clipboardSwf = '../scripts/clipboard.swf';
+  SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+  SyntaxHighlighter.config.clipboardSwf = '../scripts/clipboard.swf';
+  SyntaxHighlighter.config.strings = {
+	  expandSource : '展开代码',
+	  viewSource : '查看代码',
+	  copyToClipboard : '复制代码',
+	  copyToClipboardConfirmation : '代码复制成功',
+	  print : '打印',
+	  help: '?',
+	  alert: '语法高亮\n\n',
+	  noBrush: '不能找到刷子: ',
+	  brushNotHtmlScript: '刷子没有配置html-script选项',
+	  aboutDialog: '<div></div>'
+  };
+  SyntaxHighlighter.all();
+</script>
+<!-- 代码高亮插件SyntaxHighlighter end-->
+</head>
+
+<body>
+<div id="container">
+  <div id="header">
+    <div class="Menubox1">
+      <ul>
+        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover"> 效果示例 </li>
+        <li id="two2" onmouseover="setTab1('two',2,5)"> HTML代码 </li>
+      </ul>
+    </div>
+  </div>
+  <div id="mainContent">
+    <div class="Contentbox1">
+      <div id="con_two_1" class="msgTablist"> 
+        <!-- 示例区域 --> 
+        <!-- 示例一 -->
+        <div class="sample-border">
+          <div class="barTitle"> <span>弹出框内嵌表格布局</span> </div>
+           <div> <a href="#" class="easyui-linkbutton" onclick="$('#win4').dialog('open');">带按钮栏</a> </div>
+           <div id="win4" class="easyui-dialog" title="弹出框内嵌表单布局" style="overflow:hidden;" >
+            <form id="conditionform" class="main-form-w" action="#">
+            <table class="main-table-one">
+              <tbody>
+                <tr>
+                  <td class="main-table-onet">姓名</td>
+                  <td class="inputTd">王小白</td>
+                  <td class="main-table-onet">性别</td>
+                  <td class="inputTd">男</td>
+                </tr>
+                <tr>
+                  <td class="main-table-onet">曾用名</td>
+                  <td class="inputTd">王阿黄</td>
+                  <td class="main-table-onet">婚姻状况</td>
+                  <td class="inputTd">已婚</td>
+                </tr>
+                <tr>
+                  <td class="main-table-onet">出生日期</td>
+                  <td class="inputTd">1984-07-24</td>
+                  <td class="main-table-onet">爱好</td>
+                  <td class="inputTd">足球</td>
+                </tr>
+                <tr>
+                  <td class="main-table-onet">籍贯</td>
+                  <td class="inputTd">江苏</td>
+                  <td class="main-table-onet">民族</td>
+                  <td class="inputTd">汉族</td>
+                </tr>
+                <tr>
+                  <td class="main-table-onet">学历</td>
+                  <td class="inputTd">研究生</td>
+                  <td class="main-table-onet">电话</td>
+                  <td class="inputTd">13800000000</td>
+                </tr>
+                <tr>
+                  <td class="main-table-onet">邮政编码</td>
+                  <td class="inputTd">0010011</td>
+                  <td class="main-table-onet">其它信息</td>
+                  <td class="inputTd">0010011</td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+            </div> 
+          </div>
+        <!-- 示例源代码 --> 
+      </div>
+      <div id="con_two_2" style="display:none">
+        <h1>弹出框内嵌表格布局</h1>
+        <pre class="brush: javascript;">
+        <table class="main-table-one">
+          <tbody>
+            <tr>
+              <td class="main-table-onet">姓名</td>
+              <td class="inputTd">王小白</td>
+              <td class="main-table-onet">性别</td>
+              <td class="inputTd">男</td>
+            </tr>
+            <tr>
+              <td class="main-table-onet">曾用名</td>
+              <td class="inputTd">王阿黄</td>
+              <td class="main-table-onet">婚姻状况</td>
+              <td class="inputTd">已婚</td>
+            </tr>
+            <tr>
+              <td class="main-table-onet">出生日期</td>
+              <td class="inputTd">1984-07-24</td>
+              <td class="main-table-onet">爱好</td>
+              <td class="inputTd">足球</td>
+            </tr>
+            <tr>
+              <td class="main-table-onet">籍贯</td>
+              <td class="inputTd">江苏</td>
+              <td class="main-table-onet">民族</td>
+              <td class="inputTd">汉族</td>
+            </tr>
+            <tr>
+              <td class="main-table-onet">学历</td>
+              <td class="inputTd">研究生</td>
+              <td class="main-table-onet">电话</td>
+              <td class="inputTd">13800000000</td>
+            </tr>
+            <tr>
+              <td class="main-table-onet">邮政编码</td>
+              <td class="inputTd">0010011</td>
+              <td class="main-table-onet">其它信息</td>
+              <td class="inputTd">0010011</td>
+            </tr>
+          </tbody>
+        </table>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+<br class="clearfloat" />
+</body>
+</html>

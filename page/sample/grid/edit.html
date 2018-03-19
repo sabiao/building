@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>表格编辑</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#dd').dialog({
+                    closed: true,
+                    cache: false,
+                    modal: true,
+                    buttons: [{
+                        id: 'ensure',
+                        text: '确定',
+                        iconCls: 'icon-ok',
+                        handler: function(){
+                            dlgSave();
+                        }
+                    }, {
+                        id: 'close',
+                        text: '退出',
+                        iconCls: 'icon-cancel',
+                        handler: function(){
+                            $('#dd').dialog('close');
+                        }
+                    }]
+                });
+                
+                $('#grid').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    singleSelect: true,
+                    pagination: true,
+                    columns: [[{
+                        field: 'itemid',
+                        title: 'Item ID',
+                        width: 80
+                    }, {
+                        field: 'productname',
+                        title: 'Product',
+                        width: 120
+                    }, {
+                        field: 'listprice',
+                        title: 'List Price',
+                        width: 80,
+                        align: 'right'
+                    }, {
+                        field: 'unitcost',
+                        title: 'Unit Cost',
+                        width: 80,
+                        align: 'right'
+                    }, {
+                        field: 'attr1',
+                        title: 'Attribute',
+                        width: 200
+                    }, {
+                        field: 'status',
+                        title: 'Status',
+                        width: 60,
+                        align: 'center'
+                    }]],
+                    toolbar: [{
+                        text: '新增',
+                        iconCls: 'icon-add',
+                        handler: function(){
+                            $('#dd').dialog('open');
+                        }
+                    }, {
+                        text: '编辑',
+                        iconCls: 'icon-edit',
+                        handler: function(){
+                            dlgEdit(1);
+                        }
+                    }, {
+                        text: '查看',
+                        iconCls: 'icon-search',
+                        handler: function(){
+                            dlgEdit(0);
+                        }
+                    }, {
+                        text: '删除',
+                        iconCls: 'icon-remove',
+                        handler: function(){
+                            del();
+                        }
+                    }, '-', {
+                        text: '刷新',
+                        iconCls: 'icon-reload',
+                        handler: function(){
+                            $('#grid').datagrid('reload');
+                        }
+                    }]
+                });
+                
+                $('#grid2').datagrid({
+                    url: 'datagrid_data1.json',
+                    fit: true,
+                    fitColumns: true,
+                    singleSelect: true,
+                    pagination: true,
+					onClickRow: onClickRow,
+                    columns: [[{
+                        field: 'itemid',
+                        title: 'Item ID',
+                        width: 80,
+						editor:{type:'validatebox',options: {required:true}}
+                    }, {
+                        field: 'productname',
+                        title: 'Product',
+                        width: 120,
+						editor:'text'
+                    }, {
+                        field: 'listprice',
+                        title: 'List Price',
+                        width: 80,
+                        align: 'right',
+						editor:{type:'numberbox',options:{precision:1}}
+                    }, {
+                        field: 'unitcost',
+                        title: 'Unit Cost',
+                        width: 80,
+                        align: 'right',
+						editor:'numberbox'
+                    }, {
+                        field: 'attr1',
+                        title: 'Attribute',
+                        width: 200,
+						editor:'text'
+                    }, {
+                        field: 'status',
+                        title: 'Status',
+                        width: 60,
+                        align: 'center',
+						editor:{type:'checkbox',options:{on:'P',off:'N'}}
+                    }]],
+                    toolbar: [{
+                        text: '新增',
+                        iconCls: 'icon-add',
+                        handler: function(){
+                            append();
+                        }
+                    }, {
+                        text: '保存',
+                        iconCls: 'icon-save',
+                        handler: function(){
+                            save();
+                        }
+                    }, {
+                        text: '删除',
+                        iconCls: 'icon-remove',
+                        handler: function(){
+                            remove();
+                        }
+                    }, '-', {
+                        text: '刷新',
+                        iconCls: 'icon-reload',
+                        handler: function(){
+                            $('#grid2').datagrid('reload');
+                        }
+                    }]
+                });
+                
+                setTimeout(function(){
+                    $('#con_two_2').hide();
+                }, 500);
+            });
+            
+            function del(){
+                var row = $('#grid').datagrid('getSelected');
+                if (!row) {
+                    $.messager.show({
+                        title: '提示',
+                        msg: '请先选择要删除的行！'
+                    });
+                    
+                    return;
+                }
+                
+                $.messager.confirm('确认对话框', '您确定要删除此记录吗？', function(r){
+                    if (r) {
+                        var index = $('#grid').datagrid('getRowIndex', row);
+                        $('#grid').datagrid('deleteRow', index);
+                        
+                        $.messager.show({
+                            title: '提示',
+                            msg: '删除成功！'
+                        });
+                    }
+                });
+            }
+            
+            function dlgEdit(status){
+                var row = $('#grid').datagrid('getSelected');
+                if (!row) {
+                    $.messager.show({
+                        title: '提示',
+                        msg: status == 1 ? '请先选择要编辑的行！' : '请先选择要查看的行！'
+                    });
+                    
+                    return;
+                }
+                
+                $('#form').form('load', row);
+                if (status) {
+                    $('#ensure').linkbutton('enable');
+                }
+                else {
+                    $('#ensure').linkbutton('disable');
+                }
+                $('#dd').dialog('open');
+            }
+            
+            function dlgSave(){
+                if (!$('#form').form('validate')) {
+                    $.messager.show({
+                        title: '提示',
+                        msg: '信息不完整，不能保存！'
+                    });
+                    
+                    return;
+                }
+                
+                var row = {};
+                var array = $('#form').serializeArray();
+                $.each(array, function(i, object){
+                    row[object.name] = object.value;
+                });
+                
+                $('#grid').datagrid('insertRow', {
+                    index: 0,
+                    row: row
+                });
+                
+                $('#dd').dialog('close');
+                $.messager.show({
+                    title: '提示',
+                    msg: '保存成功！'
+                });
+            }
+			
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#grid2').datagrid('validateRow', editIndex)){
+				$('#grid2').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}		
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#grid2').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#grid2').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function append(){
+			if (endEditing()){
+				$('#grid2').datagrid('appendRow',{status:'P'});
+				editIndex = $('#grid2').datagrid('getRows').length-1;
+				$('#grid2').datagrid('selectRow', editIndex)
+						.datagrid('beginEdit', editIndex);
+			}
+		}
+		function remove(){
+			if (editIndex == undefined) {
+				return
+			}
+			$('#grid2').datagrid('cancelEdit', editIndex).datagrid('deleteRow', editIndex);
+			editIndex = undefined;
+		}
+		function save(){
+			if(!endEditing()){
+				return false;
+			};
+			
+			var rows = $('#grid2').datagrid('getChanges');
+			if(rows.length == 0){
+				//提示信息：...
+			}
+			
+			//保存操作
+		}
+		function accept(){
+			if (endEditing()){
+				$('#grid2').datagrid('acceptChanges');
+			}
+		}
+		function reject(){
+			$('#grid2').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		function getChanges(){
+			var rows = $('#grid2').datagrid('getChanges');
+			alert(rows.length+' rows are changed!');
+		}
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,2)" class="hover">
+                            弹出编辑框
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,2)">
+                            表格行编辑
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+                        <div style="height:300px;">
+                            <table id="grid">
+                            </table>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remoteSort:&nbsp;<span class="boolean">false</span>,&nbsp;<span class="string">//定义从服务器对数据进行排序，默认为：true</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>&nbsp;<span class="string">//排序列</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortable:&nbsp;<span class="boolean">true</span>,&nbsp;<span class="string">//排序列</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]],</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toolbar:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'新增'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-add'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#dd'</span>).dialog(<span class="string">'open'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'编辑'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-edit'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;edit();</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'查看'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-search'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view();</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'删除'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-remove'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;del();</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;'-',&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'刷新'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-reload'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'reload'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li class="alt">});</li>
+</ol>
+                        </div>
+                    </div>
+					<div id="con_two_2">
+                        <h2>示例</h2>
+						<div style="height:400px;">
+							<table id="grid2"></table>
+						</div>
+						<h2>HTML代码</h2>
+						<div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+						<h2>JS代码</h2>
+						<div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fitColumns:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;singleSelect:&nbsp;<span class="boolean">true</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onClickRow:&nbsp;onClickRow,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'itemid'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Item&nbsp;ID'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:&nbsp;<span class="string">'validatebox'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required:&nbsp;<span class="boolean">true</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'productname'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Product'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">120</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:&nbsp;<span class="string">'text'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'listprice'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'List&nbsp;Price'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:&nbsp;<span class="string">'numberbox'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precision:&nbsp;<span class="number">1</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'unitcost'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Unit&nbsp;Cost'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:&nbsp;<span class="string">'numberbox'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'attr1'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Attribute'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">200</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:&nbsp;<span class="string">'text'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'status'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Status'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'center'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:&nbsp;<span class="string">'checkbox'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on:&nbsp;<span class="string">'P'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;off:&nbsp;<span class="string">'N'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]],</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toolbar:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'新增'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-add'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;append();</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'保存'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-save'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save();</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'删除'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-remove'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove();</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;'-',&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="string">'刷新'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-reload'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler:&nbsp;<span class="keyword">function</span>(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'reload'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li class="alt">});</li>
+<li></li>
+<li class="alt"><span class="keyword">var</span>&nbsp;editIndex&nbsp;=&nbsp;undefined;</li>
+<li><span class="keyword">function</span>&nbsp;endEditing(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(editIndex&nbsp;==&nbsp;undefined)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($(<span class="string">'#grid'</span>).datagrid(<span class="string">'validateRow'</span>,&nbsp;editIndex))&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'endEdit'</span>,&nbsp;editIndex);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editIndex&nbsp;=&nbsp;undefined;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;<span class="boolean">true</span>;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;<span class="boolean">false</span>;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>}</li>
+<li class="alt"></li>
+<li><span class="keyword">function</span>&nbsp;onClickRow(index){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(editIndex&nbsp;!=&nbsp;index)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(endEditing())&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'selectRow'</span>,&nbsp;index).datagrid(<span class="string">'beginEdit'</span>,&nbsp;index);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editIndex&nbsp;=&nbsp;index;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'selectRow'</span>,&nbsp;editIndex);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>}</li>
+<li class="alt"></li>
+<li><span class="keyword">function</span>&nbsp;append(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(endEditing())&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid').datagrid(<span class="string">'appendRow'</span>,&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status:&nbsp;<span class="string">'P'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editIndex&nbsp;=&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'getRows'</span>).length&nbsp;-&nbsp;1;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'selectRow'</span>,&nbsp;editIndex).datagrid(<span class="string">'beginEdit'</span>,&nbsp;editIndex);</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>}</li>
+<li class="alt"></li>
+<li><span class="keyword">function</span>&nbsp;remove(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(editIndex&nbsp;==&nbsp;undefined)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'cancelEdit'</span>,&nbsp;editIndex).datagrid(<span class="string">'deleteRow'</span>,&nbsp;editIndex);</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;editIndex&nbsp;=&nbsp;undefined;</li>
+<li>}</li>
+<li class="alt"></li>
+<li><span class="keyword">function</span>&nbsp;save(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!endEditing())&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;};</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;rows&nbsp;=&nbsp;$(<span class="string">'#grid'</span>).datagrid(<span class="string">'getChanges'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(rows.length&nbsp;==&nbsp;0)&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">//提示信息：...</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">//保存操作</span></li>
+<li class="alt">}</li>
+</ol>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+        <div id="dd" class="easyui-dialog" style="width:520px;height:320px;" title="编辑数据窗口" data-options="resizable:true,modal:true">
+            <form id="form" action="#">
+                <table class="table-col4">
+                    <tr>
+                        <td class="td-left">
+                            itemid：
+                        </td>
+                        <td class="td-right">
+                            <input name="itemid" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                        <td class="td-left">
+                            productid：
+                        </td>
+                        <td class="td-right">
+                            <input name="productid" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            productname：
+                        </td>
+                        <td>
+                            <input name="productname" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                        <td class="td-left">
+                            unitcost：
+                        </td>
+                        <td>
+                            <input name="unitcost" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            listprice：
+                        </td>
+                        <td>
+                            <input name="listprice" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                        <td class="td-left">
+                            attr1：
+                        </td>
+                        <td>
+                            <input name="attr1" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            status：
+                        </td>
+                        <td>
+                            <select id="status" class="easyui-combobox" name="status" data-options="required:true,panelHeight:50">
+                                <option value="P">P</option>
+                                <option value="N">N</option>
+                            </select>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

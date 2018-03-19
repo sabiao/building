@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>树型表格</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#tt').treegrid({
+                    url: 'treegrid_data2.json',
+                    fit: true,
+                    idField: 'id',
+                    treeField: 'name',
+                    columns: [[{
+                        title: 'Task Name',
+                        field: 'name',
+                        width: 180
+                    }, {
+                        field: 'persons',
+                        title: 'Persons',
+                        width: 60,
+                        align: 'right'
+                    }, {
+                        field: 'begin',
+                        title: 'Begin Date',
+                        width: 80
+                    }, {
+                        field: 'end',
+                        title: 'End Date',
+                        width: 80
+                    }]]
+                });
+            });
+			
+            function collapseAll(){
+                $('#tt').treegrid('collapseAll');
+            }
+            function expandAll(){
+                $('#tt').treegrid('expandAll');
+            }
+            function expandTo(){
+                $('#tt').treegrid('expandTo', 21).treegrid('select', 21);
+            }
+            function expand(){
+                $('#tt').treegrid('expand', 2);
+            }
+			function getChildren(){
+				var rows = $('#tt').treegrid('getChildren', 2);
+				alert(JSON.stringify(rows));
+			}
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,1)" class="hover">
+                            树型表格
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+                        <div style="margin-bottom:5px;">
+                            <a href="#" class="easyui-linkbutton" onclick="collapseAll();">全部折叠</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="expandAll();">全部展开</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="expand();">展开指定id的节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="expandTo();">选中指定id的节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="getChildren();">获得指定节点所有子节点</a>
+                        </div>
+                        <div style="height:200px;">
+                            <table id="tt">
+                            </table>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    &lt;<span class="tag-name">table</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"grid"</span>&gt;&lt;<span class="tag-name">/table</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li class="alt">$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;data&nbsp;=&nbsp;{"total":7,"rows":[</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":1,"name":"All&nbsp;Tasks","begin":"3/4/2010","end":"3/20/2010","progress":60,"iconCls":"icon-ok"},</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":2,"name":"Designing","begin":"3/4/2010","end":"3/10/2010","progress":100,"_parentId":1,"state":"closed"},</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":21,"name":"Database","persons":2,"begin":"3/4/2010","end":"3/6/2010","progress":100,"_parentId":2},</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":22,"name":"UML","persons":1,"begin":"3/7/2010","end":"3/8/2010","progress":100,"_parentId":2},</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":23,"name":"Export&nbsp;Document","persons":1,"begin":"3/9/2010","end":"3/10/2010","progress":100,"_parentId":2},</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":3,"name":"Coding","persons":2,"begin":"3/11/2010","end":"3/18/2010","progress":80},</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"id":4,"name":"Testing","persons":1,"begin":"3/19/2010","end":"3/20/2010","progress":20}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;],"footer":[</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"name":"Total&nbsp;Persons:","persons":7,"iconCls":"icon-sum"}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;]}</li>
+<li class="alt"></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).treegrid({</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fit:&nbsp;<span class="boolean">true</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idField:&nbsp;<span class="string">'id'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;treeField:&nbsp;<span class="string">'name'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[[{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Task&nbsp;Name'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'name'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">180</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'persons'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Persons'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">60</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:&nbsp;<span class="string">'right'</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'begin'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'Begin&nbsp;Date'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;field:&nbsp;<span class="string">'end'</span>,</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;<span class="string">'End&nbsp;Date'</span>,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;<span class="number">80</span></li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li class="alt"></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).treegrid(<span class="string">'loadData'</span>,&nbsp;data);</li>
+<li class="alt">});</li>
+<li></li>
+<li class="alt"><span class="string">//全部折叠</span></li>
+<li><span class="keyword">function</span>&nbsp;collapseAll(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).treegrid(<span class="string">'collapseAll'</span>);</li>
+<li>}</li>
+<li class="alt"></li>
+<li><span class="string">//全部展开</span></li>
+<li class="alt"><span class="keyword">function</span>&nbsp;expandAll(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).treegrid(<span class="string">'expandAll'</span>);</li>
+<li class="alt">}</li>
+<li></li>
+<li class="alt"><span class="string">//展开id为21的节点的所有父节点，并选中该行</span></li>
+<li><span class="keyword">function</span>&nbsp;expandTo(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).treegrid(<span class="string">'expandTo'</span>,&nbsp;<span class="number">21</span>).treegrid(<span class="string">'select'</span>,&nbsp;<span class="number">21</span>);</li>
+<li>}</li>
+<li class="alt"></li>
+<li><span class="string">//展开id为2的节点</span></li>
+<li class="alt"><span class="keyword">function</span>&nbsp;expand(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).treegrid(<span class="string">'expand'</span>,&nbsp;<span class="number">2</span>);</li>
+<li class="alt">}</li>
+<li></li>
+<li class="alt"><span class="string">//获取id为2的节点的所有子节点</span></li>
+<li><span class="keyword">function</span>&nbsp;getChildren(){</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span>&nbsp;rows&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).treegrid(<span class="string">'getChildren'</span>,&nbsp;<span class="number">2</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;alert(JSON.stringify(rows));</li>
+<li class="alt">}</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

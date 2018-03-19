@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>控钮</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../../../images/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/icon.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shCore.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js">
+        </script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js">
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            事件
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            方法
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <br>
+                        <div style="padding:5px;">
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a>
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',disabled:true">剪切</a>
+                            <a href="#" class="easyui-linkbutton">文本按钮</a>
+                        </div>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+                        <h2>创建按钮</h2>
+                        <p>
+                            使用标签创建按钮更加简单。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">a</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"btn"</span><span>&nbsp;</span><span class="attribute">href</span><span>=</span><span class="attribute-value">"#"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-linkbutton"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"iconCls:'icon-search'"</span><span class="tag">&gt;</span><span>easyui</span><span class="tag">&lt;/</span><span class="tag-name">a</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-linkbutton" style="display: none;">
+                            &lt;a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"&gt;easyui&lt;/a&gt;
+                        </textarea>
+                        <p>
+                            也可以使用Javascript创建按钮。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>&lt;a&nbsp;id=</span><span class="string">"btn"</span><span>&nbsp;href=</span><span class="string">"#"</span><span>&gt;easyui&lt;/a&gt;&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>$(<span class="string">'#btn'</span><span>).linkbutton({&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;iconCls:&nbsp;<span class="string">'icon-search'</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-linkbutton" style="display: none;">
+                            &lt;a id="btn" href="#"&gt;easyui&lt;/a&gt;
+                            $('#btn').linkbutton({
+                            iconCls: 'icon-search'
+                            });
+                        </textarea>
+                        <br>
+                        <h2>处理按钮的点击</h2>
+                        <p>
+                            点击按钮会将用户引导到其他页面。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">a</span><span>&nbsp;</span><span class="attribute">href</span><span>=</span><span class="attribute-value">"otherpage.php"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-linkbutton"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"iconCls:'icon-search'"</span><span class="tag">&gt;</span><span>easyui</span><span class="tag">&lt;/</span><span class="tag-name">a</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-linkbutton" style="display: none;">
+                            &lt;a href="otherpage.php" class="easyui-linkbutton" data-options="iconCls:'icon-search'"&gt;easyui&lt;/a&gt;
+                        </textarea>
+                        <p>
+                            下面的示例提示了一个警告信息。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">a</span><span>&nbsp;</span><span class="attribute">href</span><span>=</span><span class="attribute-value">"#"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-linkbutton"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"iconCls:'icon-search'"</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">onclick</span><span>=</span><span class="attribute-value">"javascript:alert('easyui')"</span><span class="tag">&gt;</span><span>easyui</span><span class="tag">&lt;/</span><span class="tag-name">a</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-linkbutton" style="display: none;">
+                            &lt;a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                            onclick="javascript:alert('easyui')"&gt;easyui&lt;/a&gt;
+                        </textarea>
+                        <p>
+                            绑定Click事件。
+                        </p>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-xml">
+                                <li class="alt">
+                                    <span><span class="tag">&lt;</span><span class="tag-name">a</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"btn"</span><span>&nbsp;</span><span class="attribute">href</span><span>=</span><span class="attribute-value">"#"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-linkbutton"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"iconCls:'icon-search'"</span><span class="tag">&gt;</span><span>easyui</span><span class="tag">&lt;/</span><span class="tag-name">a</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="html" name="code-linkbutton" style="display: none;">
+                            &lt;a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"&gt;easyui&lt;/a&gt;
+                        </textarea>
+                        <div class="dp-highlighter">
+                            <div class="bar">
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <ol start="1" class="dp-c">
+                                <li class="alt">
+                                    <span><span>$(</span><span class="keyword">function</span><span>(){&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#btn'</span><span>).bind(</span><span class="string">'click'</span><span>,&nbsp;</span><span class="keyword">function</span><span>(){&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="alt">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(<span class="string">'easyui'</span><span>);&nbsp;&nbsp;</span></span>
+                                </li>
+                                <li class="">
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span>
+                                </li>
+                                <li class="alt">
+                                    <span>});&nbsp;&nbsp;</span>
+                                </li>
+                            </ol>
+                        </div>
+                        <textarea class="js" name="code-linkbutton" style="display: none;">
+                            $(function(){
+                            $('#btn').bind('click', function(){
+                            alert('easyui');
+                            });
+                            });
+                        </textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>类型</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                    <th>
+                                        <strong>默认</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        id
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        这种组件的id属性。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        disabled
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True禁用按钮
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        plain
+                                    </td>
+                                    <td>
+                                        boolean
+                                    </td>
+                                    <td>
+                                        True显示一个普通的效应。
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        text
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        按钮的文本。
+                                    </td>
+                                    <td>
+                                        ''
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        iconCls
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        一个CSS类来显示一个16 x16图标在左边。
+                                    </td>
+                                    <td>
+                                        null
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        iconAlign
+                                    </td>
+                                    <td>
+                                        string
+                                    </td>
+                                    <td>
+                                        位置的按钮图标。可能的值是: 'left','right'. 这个属性可以从版本1.3.2以后使用。
+                                    </td>
+                                    <td>
+                                        left
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+                        <br>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+                        <br>
+                        <table class="doc-table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <strong>名称</strong>
+                                    </th>
+                                    <th>
+                                        <strong>参数</strong>
+                                    </th>
+                                    <th>
+                                        <strong>说明</strong>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        options
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        返回选择属性。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        disable
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        禁用按钮
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#btn').linkbutton('disable');  </pre>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        enable
+                                    </td>
+                                    <td>
+                                        none
+                                    </td>
+                                    <td>
+                                        启用按钮
+                                        <p>
+                                            代码示例:
+                                        </p>
+                                        <pre>$('#btn').linkbutton('enable');  </pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

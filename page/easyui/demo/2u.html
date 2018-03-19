@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" charset="UTF-8"/>
+        <title>2U布局</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/icon.css" />
+		<script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+            $(function(){
+                $('#dd').dialog({
+                    closed: true,
+                    cache: false,
+                    //href: 'get_content.php',
+                    modal: true,
+                    buttons: [{
+                        text: '确定',
+                        iconCls: 'icon-ok',
+                        handler: function(){
+                            save();
+                        }
+                    }, {
+                        text: '退出',
+						iconCls: 'icon-cancel',
+                        handler: function(){
+                            $('#dd').dialog('close');
+                        }
+                    }]
+                });
+            })
+            
+            function del(){
+                var row = $('#datagrid').datagrid('getSelected');
+                if (!row) {
+                    $.messager.show({
+                        title: '提示',
+                        msg: '请先选择要删除的行！'
+                    });
+                    
+                    return;
+                }
+                
+                $.messager.confirm('确认对话框', '您确定要删除此记录吗？', function(r){
+                    if (r) {
+                        var index = $('#datagrid').datagrid('getRowIndex', row);
+                        $('#datagrid').datagrid('deleteRow', index);
+                        
+                        $.messager.show({
+                            title: '提示',
+                            msg: '删除成功！'
+                        });
+                    }
+                });
+            }
+            
+            function save(){
+                if (!$('#form').form('validate')) {
+                    $.messager.show({
+                        title: '提示',
+                        msg: '信息不完整，不能保存！'
+                    });
+                    
+                    return;
+                }
+                
+                var row = {};
+                var array = $('#form').serializeArray();
+                $.each(array, function(i, object){
+                    row[object.name] = object.value;
+                });
+                
+                $('#datagrid').datagrid('insertRow', {
+                    index: 0,
+                    row: row
+                });
+                
+                $('#dd').dialog('close');
+                $.messager.show({
+                    title: '提示',
+                    msg: '保存成功！'
+                });
+            }
+        </script>
+    </head>
+    <body class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'west',title:'查询区域'" class="main-left">
+            <ul class="easyui-tree">
+                <li>
+                    <span>My Documents</span>
+                    <ul>
+                        <li data-options="state:'closed'">
+                            <span>Photos</span>
+                            <ul>
+                                <li>
+                                    <span>Friend</span>
+                                </li>
+                                <li>
+                                    <span>Wife</span>
+                                </li>
+                                <li>
+                                    <span>Company</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>Program Files</span>
+                            <ul>
+                                <li>
+                                    Intel
+                                </li>
+                                <li>
+                                    Java
+                                </li>
+                                <li>
+                                    Microsoft Office
+                                </li>
+                                <li>
+                                    Games
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            index.html
+                        </li>
+                        <li>
+                            about.html
+                        </li>
+                        <li>
+                            welcome.html
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div data-options="region:'center',title:'数据区域',iconCls:'icon-ok'">
+            <table id="datagrid" class="easyui-datagrid" style="width:700px;height:250px" data-options="rownumbers:true,fit:true,fitColumns:true,singleSelect:true,pagination:true,url:'datagrid_data1.json',toolbar:toolbar">
+                <thead>
+                    <tr>
+                        <th data-options="field:'itemid',width:80">
+                            Item ID
+                        </th>
+                        <th data-options="field:'productid',width:100">
+                            Product
+                        </th>
+                        <th data-options="field:'listprice',width:80,align:'right'">
+                            List Price
+                        </th>
+                        <th data-options="field:'unitcost',width:80,align:'right'">
+                            Unit Cost
+                        </th>
+                        <th data-options="field:'attr1',width:240">
+                            Attribute
+                        </th>
+                        <th data-options="field:'status',width:60,align:'center'">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <script type="text/javascript">
+                var toolbar = [{
+                    text: '新增',
+                    iconCls: 'icon-add',
+                    handler: function(){
+                        $('#dd').dialog('open');
+                    }
+                }, '-', {
+                    text: '删除',
+                    iconCls: 'icon-remove',
+                    handler: function(){
+                        del();
+                    }
+                }];
+            </script>
+        </div>
+        <div id="dd" class="easyui-dialog" title="编辑数据窗口" style="width:520px;height:330px;" data-options="resizable:true,modal:true">
+            <form id="form" action="">
+                <table class="table-col2">
+                    <tr>
+                        <td class="td-left">
+                            itemid：
+                        </td>
+                        <td class="td-right">
+                            <input name="itemid" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            productid：
+                        </td>
+                        <td>
+                            <input name="productid" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            productname：
+                        </td>
+                        <td>
+                            <input name="productname" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            unitcost：
+                        </td>
+                        <td>
+                            <input name="unitcost" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            listprice：
+                        </td>
+                        <td>
+                            <input name="listprice" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            attr1：
+                        </td>
+                        <td>
+                            <input name="attr1" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            status：
+                        </td>
+                        <td>
+                            <input name="status" class="easyui-validatebox" data-options="required:true" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

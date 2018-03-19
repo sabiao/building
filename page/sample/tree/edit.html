@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>编辑</title>
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <link href="../../../plugins/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $('#tt').tree({
+                    url: 'tree_data1.json'
+                });
+                
+                $("ol li:nth-child(even)").addClass("alt");
+            });
+            
+            // 追加若干个节点并选中他们
+            function append(){
+                var selected = $('#tt').tree('getSelected');
+                $('#tt').tree('append', {
+                    parent: selected.target,
+                    data: [{
+                        id: 23,
+                        text: 'node23'
+                    }, {
+                        text: 'node24',
+                        state: 'closed',
+                        children: [{
+                            text: 'node241'
+                        }, {
+                            text: 'node242'
+                        }]
+                    }]
+                });
+                
+            }
+            
+            //将一个新节点插入到选择的节点之前
+            function insert(){
+                var node = $('#tt').tree('getSelected');
+                if (node) {
+                    $('#tt').tree('insert', {
+                        before: node.target,
+                        data: {
+                            id: 21,
+                            text: 'node text'
+                        }
+                    });
+                }
+            }
+            
+            //移除一个节点和它的子节点
+            function removeNode(){
+                var node = $('#tt').tree('getSelected');
+                if (node) {
+                    $('#tt').tree('remove', node.target);
+                }
+            }
+            
+            // 更新选择的节点文本
+            function update(){
+                var node = $('#tt').tree('getSelected');
+                if (node) {
+                    $('#tt').tree('update', {
+                        target: node.target,
+                        text: 'new text'
+                    });
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,1)" class="hover">
+                            编辑模式
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+                        <h2>示例</h2>
+                        <div>
+                            <a href="#" class="easyui-linkbutton" onclick="append();">添加节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="insert();">插入节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="removeNode();">删除节点</a>&nbsp;<a href="#" class="easyui-linkbutton" onclick="update();">更新节点</a>
+                        </div>
+                        <br/>
+                        <div>
+                            <ul id="tt">
+                            </ul>
+                        </div>
+                        <h2>HTML代码</h2>
+                        <div class="dp-highlighter">
+                            <ol start="1" class="dp-xml">
+                                <li>
+                                    &lt;<span class="tag-name">ul</span>&nbsp;<span class="attribute">id</span>=<span class="attribute-value">"tt"</span>&gt;&lt;<span class="tag-name">/ul</span>&gt;
+                                </li>
+                            </ol>
+                        </div>
+                        <h2>JS代码</h2>
+                        <div class="dp-highlighter">
+<ol start="1" class="dp-j">
+<li>$(<span class="keyword">function</span>(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree({</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;<span class="string">'getData.jsp'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>});</li>
+<li></li>
+<li><span class="string">//追加若干个节点并选中他们</span></li>
+<li><span class="keyword">function</span>&nbsp;append(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;selected&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'getSelected'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'append'</span>,&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent:&nbsp;selected.target,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;23,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;'node23'</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;'node24',</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;state:&nbsp;'closed',</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children:&nbsp;[{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;'node241'</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;'node242'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//将一个新节点插入到选择的节点之前</span></li>
+<li><span class="keyword">function</span>&nbsp;insert(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;node&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'getSelected'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(node)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'insert'</span>,&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;before:&nbsp;node.target,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;21,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;'node&nbsp;text'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//移除一个节点和它的子节点</span></li>
+<li><span class="keyword">function</span>&nbsp;removeNode(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;node&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'getSelected'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(node)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'remove'</span>,&nbsp;node.target);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>}</li>
+<li></li>
+<li><span class="string">//更新选择的节点文本</span></li>
+<li><span class="keyword">function</span>&nbsp;update(){</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;node&nbsp;=&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'getSelected'</span>);</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(node)&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span class="string">'#tt'</span>).tree(<span class="string">'update'</span>,&nbsp;{</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target:&nbsp;node.target,</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;'new&nbsp;text'</span></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li>}</li>
+</ol>                        
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

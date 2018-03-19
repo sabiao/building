@@ -1,0 +1,51 @@
+.main-content .user-table tr:nth-child(even){
+	background-color: #e3e3e3;
+}
+
+.main-content .user-table tr:nth-child(odd){
+	background-color: white;
+}
+
+.main-content .user-table tr:hover {
+	background-color: #d3d3d3;
+}
+.main-content .user-table thead tr:hover {
+	background: none;
+}
+.main-content .user-table th {
+	text-align: left;
+}
+.main-content .user-table {
+	width: 95%;
+}
+
+.main-content .user-table a.del-user:hover {
+	text-decoration: none;
+}
+.main-content .user-table .del-user {
+	background: url('../../../images/msg_bg.png');
+	background-position: 0 -48px;
+}
+
+.main-content .user-table .save-change-btn {
+	background: url('../../../images/msg_bg.png');
+	background-position: 0 -248px;
+	margin-left: 10px;
+}
+.add-new-user {
+
+	background: url('../../../plugins/easyui/themes/icons/edit_add.png') no-repeat left center;
+}
+
+.del-multiple-user {
+	padding-left: 20px;
+	background: url('../../../plugins/easyui/themes/icons/edit_remove.png') no-repeat left center;
+}
+
+.save-change-btn,
+.del-user,
+.add-new-user,
+.del-multiple-user {
+	cursor: pointer;
+	padding-left: 18px;
+}

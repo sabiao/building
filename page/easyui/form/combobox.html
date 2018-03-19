@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>combobox</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+						<div style="margin:10px 0;"></div>
+                    <select class="easyui-combobox" name="state" style="width:200px;">
+		<option value="AL">Alabama</option>
+		<option value="AK">Alaska</option>
+		<option value="AZ">Arizona</option>
+		<option value="AR">Arkansas</option>
+		<option value="CA">California</option>
+		<option value="CO">Colorado</option>
+		<option value="CT">Connecticut</option>
+		<option value="DE">Delaware</option>
+		<option value="FL">Florida</option>
+		<option value="GA">Georgia</option>
+		<option value="HI">Hawaii</option>
+		<option value="ID">Idaho</option>
+		<option value="IL">Illinois</option>
+		<option value="IN">Indiana</option>
+		<option value="IA">Iowa</option>
+		<option value="KS">Kansas</option>
+		<option value="KY">Kentucky</option>
+		<option value="LA">Louisiana</option>
+		<option value="ME">Maine</option>
+		<option value="MD">Maryland</option>
+		<option value="MA">Massachusetts</option>
+		<option value="MI">Michigan</option>
+		<option value="MN">Minnesota</option>
+		<option value="MS">Mississippi</option>
+		<option value="MO">Missouri</option>
+		<option value="MT">Montana</option>
+		<option value="NE">Nebraska</option>
+		<option value="NV">Nevada</option>
+		<option value="NH">New Hampshire</option>
+		<option value="NJ">New Jersey</option>
+		<option value="NM">New Mexico</option>
+		<option value="NY">New York</option>
+		<option value="NC">North Carolina</option>
+		<option value="ND">North Dakota</option>
+		<option value="OH" selected>Ohio</option>
+		<option value="OK">Oklahoma</option>
+		<option value="OR">Oregon</option>
+		<option value="PA">Pennsylvania</option>
+		<option value="RI">Rhode Island</option>
+		<option value="SC">South Carolina</option>
+		<option value="SD">South Dakota</option>
+		<option value="TN">Tennessee</option>
+		<option value="TX">Texas</option>
+		<option value="UT">Utah</option>
+		<option value="VT">Vermont</option>
+		<option value="VA">Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="WV">West Virginia</option>
+		<option value="WI">Wisconsin</option>
+		<option value="WY">Wyoming</option>
+	</select>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+						<div style="margin:10px 0;"></div>
+<h4>应用实例</h4>
+<p>从&lt;select&gt;创建下拉列表框元素与一个预定义的结构。</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">select</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"dept"</span><span>&nbsp;</span><span class="attribute">style</span><span>=</span><span class="attribute-value">"width:200px;"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"aa"</span><span class="tag">&gt;</span><span>aitem1</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>bitem2</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>bitem3</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>ditem4</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>eitem5</span><span class="tag">&lt;/</span><span class="tag-name">option</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="tag">&lt;/</span><span class="tag-name">select</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-combobox" style="display: none;">	&lt;select id="cc" class="easyui-combobox" name="dept" style="width:200px;"&gt;
+		&lt;option value="aa"&gt;aitem1&lt;/option&gt;
+		&lt;option&gt;bitem2&lt;/option&gt;
+		&lt;option&gt;bitem3&lt;/option&gt;
+		&lt;option&gt;ditem4&lt;/option&gt;
+		&lt;option&gt;eitem5&lt;/option&gt;
+	&lt;/select&gt;
+</textarea>
+<p>创建下拉列表框从&lt;input&gt;标记。</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"dept"</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">data-options</span><span>=</span><span class="attribute-value">"valueField:'id',textField:'text',url:'get_data.php'"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-combobox" style="display: none;">	&lt;input id="cc" class="easyui-combobox" name="dept"
+		data-options="valueField:'id',textField:'text',url:'get_data.php'" /&gt;
+</textarea>
+<p>使用javascript创建下拉列表框。</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"dept"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"aa"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-combobox" style="display: none;">	&lt;input id="cc" name="dept" value="aa"&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#cc'</span><span>).combobox({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;url:<span class="string">'combobox_data.json'</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;valueField:<span class="string">'id'</span><span>,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;textField:<span class="string">'text'</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>});&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-combobox" style="display: none;">	$('#cc').combobox({
+		url:'combobox_data.json',
+		valueField:'id',
+		textField:'text'
+	});
+</textarea>
+<p>创建两个依赖的组合框。</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc1"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>="&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valueField:&nbsp;'id',&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textField:&nbsp;'text',&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;'get_data1.php',&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onSelect:&nbsp;function(rec){&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;<span class="attribute">url</span><span>&nbsp;=&nbsp;</span><span class="attribute-value">'get_data2.php?id='</span><span>+rec.id;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#cc2').combobox('reload',&nbsp;url);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}"&nbsp;<span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc2"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-combobox"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"valueField:'id',textField:'text'"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-combobox" style="display: none;">	&lt;input id="cc1" class="easyui-combobox" data-options="
+			valueField: 'id',
+			textField: 'text',
+			url: 'get_data1.php',
+			onSelect: function(rec){
+				var url = 'get_data2.php?id='+rec.id;
+				$('#cc2').combobox('reload', url);
+			}" /&gt;
+	&lt;input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'" /&gt;
+</textarea>
+
+<p>json数据格式示例:</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>[{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"id"</span><span>:1,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"text"</span><span>:</span><span class="string">"text1"</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>},{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"id"</span><span>:2,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"text"</span><span>:</span><span class="string">"text2"</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>},{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"id"</span><span>:3,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"text"</span><span>:</span><span class="string">"text3"</span><span>,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"selected"</span><span>:</span><span class="keyword">true</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>},{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"id"</span><span>:4,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"text"</span><span>:</span><span class="string">"text4"</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>},{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"id"</span><span>:5,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"text"</span><span>:</span><span class="string">"text5"</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>}]&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-combobox" style="display: none;">	[{
+		"id":1,
+		"text":"text1"
+	},{
+		"id":2,
+		"text":"text2"
+	},{
+		"id":3,
+		"text":"text3",
+		"selected":true
+	},{
+		"id":4,
+		"text":"text4"
+	},{
+		"id":5,
+		"text":"text5"
+	}]
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>属性扩展从组合,下面是添加属性组合框。</p>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>valueField</td>
+      <td>string</td>
+      <td>底层数据值名称绑定到这个组合框，传到后台实际值。</td>
+      <td>value</td>
+    </tr>
+    <tr>
+      <td>textField</td>
+      <td>string</td>
+      <td>底层数据字段名称绑定到这个组合框，前台显示值。</td>
+      <td>text</td>
+    </tr>
+    <tr>
+      <td>mode</td>
+      <td>string</td>
+      <td>定义了如何加载列表数据当文本改变。设置为&ldquo;remote“如果下拉列表框从服务器加载。当设置为&ldquo;remot“模式下,用户类型将被发送的http请求参数命名为&ldquo;q”服务器来检索新数据。</td>
+      <td>local</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>string</td>
+      <td>一个URL加载列表数据从远程。</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>method</td>
+      <td>string</td>
+      <td>http方法检索数据。</td>
+      <td>post</td>
+    </tr>
+    <tr>
+      <td>data</td>
+      <td>array</td>
+      <td>数据列表加载。
+        <p>代码示例:</p>
+        <pre>&lt;input class=&quot;easyui-combobox&quot; data-options=&quot;valueField: 'label',textField: 'value',
+     data: [{label: 'java',value: 'Java'},
+            {label: 'perl',value: 'Perl'},
+            {label: 'ruby', value: 'Ruby'}]&quot; /&gt;  </pre></td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>function</td>
+      <td>定义了如何过滤本地数据当&ldquo;model&rdquo;设置为&ldquo;local&rdquo;。这个函数接受两个参数:<br />
+        q: 用户输入的文本。<br />
+        row: 行数据的列表。<br />
+        返回true允许这行被显示。
+        <p>代码示例:</p>
+        <pre>$('#cc').combobox({
+    filter: function(q, row){
+        var opts = $(this).combobox('options');
+        return row[opts.textField].indexOf(q) == 0;  	
+    }  
+});  </pre></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>formatter</td>
+      <td>function</td>
+      <td>定义如何渲染row。这个函数接受一个参数row.
+        <p>代码示例:</p>
+        <pre>$('#cc').combobox({  	
+     formatter: function(row){  		
+         var opts = $(this).combobox('options');  		
+         return row[opts.textField];  	
+     }  
+});  </pre></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>loader</td>
+      <td>function(param,success,error)</td>
+      <td>定义了如何加载数据从远程服务器。可以放弃这次行动返回false。这个函数接受以下参数:<br />
+        param: 参数对象传递给远程服务器。<br />
+        success(data): 这个回调函数会调用这些当检索数据成功。<br />
+        error(): 这个回调函数会调用这些当未能检索数据。</td>
+      <td>json loader</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>从组合的方法扩展,下面是添加或重写的方法为下拉列表框。</p>
+                     <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+ <tr>
+      <td>options</td>
+      <td>none</td>
+      <td>返回选择对象。</td>
+    </tr>
+    <tr>
+      <td>getData</td>
+      <td>none</td>
+      <td>返回数据的加载。</td>
+    </tr>
+    <tr>
+      <td>loadData</td>
+      <td>data</td>
+      <td>加载区域列表数据。</td>
+    </tr>
+    <tr>
+      <td>reload</td>
+      <td>url</td>
+      <td>请求远程列表数据。通过&ldquo;url&rdquo;参数覆盖原始url值。
+        <p>代码示例:</p>
+        <pre>$('#cc').combobox('reload');  // 重新加载列表数据使用旧的URL
+$('#cc').combobox('reload','get_data.php');  // 重新加载列表数据使用新的URL</pre></td>
+    </tr>
+    <tr>
+      <td>setValues</td>
+      <td>values</td>
+      <td>设置组合框值数组。
+        <p>代码示例:</p>
+        <pre>$('#cc').combobox('setValues', ['001','002']);  </pre></td>
+    </tr>
+    <tr>
+      <td>setValue</td>
+      <td>value</td>
+      <td>设置下拉列表框的值。
+        <p>代码示例:</p>
+        <pre>$('#cc').combobox('setValue', '001');  </pre></td>
+    </tr>
+    <tr>
+      <td>clear</td>
+      <td>none</td>
+      <td>清除下拉列表框值。</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>value</td>
+      <td>选择指定的项。</td>
+    </tr>
+    <tr>
+      <td>unselect</td>
+      <td>value</td>
+      <td>取消选择指定的项。</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>事件扩展从组合,下面是添加事件为下拉列表框。</p>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            <tr>
+      <td>onBeforeLoad</td>
+      <td>param</td>
+      <td>在加载数据前触发事件，如果返回false则不会加载数据
+        <p>代码示例:</p>
+        <pre>// 改变参数的http请求从服务器加载数据之前
+$('#cc').combobox({  	
+     onBeforeLoad: function(param){  		
+           param.id = 2;  		
+           param.language = 'js';  	  
+      }  
+});  </pre></td>
+    </tr>
+    <tr>
+      <td>onLoadSuccess</td>
+      <td>none</td>
+      <td>当远程数据加载成功。</td>
+    </tr>
+    <tr>
+      <td>onLoadError</td>
+      <td>none</td>
+      <td>当远程数据加载错误。</td>
+    </tr>
+    <tr>
+      <td>onSelect</td>
+      <td>record</td>
+      <td>当用户选择一个列表项。</td>
+    </tr>
+    <tr>
+      <td>onUnselect</td>
+      <td>record</td>
+      <td>当用户取消选择列表项。</td>
+    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

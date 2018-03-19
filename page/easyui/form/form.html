@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>form</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+        <link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+        <script language="javascript" src="../../../js/con-tab.js"></script>
+        <script type="text/javascript" src="../../../js/shCore.js"></script>
+        <script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+        <script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+        </head>
+        <body>
+<div id="container">
+          <div id="header">
+    <div class="Menubox1">
+              <ul>
+        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover"> 效果示例 </li>
+        <li id="two2" onmouseover="setTab1('two',2,5)"> 源代码 </li>
+        <li id="two3" onmouseover="setTab1('two',3,5)"> 属性 </li>
+        <li id="two4" onmouseover="setTab1('two',4,5)"> 方法 </li>
+        <li id="two5" onmouseover="setTab1('two',5,5)"> 事件 </li>
+      </ul>
+            </div>
+  </div>
+          <div id="mainContent">
+    <div class="Contentbox1">
+              <div id="con_two_1" class="msgTablist">
+        <div style="margin:10px 0;"></div>
+        <div class="easyui-panel" title="New Topic" style="width:400px">
+                  <div style="padding:10px 0 10px 60px">
+            <form id="ff" method="post">
+                      <table>
+                <tr>
+                          <td>Name:</td>
+                          <td><input class="easyui-validatebox" type="text" name="name" data-options="required:true">
+                    </input></td>
+                        </tr>
+                <tr>
+                          <td>Email:</td>
+                          <td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'">
+                    </input></td>
+                        </tr>
+                <tr>
+                          <td>Subject:</td>
+                          <td><input class="easyui-validatebox" type="text" name="subject" data-options="required:true">
+                    </input></td>
+                        </tr>
+                <tr>
+                          <td>Message:</td>
+                          <td><textarea name="message" style="height:60px;"></textarea></td>
+                        </tr>
+                <tr>
+                          <td>Language:</td>
+                          <td><select class="easyui-combobox" name="language">
+                              <option value="ar">Arabic</option>
+                              <option value="bg">Bulgarian</option>
+                              <option value="ca">Catalan</option>
+                              <option value="zh-cht">Chinese Traditional</option>
+                              <option value="cs">Czech</option>
+                              <option value="da">Danish</option>
+                              <option value="nl">Dutch</option>
+                              <option value="en" selected="selected">English</option>
+                              <option value="et">Estonian</option>
+                              <option value="fi">Finnish</option>
+                              <option value="fr">French</option>
+                              <option value="de">German</option>
+                              <option value="el">Greek</option>
+                              <option value="ht">Haitian Creole</option>
+                              <option value="he">Hebrew</option>
+                              <option value="hi">Hindi</option>
+                              <option value="mww">Hmong Daw</option>
+                              <option value="hu">Hungarian</option>
+                              <option value="id">Indonesian</option>
+                              <option value="it">Italian</option>
+                              <option value="ja">Japanese</option>
+                              <option value="ko">Korean</option>
+                              <option value="lv">Latvian</option>
+                              <option value="lt">Lithuanian</option>
+                              <option value="no">Norwegian</option>
+                              <option value="fa">Persian</option>
+                              <option value="pl">Polish</option>
+                              <option value="pt">Portuguese</option>
+                              <option value="ro">Romanian</option>
+                              <option value="ru">Russian</option>
+                              <option value="sk">Slovak</option>
+                              <option value="sl">Slovenian</option>
+                              <option value="es">Spanish</option>
+                              <option value="sv">Swedish</option>
+                              <option value="th">Thai</option>
+                              <option value="tr">Turkish</option>
+                              <option value="uk">Ukrainian</option>
+                              <option value="vi">Vietnamese</option>
+                            </select></td>
+                        </tr>
+              </table>
+                    </form>
+          </div>
+                  <div style="text-align:center;padding:5px"> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a> </div>
+                </div>
+      </div>
+              <div id="con_two_2" style="display:none">
+        <div style="margin:10px 0;"></div>
+        <h4>用法</h4>
+        <p> 创建一个简单的HTML表单。构建这个像平时一样和id、action和method。 </p>
+        <div class="dp-highlighter">
+                  <div class="bar">
+            <div class="tools"></div>
+          </div>
+                  <ol start="1" class="dp-xml">
+            <li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">form</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"ff"</span><span>&nbsp;</span><span class="attribute">method</span><span>=</span><span class="attribute-value">"post"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">label</span><span>&nbsp;</span><span class="attribute">for</span><span>=</span><span class="attribute-value">"name"</span><span class="tag">&gt;</span><span>Name:</span><span class="tag">&lt;/</span><span class="tag-name">label</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-validatebox"</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"name"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"required:true"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">label</span><span>&nbsp;</span><span class="attribute">for</span><span>=</span><span class="attribute-value">"email"</span><span class="tag">&gt;</span><span>Email:</span><span class="tag">&lt;/</span><span class="tag-name">label</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-validatebox"</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text"</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"email"</span><span>&nbsp;</span><span class="attribute">data-options</span><span>=</span><span class="attribute-value">"validType:'email'"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;</span></li>
+            <li class="alt"><span><span class="tag">&lt;/</span><span class="tag-name">form</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li>
+          </ol>
+                </div>
+        <textarea class="html" name="code-form" style="display: none;">	&lt;form id="ff" method="post"&gt;
+		&lt;div&gt;
+			&lt;label for="name"&gt;Name:&lt;/label&gt;
+			&lt;input class="easyui-validatebox" type="text" name="name" data-options="required:true" /&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;label for="email"&gt;Email:&lt;/label&gt;
+			&lt;input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" /&gt;
+		&lt;/div&gt;
+		...
+	&lt;/form&gt;
+</textarea>
+        <p>使变成为ajax提交表单</p>
+        <div class="dp-highlighter">
+                  <div class="bar">
+            <div class="tools"></div>
+          </div>
+                  <ol start="1" class="dp-c">
+            <li class="alt"><span><span>$(</span><span class="string">'#ff'</span><span>).form({&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;url:...,&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;onSubmit:&nbsp;<span class="keyword">function</span><span>(){&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// 做一些检查</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// 返回false来防止提交;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;success:<span class="keyword">function</span><span>(data){&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(data)&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+            <li class=""><span>});&nbsp;&nbsp;</span></li>
+            <li class="alt"><span><span class="comment">//&nbsp;submit&nbsp;the&nbsp;form</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>$(<span class="string">'#ff'</span><span>).submit();&nbsp;&nbsp;</span></span></li>
+          </ol>
+                </div>
+        <textarea class="js" name="code-form" style="display: none;">	$('#ff').form({
+		url:...,
+		onSubmit: function(){
+			// do some check
+			// return false to prevent submit;
+		},
+		success:function(data){
+			alert(data)
+		}
+	});
+	// 提交表单
+	$('#ff').submit();
+</textarea>
+        <p>做一个提交动作</p>
+        <div class="dp-highlighter">
+                  <div class="bar">
+            <div class="tools"></div>
+          </div>
+                  <ol start="1" class="dp-c">
+            <li class="alt"><span><span class="comment">// 称之为“submit”形式的方法插件提交表单</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>$(<span class="string">'#ff'</span><span>).form(</span><span class="string">'submit'</span><span>,&nbsp;{&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;url:...,&nbsp;&nbsp;</span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;onSubmit:&nbsp;<span class="keyword">function</span><span>(){&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// 做一些检查</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// 返回false来防止提交;</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;success:<span class="keyword">function</span><span>(data){&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(data)&nbsp;&nbsp;</span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>});&nbsp;&nbsp;</span></li>
+          </ol>
+                </div>
+        <textarea class="js" name="code-form" style="display: none;">	// call 'submit' method of form plugin to submit the form
+	$('#ff').form('submit', {
+		url:...,
+		onSubmit: function(){
+			// do some check
+			// return false to prevent submit;
+		},
+		success:function(data){
+			alert(data)
+		}
+	});
+</textarea>
+        <p>提交额外的参数</p>
+        <div class="dp-highlighter">
+                  <div class="bar">
+            <div class="tools"></div>
+          </div>
+                  <ol start="1" class="dp-c">
+            <li class="alt"><span><span>$(</span><span class="string">'#ff'</span><span>).form(</span><span class="string">'submit'</span><span>,&nbsp;{&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;url:...,&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;onSubmit:&nbsp;<span class="keyword">function</span><span>(param){&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;param.p1&nbsp;=&nbsp;<span class="string">'value1'</span><span>;&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;param.p2&nbsp;=&nbsp;<span class="string">'value2'</span><span>;&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>});&nbsp;&nbsp;</span></li>
+          </ol>
+                </div>
+        <textarea class="js" name="code-form" style="display: none;">	$('#ff').form('submit', {
+		url:...,
+		onSubmit: function(param){
+			param.p1 = 'value1';
+			param.p2 = 'value2';
+		}
+	});
+</textarea>
+        <br>
+        <h5>处理提交响应</h5>
+        <p> 提交一个ajax表单很简单。用户可以获得响应数据当提交完成。注意,响应的数据是原始数据从服务器。一个解析行动来响应数据需要得到正确的数据。 </p>
+        <p> 例如,响应数据被认为是JSON,典型的响应数据可能看起来像这样: </p>
+        <div class="dp-highlighter">
+                  <div class="bar">
+            <div class="tools"></div>
+          </div>
+                  <ol start="1" class="dp-c">
+            <li class="alt"><span><span>{&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"success"</span><span>:&nbsp;</span><span class="keyword">true</span><span>,&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"message"</span><span>:&nbsp;</span><span class="string">"Message&nbsp;sent&nbsp;successfully."</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>}&nbsp;&nbsp;</span></li>
+          </ol>
+                </div>
+        <textarea class="js" name="code-form" style="display: none;">{
+	"success": true,
+	"message": "Message sent successfully."
+}
+</textarea>
+        <p>现在处理JSON字符串在“成功”回调函数。</p>
+        <div class="dp-highlighter">
+                  <div class="bar">
+            <div class="tools"></div>
+          </div>
+                  <ol start="1" class="dp-c">
+            <li class="alt"><span><span>$(</span><span class="string">'#ff'</span><span>).form(</span><span class="string">'submit'</span><span>,&nbsp;{&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;success:&nbsp;<span class="keyword">function</span><span>(data){&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span><span>&nbsp;data&nbsp;=&nbsp;eval(</span><span class="string">'('</span><span>&nbsp;+&nbsp;data&nbsp;+&nbsp;</span><span class="string">')'</span><span>);&nbsp;&nbsp;</span><span class="comment">//&nbsp;change&nbsp;the&nbsp;JSON&nbsp;string&nbsp;to&nbsp;javascript&nbsp;object</span><span>&nbsp;&nbsp;</span></span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(data.success){&nbsp;&nbsp;</span></span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(data.message)&nbsp;&nbsp;</span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+            <li class=""><span>});&nbsp;&nbsp;</span></li>
+          </ol>
+                </div>
+        <textarea class="js" name="code-form" style="display: none;">$('#ff').form('submit', {
+	success: function(data){
+		var data = eval('(' + data + ')');  // change the JSON string to javascript object
+		if (data.success){
+			alert(data.message)
+		}
+	}
+});
+</textarea>
+      </div>
+              <div id="con_two_3" style="display:none">
+        <div style="margin:10px 0;"></div>
+        <table class="doc-table">
+                  <TBODY>
+            <tr>
+                      <th> <strong>名称</strong> </th>
+                      <th> <strong>类型</strong> </th>
+                      <th> <strong>说明</strong> </th>
+                      <th> <strong>默认值</strong> </th>
+                    </tr>
+            <tr>
+                      <td>url</td>
+                      <td>string</td>
+                      <td>表单动作URL提交</td>
+                      <td>null</td>
+                    </tr>
+          </tbody>
+                </table>
+      </div>
+              <div id="con_two_4" style="display:none">
+        <div style="margin:10px 0;"></div>
+        <table class="doc-table">
+                  <TBODY>
+            <tr>
+                      <th> <strong>名称</strong> </th>
+                      <th> <strong>参数</strong> </th>
+                      <th> <strong>说明</strong> </th>
+                    </tr>
+            <tr>
+                      <td>onSubmit</td>
+                      <td>param</td>
+                      <td>之前提交事件,返回false来防止提交动作。</td>
+                    </tr>
+            <tr>
+                      <td>success</td>
+                      <td>data</td>
+                      <td>当表单提交successfuly触发事件。</td>
+                    </tr>
+            <tr>
+                      <td>onBeforeLoad</td>
+                      <td>param</td>
+                      <td>在数据加载之前触发事件。取消这个动作返回false。</td>
+                    </tr>
+            <tr>
+                      <td>onLoadSuccess</td>
+                      <td>data</td>
+                      <td>当表单加载数据触发事件。</td>
+                    </tr>
+            <tr>
+                      <td>onLoadError</td>
+                      <td>none</td>
+                      <td>当一些错误发生而加载表单数据触发事件。</td>
+                    </tr>
+          </tbody>
+                </table>
+      </div>
+              <div id="con_two_5" style="display:none">
+        <div style="margin:10px 0;"></div>
+        <table class="doc-table">
+                  <TBODY>
+            <tr>
+                      <th> <strong>名称</strong> </th>
+                      <th> <strong>参数</strong> </th>
+                      <th> <strong>说明</strong> </th>
+                    </tr>
+            <tr>
+                      <td>submit</td>
+                      <td>options</td>
+                      <td>做提交操作,选择参数是一个对象,包含以下属性:<br />
+                url: action URL<br />
+                onSubmit: 回调函数之前提交<br />
+                success: 回调函数successfuly后提交<br />
+                <p>下面的例子显示了如何提交一个有效的形式和避免重复提交表单。</p>
+                <pre>$.messager.progress();	// 显示进度条  
+$('#ff').form('submit', {  	
+   url: ...,  	
+   onSubmit: function(){  		
+        var isValid = $(this).form('validate');  		
+        if (!isValid){  			
+            $.messager.progress('close');	//隐藏进度条虽然形式是无效的 		
+        }  		
+        return isValid;	// 返回false,将阻止表单提交 	
+   },  	
+   success: function(){  		
+        $.messager.progress('close');	// 隐藏进度条同时提交成功	
+   }  
+});  </pre></td>
+                    </tr>
+            <tr>
+                      <td>load</td>
+                      <td>data</td>
+                      <td>加载记录填表。数据参数可以是一个字符串或一个对象类型,当字符串作为一个远程URL,否则作为一个当地的记录。
+                <p>代码示例:</p>
+                <pre>$('#ff').form('load','get_data.php');	// load from URL  </pre>
+                <pre>$('#ff').form('load',{  	
+    name:'name2',  	
+    email:'mymail@gmail.com',  	
+    subject:'subject2',  	
+    message:'message2',  	
+    language:5  
+});  </pre></td>
+                    </tr>
+            <tr>
+                      <td>clear</td>
+                      <td>none</td>
+                      <td>清除表单数据.</td>
+                    </tr>
+            <tr>
+                      <td>reset</td>
+                      <td>none</td>
+                      <td>重置表单数据。这个方法是可用的,从版本1.3.2开始。</td>
+                    </tr>
+            <tr>
+                      <td>validate</td>
+                      <td>none</td>
+                      <td>做表单字段验证吗, 返回true当所有字段是有效的. 他的方法是用validatebox插件.</td>
+                    </tr>
+          </tbody>
+                </table>
+      </div>
+            </div>
+  </div>
+        </div>
+<br class="clearfloat" />
+</body>
+</html>

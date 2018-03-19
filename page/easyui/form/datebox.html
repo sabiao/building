@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>datebox</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+					<div style="margin:10px 0;"></div>
+                    <input class="easyui-datebox"></input>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+					<div style="margin:10px 0;"></div>
+						<h4>应用实例</h4>
+<p>创建datebox从标记.</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"dd"</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"easyui-datebox"</span><span>&nbsp;</span><span class="attribute">required</span><span>=</span><span class="attribute-value">"required"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">input</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-datebox" style="display: none;">	&lt;input id="dd" type="text" class="easyui-datebox" required="required"&gt;&lt;/input&gt;
+</textarea>
+<p>创建datebox使用javascript.</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"dd"</span><span>&nbsp;</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"text"</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">input</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-datebox" style="display: none;">	&lt;input id="dd" type="text"&gt;&lt;/input&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#dd'</span><span>).datebox({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;required:<span class="keyword">true</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>});&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-datebox" style="display: none;">	$('#dd').datebox({
+		required:true
+	});
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<P>属性扩展从combo,下面是添加属性datebox。</p>
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>panelWidth</td>
+      <td>number</td>
+      <td>下拉日历面板宽度。</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>panelHeight</td>
+      <td>number</td>
+      <td>下拉日历面板高度。</td>
+      <td>auto</td>
+    </tr>
+    <tr>
+      <td>currentText</td>
+      <td>string</td>
+      <td>当前天按钮显示文本。</td>
+      <td>Today</td>
+    </tr>
+    <tr>
+      <td>closeText</td>
+      <td>string</td>
+      <td>关闭按钮显示文本。</td>
+      <td>Close</td>
+    </tr>
+    <tr>
+      <td>okText</td>
+      <td>string</td>
+      <td>ok按钮显示文本。</td>
+      <td>Ok</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>boolean</td>
+      <td>当为true则禁用字段。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>formatter</td>
+      <td>function</td>
+      <td>一个函数来格式化日期,该函数把一个&ldquo;date&rdquo;参数并返回一个字符串值。下面的例子显示了如何覆盖默认格式化程序功能。        <pre>$.fn.datebox.defaults.formatter = function(date){  	
+    var y = date.getFullYear();  	
+    var m = date.getMonth()+1;  	
+    var d = date.getDate();  	
+    return m+'/'+d+'/'+y;  
+}  </pre></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>parser</td>
+      <td>function</td>
+      <td>一个函数来解析一个日期字符串,函数把一个&ldquo;date&rdquo;字符串,并返回一个日期值。下面的例子显示了如何覆盖默认的解析器函数。        <pre>$.fn.datebox.defaults.parser = function(s){  	
+   var t = Date.parse(s);  	
+   if (!isNaN(t)){  		
+       return new Date(t);  	
+   } else {  		
+       return new Date();  	
+   }  
+}  </pre></td>
+      <td></td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+					<p>从combo的方法扩展,下面是datebox覆盖方法。</p>
+                     <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>options</td>
+      <td>none</td>
+      <td>返回选择对象。</td>
+    </tr>
+    <tr>
+      <td>calendar</td>
+      <td>none</td>
+      <td>把日历对象。下面的例子展示了如何把日历对象,然后重新创建它。        <pre>//把日历对象  
+var c = $('#dd').datebox('calendar');  
+
+//设置第一天周星期一 
+c.calendar({firstDay: 1});  </pre></td>
+    </tr>
+    <tr>
+      <td>setValue</td>
+      <td>value</td>
+      <td>设置datebox值。
+        <p>代码示例:</p>
+        <pre>$('#dd').datebox('setValue', '6/1/2012');	// 给datebox赋值  
+var v = $('#dd').datebox('getValue');	// 获得datebox的值  </pre></td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            <tr>
+      <td>onSelect</td>
+      <td>date</td>
+      <td>当用户选择一个日期触发事件。
+        <p>代码示例:</p>
+        <pre>$('#dd').datebox({  	
+   onSelect: function(date){  		
+       alert(date.getFullYear()+&quot;:&quot;+(date.getMonth()+1)+&quot;:&quot;+date.getDate());  	
+   }  
+});  </pre></td>
+    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

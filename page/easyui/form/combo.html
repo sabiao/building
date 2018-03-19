@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>combo</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/core/imgs/favicon.ico" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../../../plugins/easyui/themes/default/easyui.css" />
+        <script type="text/javascript" src="../../../plugins/jquery/jquery-1.8.0.min.js">
+        </script>
+        <script type="text/javascript" src="../../../plugins/easyui/jquery.easyui.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../../../style/main.css"/>
+        <script type="text/javascript" src='../../../plugins/easyui/locale/easyui-lang-zh_CN.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/jquery.sailing.core.js'>
+        </script>
+        <script type="text/javascript" src='../../../plugins/extends/json.js'>
+        </script>
+		
+		<link href="../../../style/con-min.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../../../js/con-tab.js"></script>
+		<script type="text/javascript" src="../../../js/shCore.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../js/shBrushXml.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="Menubox1">
+                    <ul>
+                        <li id="two1" onmouseover="setTab1('two',1,5)" class="hover">
+                            效果示例
+                        </li>
+                        <li id="two2" onmouseover="setTab1('two',2,5)">
+                            源代码
+                        </li>
+                        <li id="two3" onmouseover="setTab1('two',3,5)">
+                            属性
+                        </li>
+                        <li id="two4" onmouseover="setTab1('two',4,5)">
+                            方法
+                        </li>
+                        <li id="two5" onmouseover="setTab1('two',5,5)">
+                            事件
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainContent">
+                <div class="Contentbox1">
+                    <div id="con_two_1" class="msgTablist">
+						<div style="margin:10px 0;"></div>
+                    <select id="cc" style="width:150px"></select>
+	<div id="sp">
+		<div style="color:#99BBE8;background:#fafafa;padding:5px;">Select a language</div>
+		<input type="radio" name="lang" value="01"><span>Java</span><br/>
+		<input type="radio" name="lang" value="02"><span>C#</span><br/>
+		<input type="radio" name="lang" value="03"><span>Ruby</span><br/>
+		<input type="radio" name="lang" value="04"><span>Basic</span><br/>
+		<input type="radio" name="lang" value="05"><span>Fortran</span>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('#cc').combo({
+				required:true,
+				editable:false
+			});
+			$('#sp').appendTo($('#cc').combo('panel'));
+			$('#sp input').click(function(){
+				var v = $(this).val();
+				var s = $(this).next('span').text();
+				$('#cc').combo('setValue', v).combo('setText', s).combo('hidePanel');
+			});
+		});
+	</script>
+                    </div>
+                    <div id="con_two_2" style="display:none">
+						<div style="margin:10px 0;"></div>
+<h4>用法</h4>
+<p>
+组合可创建从一个&lt;select&gt;或&lt;input&gt;元素使用javascript。注意,创建组合从标记无效。
+</p>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">input</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"cc"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"001"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><textarea class="html" name="code-combo" style="display: none;">	&lt;input id="cc" value="001"&gt;
+</textarea>
+<div class="dp-highlighter"><div class="bar"><div class="tools"></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>$(</span><span class="string">'#cc'</span><span>).combo({&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;required:<span class="keyword">true</span><span>,&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;multiple:<span class="keyword">true</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>});&nbsp;&nbsp;</span></li></ol></div><textarea class="js" name="code-combo" style="display: none;">	$('#cc').combo({
+		required:true,
+		multiple:true
+	});
+</textarea>
+                    </div>
+                    <div id="con_two_3" style="display:none">
+					<div style="margin:10px 0;"></div>
+					从validatebox属性扩展,下面是添加属性组合。
+                    <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>类型</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+							<th>
+                                <strong>默认值</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>width</td>
+      <td>number</td>
+      <td>组件的宽度。</td>
+      <td>auto</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>number</td>
+      <td>组件的高度。这个属性可以从版本1.3.2使用。</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>panelWidth</td>
+      <td>number</td>
+      <td>下拉面板宽度。</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>panelHeight</td>
+      <td>number</td>
+      <td>下拉面板高度。</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>multiple</td>
+      <td>boolean</td>
+      <td>定义是否支持多个选择。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>separator</td>
+      <td>string</td>
+      <td>分隔符字符文本当多个选择。</td>
+      <td>,</td>
+    </tr>
+    <tr>
+      <td>editable</td>
+      <td>boolean</td>
+      <td>是否用户可以输入文本定义直接到输入框。</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>boolean</td>
+      <td>是否禁用该领域的定义。</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>hasDownArrow</td>
+      <td>boolean</td>
+      <td>定义是否显示向下箭头按钮。</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>string</td>
+      <td>默认值。</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>delay</td>
+      <td>number</td>
+      <td>延迟做搜索,从最后一个关键的输入事件。</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>keyHandler</td>
+      <td>object</td>
+      <td>一个函数被调用当使用者按下键。默认keyHandler被定义为:        <pre>keyHandler: {  	
+  up: function(){},  	
+  down: function(){},  	
+  enter: function(){},  	
+  query: function(q){}  
+}  </pre></td>
+      <td></td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_4" style="display:none">
+					<div style="margin:10px 0;"></div>
+					从validatebox方法扩展,下面是添加的方法对组合。
+                     <table class="doc-table">
+                        <TBODY>
+                        <tr>
+                            <th>
+                                <strong>名称</strong>
+                            </th>
+                            <th>
+                                <strong>参数</strong>
+                            </th>
+                            <th>
+                                <strong>说明</strong>
+                            </th>
+                        </tr>
+<tr>
+      <td>options</td>
+      <td>none</td>
+      <td>返回选择对象。</td>
+    </tr>
+    <tr>
+      <td>panel</td>
+      <td>none</td>
+      <td>返回下拉面板对象。</td>
+    </tr>
+    <tr>
+      <td>textbox</td>
+      <td>none</td>
+      <td>返回文本框对象。</td>
+    </tr>
+    <tr>
+      <td>destroy</td>
+      <td>none</td>
+      <td>销毁组件。</td>
+    </tr>
+    <tr>
+      <td>resize</td>
+      <td>width</td>
+      <td>调整组件的宽度。</td>
+    </tr>
+    <tr>
+      <td>showPanel</td>
+      <td>none</td>
+      <td>显示下拉面板。</td>
+    </tr>
+    <tr>
+      <td>hidePanel</td>
+      <td>none</td>
+      <td>隐藏下拉面板。</td>
+    </tr>
+    <tr>
+      <td>disable</td>
+      <td>none</td>
+      <td>禁用组件。</td>
+    </tr>
+    <tr>
+      <td>enable</td>
+      <td>none</td>
+      <td>启用组件。</td>
+    </tr>
+    <tr>
+      <td>validate</td>
+      <td>none</td>
+      <td>验证输入值。</td>
+    </tr>
+    <tr>
+      <td>isValid</td>
+      <td>none</td>
+      <td>返回验证结果。</td>
+    </tr>
+    <tr>
+      <td>clear</td>
+      <td>none</td>
+      <td>清空的组件值。</td>
+    </tr>
+    <tr>
+      <td>reset</td>
+      <td>none</td>
+      <td>重置组件值。这个方法是可用的,从版本1.3.2以后。</td>
+    </tr>
+    <tr>
+      <td>getText</td>
+      <td>none</td>
+      <td>得到输入文本。</td>
+    </tr>
+    <tr>
+      <td>setText</td>
+      <td>text</td>
+      <td>设置文本值。</td>
+    </tr>
+    <tr>
+      <td>getValues</td>
+      <td>none</td>
+      <td>获取组件值数组。</td>
+    </tr>
+    <tr>
+      <td>setValues</td>
+      <td>values</td>
+      <td>设置组件值数组。</td>
+    </tr>
+    <tr>
+      <td>getValue</td>
+      <td>none</td>
+      <td>获取组件值。</td>
+    </tr>
+    <tr>
+      <td>setValue</td>
+      <td>value</td>
+      <td>设置组件的值。</td>
+    </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div id="con_two_5" style="display:none">
+					<div style="margin:10px 0;"></div>
+                        <table class="doc-table">
+                            <TBODY>
+                            <tr>
+                                <th>
+                                    <strong>名称</strong>
+                                </th>
+                                <th>
+                                    <strong>参数</strong>
+                                </th>
+                                <th>
+                                    <strong>说明</strong>
+                                </th>
+                            </tr>
+                            <tr>
+      <td>onShowPanel</td>
+      <td>none</td>
+      <td>当下拉面板显示时触发事件。</td>
+    </tr>
+    <tr>
+      <td>onHidePanel</td>
+      <td>none</td>
+      <td>当下拉面板隐藏时触发事件。</td>
+    </tr>
+    <tr>
+      <td>onChange</td>
+      <td>newValue, oldValue</td>
+      <td>当字段值变化的时候触发事件。</td>
+    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clearfloat" />
+    </body>
+</html>

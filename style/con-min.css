@@ -1,0 +1,257 @@
+@charset "utf-8";
+/*------------------------------------------------------------------
+* HomePage
+* Updated: 2014.05.20
+* Company：Sailing Information
+* Author: Vina Shi
+--------------------------------------------------------------------*/
+
+/*-------------------------- Common Style --------------------------
+*/
+body { padding:0;margin:10px 5px; border:solid 0px #CCCCCC; font-family:"微软雅黑", Verdana, Geneva, sans-serif,"宋体"; color:#333; font-size:14px; }
+table {border-collapse: collapse;border-spacing: 0;}
+.clearfloat { clear:both; height:0; font-size: 1px; line-height: 0px;}
+
+a:link { text-decoration: none; color:#333; }
+a:visited { text-decoration: none; color:#333; }
+a:hover { text-decoration:underline; color:#c00; }
+a:active { text-decoration: none; color:#333; }
+
+/*---------------------------- Form Css ----------------------------
+*/
+.text, .password { width:250px; height:23px; line-height:23px; border:solid 1px #CCCCCC; font-family:"微软雅黑","宋体", Verdana, Geneva, sans-serif;}
+.select { width:255px; height:25px; line-height:23px; border:solid 1px #CCCCCC; font-family:"微软雅黑","宋体", Verdana, Geneva, sans-serif; color: #999;}
+.lable {height:25px; line-height:25px;}
+
+/*---------------------------- Font Css ----------------------------
+*/
+h1 { font-size: 18px; font-weight: bold; line-height:36px; padding-left:10px; color:#333;}
+h2 { font-size: 14px; font-weight: bold; line-height:26px; padding-left:10px; color:#cc0000;}
+h3 { font-size: 12px; font-weight: bold; line-height:16px; padding-left:10px; color: #f00;}
+pre { color:#03C; line-height:18px;}
+
+/*---------------------------- Content Layout Style ----------------------------*/
+/* Layout common css 1 ----------------*/
+#container {margin:0 auto;}
+  #header { height:35px; margin:0 auto; padding:0; background:#f2f2f2;}
+	.Menubox1 {float:left; padding:0; margin:0; width:1100px; height:35px; line-height:35px;}  
+	.Menubox1 ul{ width:1100px; margin:0px; padding:0px; font-size:14px; color:#333;}   
+	.Menubox1 li{ margin:0; padding:0; color:#000; float:left; display:block; font-weight:bold; cursor:pointer; width:130px; height:35px; line-height:35px; text-align:center; font-size:14px;} 
+	.Menubox1 li.hover, .Menubox1 li a:hover, .Menubox1 li a:active{ background: url(../images/icon_01.gif) center bottom no-repeat #ff6600; padding:0px; width:130px; height:35px; line-height:35px; color:#fff; font-size:14px; font-weight:bold;} 
+  #mainContent { height: auto;}
+    .Contentbox1 { margin:0 auto; padding:0;}
+	  .contitle { margin:0 auto; padding:0; line-height:25px; font-size:14px;}
+	  
+	  .conimg { margin:0 auto; padding:0; line-height:25px; font-size:14px;}
+	  .conimg img { margin:10px 20px;}
+	  
+	  .conlist {   padding:10px 5px; margin-bottom:10px; border: 1px solid #ddd; line-height:25px; font-size:14px;}
+	  .conlist ul{ margin:0; padding:0 25px;}   
+	  .conlist li{ margin:0; padding:0; display:block;} 
+  
+	  .msgTablist { margin:10px; padding:0;}
+
+.doc-table{border-collapse:collapse;border-spacing:0;margin-left:9px;}
+.doc-table th,.doc-table td{border:1px solid #8CACBB;padding:0.3em 0.7em;}
+.doc-table th{background:#eee;}
+.doc-table pre{font-family:Verdana;font-size:12px;color:#006600;background:#fafafa;padding:5px;}
+
+/* Layout common css 2 ----------------*/
+.con-main-box {margin:0 auto; width:100%;}
+  .con-main-title {margin:0 auto; width:100%;}
+  .con-main-search {margin:0 auto; width:100%;}
+  .con-main-btn {margin:0 auto; width:100%;}
+  .con-main-list {margin:0 auto; width:100%;}
+  
+
+.dp-highlighter { font-family: "Consolas" , "Courier New" , Courier, mono, serif; font-size: 12px; background-color: #E7E5DC; width: 99%; overflow: auto; margin: 18px 0 18px 0 !important; padding-top: 1px; text-align: left; }
+
+/* Layout form css */
+.sampleTitle {
+	color:black;
+	  margin: 20px 0 10px 0;
+	*+margin-top:0;
+    font-size: 20px;
+}
+.barTitle {
+   padding-bottom: 9px;
+  margin: 5px 0 10px;
+  border-bottom: 2px solid #3399FF;
+  font-size:20px;
+}
+/*包裹示例和源代码的div*/
+.sample-border {
+  border-radius: 5px; padding:20px;
+}
+/*----------------------biz table-------------------------------*/
+/*琛ㄥ崟鏁翠綋鏍峰紡*/
+.table {
+	width: 100%;
+	*width: 90%;
+	background-color: White;
+    margin:10px 0;
+}
+
+/*琛ㄥ崟td鏍峰紡*/
+.table td {
+	font-weight: normal; padding:5px 0;
+}
+
+/*琛ㄥ崟td label鏍峰紡*/
+.inputLabelTd {
+	padding-right: 10px;
+	width: 18%;
+	text-align: right;
+}
+/*琛ㄦ牸杈撳叆妗嗗崟鍏冩牸*/
+.inputTd {
+	text-align: left;
+	padding-left: 5px;
+}
+ .bizform{
+   border: 1px solid #F7F2F2;
+   padding:10px 5px; margin-bottom:10px;
+ }
+.footTd td {
+	text-align: center;
+}
+.infieldset {
+	border-collapse: collapse;
+	width: 100%;
+	background-color: White;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+
+
+/* clear styles */
+.dp-highlighter ol, .dp-highlighter ol li, .dp-highlighter ol li span { margin: 0; padding: 0; border: none; }
+
+.dp-highlighter a, .dp-highlighter a:hover { background: none; border: none; padding: 0; margin: 0; }
+
+.dp-highlighter .bar { padding-left: 45px; }
+
+.dp-highlighter.collapsed .bar, .dp-highlighter.nogutter .bar { padding-left: 0px; }
+
+.dp-highlighter ol { list-style: decimal; /* for ie */ background-color: #fff; margin: 0px 0px 1px 45px !important; /* 1px bottom margin seems to fix occasional Firefox scrolling */ padding: 0px; color: #5C5C5C; }
+
+.dp-highlighter.nogutter ol, .dp-highlighter.nogutter ol li { list-style: none !important; margin-left: 0px !important; }
+
+.dp-highlighter ol li, .dp-highlighter .columns div { list-style: decimal-leading-zero; /* better look for others, override cascade from OL */ list-style-position: outside !important; border-left: 3px solid #6CE26C; background-color: #F8F8F8; color: #5C5C5C; padding: 0 3px 0 10px !important; margin: 0 !important; line-height: 150%; }
+
+.dp-highlighter.nogutter ol li, .dp-highlighter.nogutter .columns div { border: 0; }
+
+.dp-highlighter .columns { background-color: #F8F8F8; color: gray; overflow: hidden; width: 100%; }
+
+.dp-highlighter .columns div { padding-bottom: 5px; }
+
+.dp-highlighter ol li.alt { background-color: #FFF; color: inherit; }
+
+.dp-highlighter ol li span { color: black; background-color: inherit; }
+
+/* Adjust some properties when collapsed */
+
+.dp-highlighter.collapsed ol { margin: 0px; }
+
+.dp-highlighter.collapsed ol li { display: none; }
+
+/* Additional modifications when in print-view */
+
+.dp-highlighter.printing { border: none; }
+
+.dp-highlighter.printing .tools { display: none !important; }
+
+.dp-highlighter.printing li { display: list-item !important; }
+
+/* Styles for the tools */
+
+.dp-highlighter .tools { padding: 3px 8px 3px 10px; font: 9px Verdana, Geneva, Arial, Helvetica, sans-serif; color: silver; background-color: #f8f8f8; padding-bottom: 10px; border-left: 3px solid #6CE26C; }
+
+.dp-highlighter.nogutter .tools { border-left: 0; }
+
+.dp-highlighter.collapsed .tools { border-bottom: 0; }
+
+.dp-highlighter .tools a { font-size: 9px; color: #a0a0a0; background-color: inherit; text-decoration: none; margin-right: 10px; }
+
+.dp-highlighter .tools a:hover { color: red; background-color: inherit; text-decoration: underline; }
+
+/* About dialog styles */
+
+.dp-about { background-color: #fff; color: #333; margin: 0px; padding: 0px; }
+.dp-about table { width: 100%; height: 100%; font-size: 11px; font-family: Tahoma, Verdana, Arial, sans-serif !important; }
+.dp-about td { padding: 10px; vertical-align: top; }
+.dp-about .copy { border-bottom: 1px solid #ACA899; height: 95%; }
+.dp-about .title { color: red; background-color: inherit; font-weight: bold; }
+.dp-about .para { margin: 0 0 4px 0; }
+.dp-about .footer { background-color: #ECEADB; color: #333; border-top: 1px solid #fff; text-align: right; }
+.dp-about .close { font-size: 11px; font-family: Tahoma, Verdana, Arial, sans-serif !important; background-color: #ECEADB; color: #333; width: 60px; height: 22px; }
+
+/* Language specific styles */
+
+.dp-highlighter .comment, .dp-highlighter .comments { color: #008200; background-color: inherit; }
+.dp-highlighter .string { color: blue; background-color: inherit; }
+.dp-highlighter .keyword { color: #069; font-weight: bold; background-color: inherit; }
+.dp-highlighter .preprocessor { color: gray; background-color: inherit; }
+
+/*xml*/
+.dp-xml .cdata { color: #ff1493; }
+.dp-xml .tag {color: blue;}
+.dp-xml .dp-xml .tag-name { color: #993300; font-weight: bold; }
+.dp-xml .attribute { color: red; }
+.dp-xml .attribute-value { color: blue; }
+/*sql*/
+.dp-sql .func { color: #ff1493; }
+.dp-sql .op { color: #808080; }
+/*ruby*/
+.dp-rb .symbol { color: #a70; }
+.dp-rb .variable { color: #a70; font-weight: bold; }
+/*python*/
+.dp-py .builtins { color: #ff1493; }
+.dp-py .magicmethods { color: #808080; }
+.dp-py .exceptions { color: brown; }
+.dp-py .types { color: brown; font-style: italic; }
+.dp-py .commonlibs { color: #8A2BE2; font-style: italic; }
+/*java*/
+.dp-j .annotation { color: #646464; }
+.dp-j .number { color: blue; }
+.dp-j .boolean { color: #C00000;}
+.dp-j .keyword { color: blue; font-weight:bold;}
+.dp-j .string{color: green;}
+/*delphi*/
+.dp-delphi .number { color: blue; }
+.dp-delphi .directive { color: #008284; }
+.dp-delphi .vars { color: #000; }
+/*css*/
+.dp-css .value { color: black; }
+.dp-css .important { color: red; }
+/*csharp*/
+.dp-c .vars { color: #d00; }
+/*cpp*/
+.dp-cpp .datatypes { color: #2E8B57; font-weight: bold; }
+
+
+/*tools image*/
+.dp-highlighter .bar a { background-repeat:no-repeat; background-position:left top; display:inline-block; width:16px; height:16px; padding:1px; text-indent:-2000px; _width:0px; _overflow:hidden; _padding-left:16px; _text-indent:0px; }
+.dp-highlighter .bar a:hover { border:solid 1px #ccc; text-decoration:none; padding:0px; background-repeat:no-repeat;_padding-left:16px;}
+.dp-highlighter .bar a.ExpandSource {}
+.dp-highlighter .bar a.ViewSource { background-image:url(images/default/ico_plain.gif); }
+.dp-highlighter .bar a.CopyToClipboard { background-image:url(images/default/ico_copy.gif);}
+.dp-highlighter .bar a.PrintSource { display:none; }
+.dp-highlighter .bar a.About { display:none;}
+
+/*layout demo*/
+.table-col2 {margin-top: 5px;width: 100%;}
+.table-col2 td {padding: 5px 0;height: 22px;line-height: 22px;}
+.table-col2 .td-left {width: 30%;text-align: right;}
+.table-col2 .td-right {width: 70%;text-align: left;}
+.table-col4 {margin-top: 5px;width: 100%;}
+.table-col4 td {padding: 5px 0;}
+.table-col4 .td-left {width: 15%;text-align: right;}
+.table-col4 .td-right {width: 35%;text-align: left;}
+.main-top {height: 80px;}
+.main-top div{margin-top: 15px;}
+.main-left {width: 220px;}
+
+.hidden {
+	display: none;
+}
